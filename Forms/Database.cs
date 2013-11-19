@@ -7,16 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO; // path, directory
-using System.Data; // datatable
+using XFiles.Forms; // project forms
 
 namespace XFiles
 {
     public partial class Database : Form
     {
         private XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        private List<BindingSource> m_lsBS = new List<BindingSource>(3);
+        private View_Manager m_VM = View_Manager.Instance;
 
-
+       
         public Database()
         {
             InitializeComponent();
@@ -25,10 +25,6 @@ namespace XFiles
             dgvView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-            // initialize BindingSources's
-            for (int i = 0; i < 3; ++i)
-                m_lsBS.Add(new BindingSource());
 
             updateGUI();
         }
@@ -47,10 +43,12 @@ namespace XFiles
             ErrorStatus.ForeColor = (ErrorHandler.CurrentError < (ErrorHandler.XFILES_ERROR) 1) ? Color.Green : Color.Red;
 
             // views
-            dgvView1.DataSource = m_lsBS[0];
+            dgvView1.DataSource = m_VM[0];
             dgvView1.AutoResizeColumns();
-            dgvView2.DataSource = m_lsBS[1];
-            dgvView2.DataSource = m_lsBS[2];
+            dgvView2.DataSource = m_VM[1];
+            dgvView2.AutoResizeColumns();
+            dgvView3.DataSource = m_VM[2];
+            dgvView3.AutoResizeColumns();
         
         } // updateGUI
 
@@ -91,7 +89,7 @@ namespace XFiles
         /// <param name="e"></param>
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            m_lsBS[0].DataSource = m_xFacade.Query("SELECT * FROM test;");
+            m_VM.CreateNewView(m_xFacade.Query("SELECT * FROM test;"));
             updateGUI();
         } // testToolStripMenuItem
 
@@ -151,6 +149,15 @@ namespace XFiles
 
             updateGUI();
         }
+
+        private void customSearchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            CustomQuery cq = new CustomQuery();
+            cq.Show();
+        }
+
+        private void Refresh(object sender, EventArgs e)
+        { updateGUI(); }
 
 
     } // Database Form

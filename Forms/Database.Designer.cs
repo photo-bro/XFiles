@@ -40,13 +40,16 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inputFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportArcGISToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exportViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -56,9 +59,6 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnConnect = new System.Windows.Forms.Button();
-            this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportArcGISToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.exportViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -165,7 +165,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -173,19 +173,32 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
             // 
             this.inputFileToolStripMenuItem.Name = "inputFileToolStripMenuItem";
-            this.inputFileToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.inputFileToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
             this.inputFileToolStripMenuItem.Text = "Input File";
+            // 
+            // exportArcGISToolStripMenuItem
+            // 
+            this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
+            // 
+            // exportViewToolStripMenuItem
+            // 
+            this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportViewToolStripMenuItem.Text = "Export View";
+            this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -214,11 +227,12 @@
             this.connectToolStripMenuItem.Text = "Connect";
             this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
             // 
-            // searchToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.searchToolStripMenuItem.Text = "Search";
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
@@ -226,12 +240,18 @@
             this.modifyToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             // 
-            // testToolStripMenuItem
+            // searchToolStripMenuItem
             // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.searchToolStripMenuItem.Text = "Search";
+            // 
+            // customSearchToolStripMenuItem
+            // 
+            this.customSearchToolStripMenuItem.Name = "customSearchToolStripMenuItem";
+            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.customSearchToolStripMenuItem.Text = "Custom Search";
+            this.customSearchToolStripMenuItem.Click += new System.EventHandler(this.customSearchToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -244,7 +264,7 @@
             // helpMenuToolStripMenuItem
             // 
             this.helpMenuToolStripMenuItem.Name = "helpMenuToolStripMenuItem";
-            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.helpMenuToolStripMenuItem.Text = "Help Menu";
             // 
             // btnQuery
@@ -308,25 +328,6 @@
             this.btnConnect.UseVisualStyleBackColor = true;
             this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
             // 
-            // customSearchToolStripMenuItem
-            // 
-            this.customSearchToolStripMenuItem.Name = "customSearchToolStripMenuItem";
-            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.customSearchToolStripMenuItem.Text = "Custom Search";
-            // 
-            // exportArcGISToolStripMenuItem
-            // 
-            this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
-            // 
-            // exportViewToolStripMenuItem
-            // 
-            this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.exportViewToolStripMenuItem.Text = "Export View";
-            this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
-            // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +347,7 @@
             this.Name = "Database";
             this.ShowIcon = false;
             this.Text = "Database View";
+            this.Click += new System.EventHandler(this.Refresh);
             this.tabControlMain.ResumeLayout(false);
             this.tabOne.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).EndInit();

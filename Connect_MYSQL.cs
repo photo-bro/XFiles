@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using MySql.Data.MySqlClient;
-using System.Windows.Forms; // Feedback forms to user
+using System.Windows.Forms; // DataGridView, Feedback forms to user
+using System.Data; // dataset
 
-namespace BNR
+namespace XFiles
 {
 
     /// <summary>
@@ -12,8 +13,10 @@ namespace BNR
     /// </summary>
     class Connect_MySQL
     {
-        private MySqlConnection connection;
-        private string server, database, uid, password, connectionString;
+        // MySQL connection object
+        private MySqlConnection m_sqlConnection;
+        // open connection bool
+        private bool m_bIsOpen = false; 
 
         // static instance of class
         private static Connect_MySQL c_sqlInstance;   
@@ -48,30 +51,29 @@ namespace BNR
         /// </summary>
         private void Initialize()
         {
-            server = "";
-            database = "jeremy.gilman";
-            uid = "cs320";
-            password = "cs320";
-            connectionString = "SERVER=" + server +
-                                    ";DATABASE=" + database +
-                                    ";UID=" + uid +
-                                    ";PASSWORD=" + password + ";";
-
-            connection = new MySqlConnection(connectionString);
+            m_sqlConnection = new MySqlConnection(FileManager.Instance.DatabaseConnectionString);
         } // Initialize
 
         /// <summary>
         /// Establish connection to database. True is returned if successful,
         /// else false has been returned.
+        /// Found the source they used:
+        /// http://solibnis.blogspot.com/2013/02/connecting-mysql-table-to-datagridview.html
         /// </summary>
         /// <returns></returns>
         public bool openConnection()
         {
+            if (m_bIsOpen)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_ALREADY_OPEN, 
+                    "Database already connected");
+                return m_bIsOpen;
+            }
             try
             {
-                connection.Open();
-                //MessageBox.Show("Connection to: " + database + " successful.");
-                return true;
+                m_sqlConnection.Open();
+                //MessageBox.Show("Connection to: " + "XFiles" + " successful.");
+                m_bIsOpen = true;
             } // try
             catch (MySqlException ex)
             {
@@ -83,23 +85,28 @@ namespace BNR
                 switch (ex.Number)
                 {
                     case 0:
-
-                        MessageBox.Show("Cannot connect to server.  Contact administrator");
+                        ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_ERROR,
+                            "Cannot connect to server.  Contact administrator");
                         break;
 
                     case 1045:
-                        MessageBox.Show("Invalid username/password, please try again");
+                        ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_INVALID_CREDENTIALS,
+                           "Invalid username/password, please try again");
                         break;
                 } // switch exception
-                return false;
+                m_bIsOpen = false;
             } // catch
+            return m_bIsOpen;
         } // openConnection
 
         /// <summary>
         /// Close connection with database
         /// </summary>
         public void closeConnection()
-        { connection.Close();} // closeConnection
+        {
+            m_sqlConnection.Close();
+            m_bIsOpen = false;
+        } // closeConnection
 
         /// <summary>
         /// Send MySQL command to database
@@ -109,7 +116,7 @@ namespace BNR
         {
             openConnection();
 
-            MySqlCommand command = new MySqlCommand(sCommand, connection);
+            MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
             command.ExecuteReader();
 
@@ -128,7 +135,7 @@ namespace BNR
             MySqlDataReader myReader = null;
             openConnection();
 
-            MySqlCommand command = new MySqlCommand(sCommand, connection);
+            MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
             myReader = command.ExecuteReader();
             int i = 0;
@@ -137,7 +144,7 @@ namespace BNR
 
             closeConnection();
             return answer;
-        }
+        } // GetColumns
 
         /// <summary>
         /// Query
@@ -147,11 +154,52 @@ namespace BNR
         /// <param name="sCommand"></param>
         public MySqlDataReader Query(string sCommand)
         {
-
-            MySqlCommand command = new MySqlCommand(sCommand, connection);
+            MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
             return command.ExecuteReader();
-        }
+        } // Query
+        
+        public DataGridView QueryToDGV(string query)
+        {
+            if (!m_bIsOpen)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
+                    "Database is not connected");
+                return null;
+            }
+
+            // Credit:
+            // http://solibnis.blogspot.com/2013/02/connecting-mysql-table-to-datagridview.html
+
+            // DataSet intermediate between DGV and MySQL command
+            DataSet ds = new DataSet();
+            // get query result
+            MySqlDataAdapter da = new MySqlDataAdapter();
+
+            try
+            {
+                // get query from db
+                da = new MySqlDataAdapter(query, m_sqlConnection);
+
+            } // try
+            catch (MySqlException e)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR, e.ToString());
+                return null;
+            } // catch
+
+            // fill dataset which can then fill DGV
+            da.Fill(ds);
+
+            // Create and fill DGV
+            DataGridView dgv = new DataGridView();
+            dgv.DataSource = ds.Tables[0];
+
+            // set status
+            Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Query Successful");
+
+            return dgv;
+        } // QueryToDGV
 
         /// <summary>
         /// Returns MySQLCommand object connected to active database
@@ -159,7 +207,7 @@ namespace BNR
         /// <returns></returns>
         public MySqlCommand CreateCommandCustom()
         {
-            return connection.CreateCommand();
-        }
+            return m_sqlConnection.CreateCommand();
+        } // CreateCommandCustom
     } // Connect_MySQL
 } // namespace XFiles

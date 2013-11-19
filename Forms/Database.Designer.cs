@@ -43,6 +43,7 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.connectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportArcGISToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,10 @@
             this.btnModify = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnConnect = new System.Windows.Forms.Button();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -156,7 +161,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -164,7 +169,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -176,7 +181,7 @@
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -189,29 +194,38 @@
             // commandsToolStripMenuItem
             // 
             this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.connectToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.modifyToolStripMenuItem,
-            this.exportArcGISToolStripMenuItem});
+            this.exportArcGISToolStripMenuItem,
+            this.testToolStripMenuItem});
             this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
             this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.commandsToolStripMenuItem.Text = "Commands";
             // 
+            // connectToolStripMenuItem
+            // 
+            this.connectToolStripMenuItem.Name = "connectToolStripMenuItem";
+            this.connectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.connectToolStripMenuItem.Text = "Connect";
+            this.connectToolStripMenuItem.Click += new System.EventHandler(this.connectToolStripMenuItem_Click);
+            // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.searchToolStripMenuItem.Text = "Search";
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             // 
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // helpToolStripMenuItem
@@ -251,7 +265,9 @@
             // statusStrip1
             // 
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.StatusLabel});
+            this.StatusLabel,
+            this.ConnectionStatus,
+            this.ErrorStatus});
             this.statusStrip1.Location = new System.Drawing.Point(0, 540);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(784, 22);
@@ -264,11 +280,42 @@
             this.StatusLabel.Size = new System.Drawing.Size(82, 17);
             this.StatusLabel.Text = "Current Status";
             // 
+            // ConnectionStatus
+            // 
+            this.ConnectionStatus.Name = "ConnectionStatus";
+            this.ConnectionStatus.Size = new System.Drawing.Size(104, 17);
+            this.ConnectionStatus.Text = "Connection Status";
+            // 
+            // ErrorStatus
+            // 
+            this.ErrorStatus.Name = "ErrorStatus";
+            this.ErrorStatus.Size = new System.Drawing.Size(56, 17);
+            this.ErrorStatus.Text = "Last Error";
+            // 
+            // btnConnect
+            // 
+            this.btnConnect.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConnect.Location = new System.Drawing.Point(697, 512);
+            this.btnConnect.Name = "btnConnect";
+            this.btnConnect.Size = new System.Drawing.Size(75, 23);
+            this.btnConnect.TabIndex = 5;
+            this.btnConnect.Text = "Connect";
+            this.btnConnect.UseVisualStyleBackColor = true;
+            this.btnConnect.Click += new System.EventHandler(this.btnConnect_Click);
+            // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.btnConnect);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnQuery);
@@ -324,6 +371,11 @@
         private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportArcGISToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpMenuToolStripMenuItem;
+        private System.Windows.Forms.Button btnConnect;
+        private System.Windows.Forms.ToolStripStatusLabel ConnectionStatus;
+        private System.Windows.Forms.ToolStripStatusLabel ErrorStatus;
+        private System.Windows.Forms.ToolStripMenuItem connectToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem testToolStripMenuItem;
     }
 }
 

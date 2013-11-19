@@ -24,7 +24,8 @@ namespace XFiles
         public enum STATUS_TYPE
         {
             NONE = 0,
-            COMMAND_SUCCESSFUL = 1
+            COMMAND_SUCCESSFUL = 1,
+            CONNECTION_SUCCESSFUL = 2
 
         } // STATUS_TYPE
 

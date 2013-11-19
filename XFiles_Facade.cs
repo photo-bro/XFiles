@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms; // datagridview (for fetching from db)
+
 
 namespace XFiles
 {
@@ -11,11 +13,19 @@ namespace XFiles
         private static XFiles_Facade c_xfInstance;
 
         // static lock object
-        private static object c_xfLock;
+        private static object c_xfLock = new object();
 
         // Singleton class instances
         private FileManager m_FM = FileManager.Instance;
+        private Connect_MySQL m_SQL = Connect_MySQL.LogIn();
 
+        // Track if DB is connected
+        private bool m_bDBConnected = false;
+        /// <summary>
+        /// Returns true if database is connected, false if not.
+        /// </summary>
+        public bool DBConnected
+        { get { return m_bDBConnected; } }
 
 
         /// <summary>
@@ -39,6 +49,16 @@ namespace XFiles
             } // get
         } // Instance
 
+        /// <summary>
+        /// Connect to BNR database
+        /// </summary>
+        public void ConnectToDatabase()
+        {
+            m_bDBConnected = m_SQL.openConnection();
+            if (m_bDBConnected) Status.SetStatus(Status.STATUS_TYPE.CONNECTION_SUCCESSFUL,
+                "Successfully connected to database");
+        } // ConnectToDataBase
+
 
         /// <summary>
         /// Open and parse file into active database
@@ -48,6 +68,14 @@ namespace XFiles
         {
         }
 
+        /// <summary>
+        /// Return a DataGridView object containing the data selected by the query
+        /// </summary>
+        /// <param name="tablename"></param>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public DataGridView Query(string query )
+        { return m_SQL.QueryToDGV(query);}
 
 
 

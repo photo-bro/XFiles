@@ -21,11 +21,30 @@ namespace XFiles
         // Version
         private string m_sVer = "1.00";
 
+        // Filer instance for writing files
         private Filer m_filer = new Filer();
 
         // Default paths and filenames
         private string m_sLastFilePath = "C:\\";
         private string m_sLastFileName = "";
+
+        // Database login information
+        private static string c_sServer = "cs-vh1";
+        private static string c_sDatabase = "xfiles";
+        private static string c_sUID = "josh";
+        private static string c_sPassword = "mudpie";
+
+        /// <summary>
+        /// Returns MySQL connection string to database
+        /// </summary>
+        public string DatabaseConnectionString
+        {
+            get
+            {
+                return "SERVER=" + c_sServer + ";DATABASE=" + c_sDatabase + 
+                    ";UID=" + c_sUID + ";PASSWORD=" + c_sPassword + ";";
+            } // get
+        } // DatabaseConnectionString
 
         // SourceReader object
         private SourceReader m_SrcRdr = SourceReader.Instance;

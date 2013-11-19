@@ -24,7 +24,11 @@ namespace XFiles
         public enum XFILES_ERROR
         {
             NONE = 0,
-            UNKNOWN_ERROR = 1
+            UNKNOWN_ERROR = 1,
+            MySQL_CONNECTION_ERROR = 2,
+            MySQL_CONNECTION_INVALID_CREDENTIALS = 3,
+            MySQL_CONNECTION_ALREADY_OPEN = 4,
+            MySQL_CONNECTION_NOT_OPEN = 5
         } // enum XFILES_ERROR
 
         /// <summary>

@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Windows.Forms; // datagridview (for fetching from db)
-using System.Data; // datatable
+using System.Windows.Forms; // BindingSource (for fetching from db)
+using System.Data; // DataTable
 
 
 namespace XFiles
@@ -75,10 +75,33 @@ namespace XFiles
         /// <param name="tablename"></param>
         /// <param name="query"></param>
         /// <returns></returns>
-        public DataTable Query(string query )
-        { return m_SQL.QueryToDGV(query);}
+        public BindingSource Query(string query )
+        { return m_SQL.QueryToBindingSource(query);}
 
+        public void ExportDataTableToFile(DataTable dt, string path, string name)
+        {
+            if (dt == null)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.VIEW_EMPTY, "Cannot save an empty table");
+                Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Cannot save an empty table");
+                return;
+            }
 
+            StringBuilder sb = new StringBuilder();
+
+            // Credit:
+            // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
+            dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
+            {
+                dt.Columns.Cast<DataColumn>().ToList().ForEach(column =>
+                {
+                    sb.AppendFormat("{0}:{1} ", column.ColumnName, dataRow[column]);
+                });
+                sb.Append(Environment.NewLine);
+            });
+
+            m_FM.CreateFile(sb.ToString(), path, name);        
+        } // ExportDataTableToFile
 
     } // XFiles_Facade
 } // namespace XFiles

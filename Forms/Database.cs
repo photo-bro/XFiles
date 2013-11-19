@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.IO; // path, directory
 using System.Data; // datatable
 
 namespace XFiles
@@ -13,16 +14,21 @@ namespace XFiles
     public partial class Database : Form
     {
         private XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        private List<DataGridView> m_lsDGV = new List<DataGridView>(3);
+        private List<BindingSource> m_lsBS = new List<BindingSource>(3);
 
 
         public Database()
         {
             InitializeComponent();
 
-            // initialize dgv's
+            // Prep DGV's
+            dgvView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            // initialize BindingSources's
             for (int i = 0; i < 3; ++i)
-                m_lsDGV.Add(new DataGridView());
+                m_lsBS.Add(new BindingSource());
 
             updateGUI();
         }
@@ -36,11 +42,15 @@ namespace XFiles
             StatusLabel.Text = Status.CurrentStatus();
             ConnectionStatus.Text = (m_xFacade.DBConnected) ? "Database connected" : "Database not connected";
             ErrorStatus.Text = "Last Error: " + ErrorHandler.CurrentError.ToString();
-            
+            // status strip colors
+            ConnectionStatus.ForeColor = (m_xFacade.DBConnected) ? Color.Green : Color.Red;
+            ErrorStatus.ForeColor = (ErrorHandler.CurrentError < (ErrorHandler.XFILES_ERROR) 1) ? Color.Green : Color.Red;
+
             // views
-            dgvView1 = m_lsDGV[0];
-            //dgvView2 = m_lsDGV[1];
-            //dgvView2 = m_lsDGV[2];
+            dgvView1.DataSource = m_lsBS[0];
+            dgvView1.AutoResizeColumns();
+            dgvView2.DataSource = m_lsBS[1];
+            dgvView2.DataSource = m_lsBS[2];
         
         } // updateGUI
 
@@ -74,16 +84,72 @@ namespace XFiles
         private void connectToolStripMenuItem_Click(object sender, EventArgs e)
         { btnConnect.PerformClick(); }
 
+        /// <summary>
+        /// Simple test for DGV integration with MySQL_Connect
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-             dgvView1.DataSource = m_xFacade.Query("SELECT * FROM test;");
-            
-            dgvView1.Update();
+            m_lsBS[0].DataSource = m_xFacade.Query("SELECT * FROM test;");
+            updateGUI();
+        } // testToolStripMenuItem
 
-            m_lsDGV[0].AutoResizeColumns();
-            m_lsDGV[0].AutoResizeRows();
-            dgvView1.Refresh();
-            //updateGUI();
+        private void exportViewToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            // Call open file prompt
+            SaveFileDialog sfdPrompt = new SaveFileDialog();
+            sfdPrompt.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            sfdPrompt.ShowDialog();
+
+            DataGridView dgv;
+            // Get current view
+            if (tabControlMain.SelectedTab == tabOne)
+                dgv = dgvView1;
+            else if (tabControlMain.SelectedTab == tabTwo)
+                dgv = dgvView2;
+            else if (tabControlMain.SelectedTab == tabThree)
+                dgv = dgvView3;
+            else return;
+
+            // Check if view is empty
+            if (dgv.Columns.Count < 1)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.VIEW_EMPTY, "Cannot save an empty table");
+                Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Cannot save an empty table");
+                return;
+            } // columns < 1
+
+            // DGV to DataTable
+            // Credit: 
+            // http://stackoverflow.com/questions/6295161/how-to-build-a-datatable-from-a-datagridview
+            if (dgv.ColumnCount == 0) return;
+            DataTable dtSource = new DataTable();
+            foreach (DataGridViewColumn col in dgv.Columns)
+            {
+                //if (IgnoreHideColumns & !col.Visible) continue;
+                if (col.Name == string.Empty) continue;
+                dtSource.Columns.Add(col.Name, col.ValueType);
+                dtSource.Columns[col.Name].Caption = col.HeaderText;
+            } // foreach column
+            if (dtSource.Columns.Count == 0) return ;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                DataRow drNewRow = dtSource.NewRow();
+                foreach (DataColumn col in dtSource.Columns)
+                {
+                    if (row.Cells[col.ColumnName].Value == null) continue;
+                    drNewRow[col.ColumnName] = row.Cells[col.ColumnName].Value;
+                } // foreach column
+                dtSource.Rows.Add(drNewRow);
+            } // foreach row
+
+
+            // save file
+            m_xFacade.ExportDataTableToFile(dtSource, Path.GetDirectoryName(sfdPrompt.FileName),
+                Path.GetFileName(sfdPrompt.FileName));
+
+            updateGUI();
         }
 
 

@@ -25,7 +25,9 @@ namespace XFiles
         {
             NONE = 0,
             COMMAND_SUCCESSFUL = 1,
-            CONNECTION_SUCCESSFUL = 2
+            COMMAND_UNSUCCESSFUL = 2,
+            CONNECTION_SUCCESSFUL = 3
+
 
         } // STATUS_TYPE
 

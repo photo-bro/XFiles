@@ -28,7 +28,8 @@ namespace XFiles
             MySQL_CONNECTION_ERROR = 2,
             MySQL_CONNECTION_INVALID_CREDENTIALS = 3,
             MySQL_CONNECTION_ALREADY_OPEN = 4,
-            MySQL_CONNECTION_NOT_OPEN = 5
+            MySQL_CONNECTION_NOT_OPEN = 5,
+            VIEW_EMPTY = 6
         } // enum XFILES_ERROR
 
         /// <summary>

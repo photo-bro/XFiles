@@ -9,19 +9,20 @@ namespace XFiles
 {
 
     /// <summary>
-    /// Interface to MySQL server. Modified version of original by Jeremy Gilmand and Jessica Barrel
+    /// Interface to MySQL server. Modified version LOOSELY based on original by 
+    /// Jeremy Gilmand and Jessica Barrel
     /// </summary>
     class Connect_MySQL
     {
         // MySQL connection object
         private MySqlConnection m_sqlConnection;
         // open connection bool
-        private bool m_bIsOpen = false; 
+        private bool m_bIsOpen = false;
 
         // static instance of class
-        private static Connect_MySQL c_sqlInstance;   
+        private static Connect_MySQL c_sqlInstance;
         // static lock object
-        private static Object c_sqlLock = typeof(Connect_MySQL); 
+        private static Object c_sqlLock = typeof(Connect_MySQL);
 
         /// <summary>
         /// Return the singleton instance of class. Initializes connection to
@@ -65,7 +66,7 @@ namespace XFiles
         {
             if (m_bIsOpen)
             {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_ALREADY_OPEN, 
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_ALREADY_OPEN,
                     "Database already connected");
                 return m_bIsOpen;
             }
@@ -125,28 +126,6 @@ namespace XFiles
         } // sendCommand
 
         /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="sCommand"></param>
-        /// <returns></returns>
-        public string GetColumns(string sCommand)
-        {
-            string answer = null;
-            MySqlDataReader myReader = null;
-            openConnection();
-
-            MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
-
-            myReader = command.ExecuteReader();
-            int i = 0;
-            while (myReader.Read())
-                answer += myReader[i].ToString() + ",";
-
-            closeConnection();
-            return answer;
-        } // GetColumns
-
-        /// <summary>
         /// Query
         /// Pre: sCommand is a valid SQL command
         /// Post: the MySqlDataReader associated with the command has been returned
@@ -159,7 +138,13 @@ namespace XFiles
             return command.ExecuteReader();
         } // Query
 
-        public DataTable QueryToDGV(string query)
+        /// <summary>
+        /// Returns a BindingSource containing the contents of the query
+        /// Josh Harmon
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public BindingSource QueryToBindingSource(string query)
         {
             if (!m_bIsOpen)
             {
@@ -168,20 +153,17 @@ namespace XFiles
                 return null;
             }
 
-            // Credit:
+            // Some Credit:
             // http://solibnis.blogspot.com/2013/02/connecting-mysql-table-to-datagridview.html
 
-            // DataSet intermediate between DGV and MySQL command
+            // DataTable intermediate between BindingSource and MySQL command
             DataTable dt = new DataTable();
-
-            DataGridView dgv = new DataGridView();
-            dgv.AutoGenerateColumns = true;
 
             // get query from db
             MySqlDataAdapter da = new MySqlDataAdapter(query, m_sqlConnection);
             try
             {
-                // fill dataset which can then fill DGV
+                // fill dataset which can then fill BindingSource
                 da.Fill(dt);
 
             } // try
@@ -191,28 +173,14 @@ namespace XFiles
                 return null;
             } // catch
 
-            dgv.DataSource = dt;
+            Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Test successful");
 
+            // Create and set binding source
+            BindingSource bs = new BindingSource();
+            // Pass DataTable into BindingSource
+            bs.DataSource = dt;
 
-            // set status
-            Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Query Successful");
-
-            string s = "";
-
-            foreach (DataRow row in dt.Rows) // Loop over the rows.
-            {
-                foreach (var item in row.ItemArray) // Loop over the items.
-                {
-                    s+= item + "  "; // Invokes ToString abstract method.
-                }
-                s += "\r\n";
-            }
-
-            MessageBox.Show(s);
-
-            dgv.Update();
-
-            return dt;
+            return bs;
         } // QueryToDGV
 
         /// <summary>

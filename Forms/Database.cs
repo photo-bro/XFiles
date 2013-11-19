@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
+using System.Data; // datatable
 
 namespace XFiles
 {
@@ -75,8 +76,14 @@ namespace XFiles
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            m_lsDGV[0] = m_xFacade.Query("SELECT * FROM test");
-            updateGUI();
+             dgvView1.DataSource = m_xFacade.Query("SELECT * FROM test;");
+            
+            dgvView1.Update();
+
+            m_lsDGV[0].AutoResizeColumns();
+            m_lsDGV[0].AutoResizeRows();
+            dgvView1.Refresh();
+            //updateGUI();
         }
 
 

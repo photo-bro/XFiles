@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms; // datagridview (for fetching from db)
+using System.Data; // datatable
 
 
 namespace XFiles
@@ -74,7 +75,7 @@ namespace XFiles
         /// <param name="tablename"></param>
         /// <param name="query"></param>
         /// <returns></returns>
-        public DataGridView Query(string query )
+        public DataTable Query(string query )
         { return m_SQL.QueryToDGV(query);}
 
 

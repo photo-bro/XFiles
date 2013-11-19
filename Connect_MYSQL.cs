@@ -158,8 +158,8 @@ namespace XFiles
 
             return command.ExecuteReader();
         } // Query
-        
-        public DataGridView QueryToDGV(string query)
+
+        public DataTable QueryToDGV(string query)
         {
             if (!m_bIsOpen)
             {
@@ -172,14 +172,17 @@ namespace XFiles
             // http://solibnis.blogspot.com/2013/02/connecting-mysql-table-to-datagridview.html
 
             // DataSet intermediate between DGV and MySQL command
-            DataSet ds = new DataSet();
-            // get query result
-            MySqlDataAdapter da = new MySqlDataAdapter();
+            DataTable dt = new DataTable();
 
+            DataGridView dgv = new DataGridView();
+            dgv.AutoGenerateColumns = true;
+
+            // get query from db
+            MySqlDataAdapter da = new MySqlDataAdapter(query, m_sqlConnection);
             try
             {
-                // get query from db
-                da = new MySqlDataAdapter(query, m_sqlConnection);
+                // fill dataset which can then fill DGV
+                da.Fill(dt);
 
             } // try
             catch (MySqlException e)
@@ -188,17 +191,28 @@ namespace XFiles
                 return null;
             } // catch
 
-            // fill dataset which can then fill DGV
-            da.Fill(ds);
+            dgv.DataSource = dt;
 
-            // Create and fill DGV
-            DataGridView dgv = new DataGridView();
-            dgv.DataSource = ds.Tables[0];
 
             // set status
             Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Query Successful");
 
-            return dgv;
+            string s = "";
+
+            foreach (DataRow row in dt.Rows) // Loop over the rows.
+            {
+                foreach (var item in row.ItemArray) // Loop over the items.
+                {
+                    s+= item + "  "; // Invokes ToString abstract method.
+                }
+                s += "\r\n";
+            }
+
+            MessageBox.Show(s);
+
+            dgv.Update();
+
+            return dt;
         } // QueryToDGV
 
         /// <summary>

@@ -70,6 +70,8 @@ namespace XFiles
                     "Database already connected");
                 return m_bIsOpen;
             }
+            // reset credentials
+            m_sqlConnection = new MySqlConnection(FileManager.Instance.DatabaseConnectionString);
             try
             {
                 m_sqlConnection.Open();

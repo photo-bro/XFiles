@@ -74,15 +74,6 @@ namespace XFiles
         } // btnConnect_Click
 
         /// <summary>
-        /// Connect to BNR database
-        /// NOTE: Current server is cs-vh1 under XFiles
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void connectToolStripMenuItem_Click(object sender, EventArgs e)
-        { btnConnect.PerformClick(); }
-
-        /// <summary>
         /// Simple test for DGV integration with MySQL_Connect
         /// </summary>
         /// <param name="sender"></param>
@@ -161,6 +152,14 @@ namespace XFiles
 
         private void Refresh(object sender, MouseEventArgs e)
         { updateGUI(); }
+
+        private void loginToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            m_xFacade.DisconnectDatabase();
+            Login lgForm = new Login();
+            lgForm.Show();
+        }
+
 
 
     } // Database Form

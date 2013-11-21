@@ -189,7 +189,9 @@
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnLogin);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.gbBox.ResumeLayout(false);
             this.gbBox.PerformLayout();

@@ -19,6 +19,9 @@ namespace XFiles.Forms
         {
             InitializeComponent();
 
+            // disable red 'x'
+            this.ControlBox = false;
+
             // Remove before production build
             tbServer.Text = "cs-vh1";
             tbDataBase.Text = "xfiles";

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbBox = new System.Windows.Forms.GroupBox();
-            this.tbCustQuery = new System.Windows.Forms.TextBox();
-            this.btnQuery = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
+            this.btnQuery = new System.Windows.Forms.Button();
+            this.tbCustQuery = new System.Windows.Forms.TextBox();
             this.gbBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -42,23 +42,25 @@
             this.gbBox.Controls.Add(this.tbCustQuery);
             this.gbBox.Location = new System.Drawing.Point(12, 12);
             this.gbBox.Name = "gbBox";
-            this.gbBox.Size = new System.Drawing.Size(450, 272);
+            this.gbBox.Size = new System.Drawing.Size(450, 268);
             this.gbBox.TabIndex = 0;
             this.gbBox.TabStop = false;
             // 
-            // tbCustQuery
+            // btnClose
             // 
-            this.tbCustQuery.Location = new System.Drawing.Point(26, 26);
-            this.tbCustQuery.Multiline = true;
-            this.tbCustQuery.Name = "tbCustQuery";
-            this.tbCustQuery.Size = new System.Drawing.Size(395, 189);
-            this.tbCustQuery.TabIndex = 0;
-            this.tbCustQuery.Text = "Enter MySQL Query";
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Location = new System.Drawing.Point(6, 239);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 2;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // btnQuery
             // 
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuery.Location = new System.Drawing.Point(26, 235);
+            this.btnQuery.Location = new System.Drawing.Point(369, 239);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -66,16 +68,14 @@
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
-            // btnClose
+            // tbCustQuery
             // 
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(346, 235);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(75, 23);
-            this.btnClose.TabIndex = 2;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.tbCustQuery.Location = new System.Drawing.Point(26, 26);
+            this.tbCustQuery.Multiline = true;
+            this.tbCustQuery.Name = "tbCustQuery";
+            this.tbCustQuery.Size = new System.Drawing.Size(395, 199);
+            this.tbCustQuery.TabIndex = 0;
+            this.tbCustQuery.Text = "Enter MySQL Query";
             // 
             // CustomQuery
             // 

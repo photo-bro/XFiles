@@ -37,9 +37,7 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnQuery_Click(object sender, EventArgs e)
-        {
-            m_VM.CreateNewView(m_xFacade.Query(tbCustQuery.Text));
-            
-        }
+        {m_VM.CreateNewView(m_xFacade.Query(tbCustQuery.Text));}
+
     } // CustomQuery
 } // namespace XFiles

@@ -82,6 +82,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(290, 286);
+            this.MinimumSize = new System.Drawing.Size(290, 286);
             this.Name = "AddTable";
             this.Text = "Add Table";
             this.gbBox.ResumeLayout(false);

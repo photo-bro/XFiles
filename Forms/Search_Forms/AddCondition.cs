@@ -11,9 +11,14 @@ namespace XFiles.Forms.Search_Forms
 {
     public partial class AddCondition : Form
     {
+        UserQueryHandler m_UQH = UserQueryHandler.Instance;
+
         public AddCondition()
         {
             InitializeComponent();
+            // Populate fields
+            cbxField.Items.AddRange(m_UQH.getFields.ToArray());
         }
+
     }
 }

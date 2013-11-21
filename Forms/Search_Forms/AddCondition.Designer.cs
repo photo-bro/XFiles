@@ -31,12 +31,19 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbBox = new System.Windows.Forms.GroupBox();
+            this.lbCondition = new System.Windows.Forms.Label();
+            this.lbValue = new System.Windows.Forms.Label();
+            this.lbField = new System.Windows.Forms.Label();
+            this.cbxCondition = new System.Windows.Forms.ComboBox();
+            this.cbxField = new System.Windows.Forms.ComboBox();
+            this.tbValue = new System.Windows.Forms.TextBox();
+            this.gbBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(387, 241);
+            this.btnOK.Location = new System.Drawing.Point(387, 142);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -46,7 +53,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 241);
+            this.btnCancel.Location = new System.Drawing.Point(12, 142);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -55,24 +62,88 @@
             // 
             // gbBox
             // 
+            this.gbBox.Controls.Add(this.tbValue);
+            this.gbBox.Controls.Add(this.lbCondition);
+            this.gbBox.Controls.Add(this.lbValue);
+            this.gbBox.Controls.Add(this.lbField);
+            this.gbBox.Controls.Add(this.cbxCondition);
+            this.gbBox.Controls.Add(this.cbxField);
             this.gbBox.Location = new System.Drawing.Point(12, 12);
             this.gbBox.Name = "gbBox";
-            this.gbBox.Size = new System.Drawing.Size(450, 220);
+            this.gbBox.Size = new System.Drawing.Size(450, 124);
             this.gbBox.TabIndex = 2;
             this.gbBox.TabStop = false;
             this.gbBox.Text = "Add Condition";
+            // 
+            // lbCondition
+            // 
+            this.lbCondition.AutoSize = true;
+            this.lbCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCondition.Location = new System.Drawing.Point(182, 37);
+            this.lbCondition.Name = "lbCondition";
+            this.lbCondition.Size = new System.Drawing.Size(71, 18);
+            this.lbCondition.TabIndex = 5;
+            this.lbCondition.Text = "Condition";
+            // 
+            // lbValue
+            // 
+            this.lbValue.AutoSize = true;
+            this.lbValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValue.Location = new System.Drawing.Point(291, 37);
+            this.lbValue.Name = "lbValue";
+            this.lbValue.Size = new System.Drawing.Size(44, 18);
+            this.lbValue.TabIndex = 4;
+            this.lbValue.Text = "Value";
+            // 
+            // lbField
+            // 
+            this.lbField.AutoSize = true;
+            this.lbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbField.Location = new System.Drawing.Point(6, 37);
+            this.lbField.Name = "lbField";
+            this.lbField.Size = new System.Drawing.Size(51, 18);
+            this.lbField.TabIndex = 3;
+            this.lbField.Text = "Field 1";
+            // 
+            // cbxCondition
+            // 
+            this.cbxCondition.FormattingEnabled = true;
+            this.cbxCondition.Location = new System.Drawing.Point(185, 58);
+            this.cbxCondition.Name = "cbxCondition";
+            this.cbxCondition.Size = new System.Drawing.Size(80, 21);
+            this.cbxCondition.TabIndex = 1;
+            // 
+            // cbxField
+            // 
+            this.cbxField.FormattingEnabled = true;
+            this.cbxField.Location = new System.Drawing.Point(6, 58);
+            this.cbxField.Name = "cbxField";
+            this.cbxField.Size = new System.Drawing.Size(150, 21);
+            this.cbxField.TabIndex = 0;
+            // 
+            // tbValue
+            // 
+            this.tbValue.Location = new System.Drawing.Point(294, 59);
+            this.tbValue.Name = "tbValue";
+            this.tbValue.Size = new System.Drawing.Size(150, 20);
+            this.tbValue.TabIndex = 6;
             // 
             // AddCondition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 276);
+            this.ClientSize = new System.Drawing.Size(474, 176);
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(480, 200);
+            this.MinimumSize = new System.Drawing.Size(480, 200);
             this.Name = "AddCondition";
             this.Text = "Add Condition";
+            this.gbBox.ResumeLayout(false);
+            this.gbBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -82,5 +153,11 @@
         private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.GroupBox gbBox;
+        private System.Windows.Forms.ComboBox cbxCondition;
+        private System.Windows.Forms.ComboBox cbxField;
+        private System.Windows.Forms.Label lbCondition;
+        private System.Windows.Forms.Label lbValue;
+        private System.Windows.Forms.Label lbField;
+        private System.Windows.Forms.TextBox tbValue;
     }
 }

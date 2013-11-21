@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbBox = new System.Windows.Forms.GroupBox();
+            this.chlbxFields = new System.Windows.Forms.CheckedListBox();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnOK = new System.Windows.Forms.Button();
-            this.chlbxFields = new System.Windows.Forms.CheckedListBox();
             this.gbBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,6 +44,15 @@
             this.gbBox.TabIndex = 5;
             this.gbBox.TabStop = false;
             this.gbBox.Text = "Add Field";
+            // 
+            // chlbxFields
+            // 
+            this.chlbxFields.FormattingEnabled = true;
+            this.chlbxFields.Location = new System.Drawing.Point(8, 24);
+            this.chlbxFields.Name = "chlbxFields";
+            this.chlbxFields.Size = new System.Drawing.Size(244, 169);
+            this.chlbxFields.TabIndex = 0;
+            this.chlbxFields.SelectedIndexChanged += new System.EventHandler(this.chlbxFields_SelectedIndexChanged);
             // 
             // btnCancel
             // 
@@ -65,14 +74,6 @@
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             // 
-            // chlbxFields
-            // 
-            this.chlbxFields.FormattingEnabled = true;
-            this.chlbxFields.Location = new System.Drawing.Point(8, 24);
-            this.chlbxFields.Name = "chlbxFields";
-            this.chlbxFields.Size = new System.Drawing.Size(244, 169);
-            this.chlbxFields.TabIndex = 0;
-            // 
             // AddEntity
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -82,6 +83,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MaximumSize = new System.Drawing.Size(290, 286);
+            this.MinimumSize = new System.Drawing.Size(290, 286);
             this.Name = "AddEntity";
             this.Text = "Add Entity";
             this.gbBox.ResumeLayout(false);

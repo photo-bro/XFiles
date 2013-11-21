@@ -35,6 +35,21 @@ namespace XFiles
         private static string c_sPassword = "mudpie";
 
         /// <summary>
+        /// Set database login information
+        /// </summary>
+        /// <param name="server"></param>
+        /// <param name="database"></param>
+        /// <param name="UID"></param>
+        /// <param name="password"></param>
+        public void SetDatabaseCredentials(string server, string database, string UID, string password)
+        {
+            c_sServer = server;
+            c_sDatabase = database;
+            c_sUID = UID;
+            c_sPassword = password;
+        } // SetDatabaseCredentials
+
+        /// <summary>
         /// Returns MySQL connection string to database
         /// </summary>
         public string DatabaseConnectionString

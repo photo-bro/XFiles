@@ -19,6 +19,6 @@ namespace XFiles
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Login());
             Application.Run(new Database());
-        }
-    }
-}
+        } // Main
+    } // PRogram
+} // namespace XFiles

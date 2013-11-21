@@ -85,11 +85,6 @@
     <Compile Include="SourceReader.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="View_Manager.cs" />
-    <Compile Include="XFilesDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>XFilesDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="XFiles_Facade.cs" />
     <EmbeddedResource Include="Forms\CustomQuery.resx">
       <DependentUpon>CustomQuery.cs</DependentUpon>
@@ -122,17 +117,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="XFilesDataSet.xsc">
-      <DependentUpon>XFilesDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="XFilesDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>XFilesDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="XFilesDataSet.xss">
-      <DependentUpon>XFilesDataSet.xsd</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

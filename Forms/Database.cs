@@ -159,6 +159,9 @@ namespace XFiles
         private void Refresh(object sender, EventArgs e)
         { updateGUI(); }
 
+        private void Refresh(object sender, MouseEventArgs e)
+        { updateGUI(); }
+
 
     } // Database Form
 } // namespace XFiles

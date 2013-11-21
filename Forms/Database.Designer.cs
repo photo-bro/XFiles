@@ -80,6 +80,7 @@
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(760, 479);
             this.tabControlMain.TabIndex = 0;
+            this.tabControlMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabOne
             // 
@@ -99,6 +100,7 @@
             this.dgvView1.Name = "dgvView1";
             this.dgvView1.Size = new System.Drawing.Size(740, 440);
             this.dgvView1.TabIndex = 0;
+            this.dgvView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabTwo
             // 
@@ -118,6 +120,7 @@
             this.dgvView2.Name = "dgvView2";
             this.dgvView2.Size = new System.Drawing.Size(740, 440);
             this.dgvView2.TabIndex = 1;
+            this.dgvView2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabThree
             // 
@@ -136,6 +139,7 @@
             this.dgvView3.Name = "dgvView3";
             this.dgvView3.Size = new System.Drawing.Size(740, 440);
             this.dgvView3.TabIndex = 1;
+            this.dgvView3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // menuStrip1
             // 
@@ -165,7 +169,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -173,7 +177,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -185,20 +189,20 @@
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // exportViewToolStripMenuItem
             // 
             this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportViewToolStripMenuItem.Text = "Export View";
             this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -264,7 +268,7 @@
             // helpMenuToolStripMenuItem
             // 
             this.helpMenuToolStripMenuItem.Name = "helpMenuToolStripMenuItem";
-            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.helpMenuToolStripMenuItem.Text = "Help Menu";
             // 
             // btnQuery
@@ -347,7 +351,7 @@
             this.Name = "Database";
             this.ShowIcon = false;
             this.Text = "Database View";
-            this.Click += new System.EventHandler(this.Refresh);
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             this.tabControlMain.ResumeLayout(false);
             this.tabOne.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).EndInit();

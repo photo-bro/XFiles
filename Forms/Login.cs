@@ -45,11 +45,8 @@ namespace XFiles.Forms
                 tbPassword.Text);
             m_xFacade.ConnectToDatabase();
             if (m_xFacade.DBConnected)
-            {
-                //Database dbFormMain = new Database();
-                //dbFormMain.
                 this.Close();
-            }
+
         } // btnLogin
     } // Login
 } // Namespace XFiles.Forms

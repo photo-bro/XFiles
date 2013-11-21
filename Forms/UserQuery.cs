@@ -16,10 +16,5 @@ namespace XFiles.Forms
             InitializeComponent();
         }
 
-        private void UserQuery_Load(object sender, EventArgs e)
-        {
-
-            this.reportViewer1.RefreshReport();
-        }
     }
 }

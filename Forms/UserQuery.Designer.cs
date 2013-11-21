@@ -44,7 +44,7 @@
             this.ClientSize = new System.Drawing.Size(423, 262);
             this.Name = "UserQuery";
             this.Text = "UserQuery";
-            this.Load += new System.EventHandler(this.UserQuery_Load);
+           
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
 

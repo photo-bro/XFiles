@@ -52,7 +52,7 @@ namespace XFiles
         /// </summary>
         private void Initialize()
         {
-            m_sqlConnection = new MySqlConnection(FileManager.Instance.DatabaseConnectionString);
+           // m_sqlConnection = new MySqlConnection(FileManager.Instance.DatabaseConnectionString);
         } // Initialize
 
         /// <summary>

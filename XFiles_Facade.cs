@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MySql.Data.MySqlClient; // MySqlDataReader
 using System.Windows.Forms; // BindingSource (for fetching from db)
 using System.Data; // DataTable
 
@@ -78,13 +79,33 @@ namespace XFiles
         }
 
         /// <summary>
-        /// Return a DataGridView object containing the data selected by the query
+        /// Return a BindingSource object containing the data selected by the query
         /// </summary>
         /// <param name="tablename"></param>
         /// <param name="query"></param>
         /// <returns></returns>
-        public BindingSource Query(string query )
+        public BindingSource QueryToBindingSource(string query )
         { return m_SQL.QueryToBindingSource(query);}
+
+
+        public string QueryToString(string query)
+        {
+            MySqlDataReader dr = m_SQL.Query(query);
+
+            string s = "";
+            int i = 0;
+            while (dr.Read() && dr.HasRows && dr.Depth > 0)
+            {
+
+                var v = dr.GetString(i++);
+                s += v.ToString() + "\r\n";
+            }
+            dr.Close();
+            return s;
+
+        }
+
+
 
         public void ExportDataTableToFile(DataTable dt, string path, string name)
         {
@@ -110,6 +131,8 @@ namespace XFiles
 
             m_FM.CreateFile(sb.ToString(), path, name);        
         } // ExportDataTableToFile
+
+
 
     } // XFiles_Facade
 } // namespace XFiles

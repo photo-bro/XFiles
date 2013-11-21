@@ -24,15 +24,18 @@ namespace XFiles
         // Filer instance for writing files
         private Filer m_filer = new Filer();
 
+        // SourceReader object
+        private SourceReader m_SrcRdr = SourceReader.Instance;
+
         // Default paths and filenames
         private string m_sLastFilePath = "C:\\";
         private string m_sLastFileName = "";
 
         // Database login information
-        private static string c_sServer = "cs-vh1";
-        private static string c_sDatabase = "xfiles";
-        private static string c_sUID = "josh";
-        private static string c_sPassword = "mudpie";
+        private string c_sServer = "cs-vh1";
+        private string c_sDatabase = "xfiles";
+        private string c_sUID = "josh";
+        private string c_sPassword = "mudpie";
 
         /// <summary>
         /// Set database login information
@@ -59,10 +62,7 @@ namespace XFiles
                 return "SERVER=" + c_sServer + ";DATABASE=" + c_sDatabase + 
                     ";UID=" + c_sUID + ";PASSWORD=" + c_sPassword + ";";
             } // get
-        } // DatabaseConnectionString
-
-        // SourceReader object
-        private SourceReader m_SrcRdr = SourceReader.Instance;
+        } // DatabaseConnectionStrin
 
         /// <summary>
         /// Default constructor 

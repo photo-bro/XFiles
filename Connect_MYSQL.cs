@@ -135,6 +135,13 @@ namespace XFiles
         /// <param name="sCommand"></param>
         public MySqlDataReader Query(string sCommand)
         {
+            if (!m_bIsOpen)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
+                    "Database is not connected");
+                return null;
+            }
+
             MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
             return command.ExecuteReader();

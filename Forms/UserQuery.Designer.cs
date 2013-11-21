@@ -35,15 +35,15 @@
             this.gbSQ_String = new System.Windows.Forms.GroupBox();
             this.tbSQL_String = new System.Windows.Forms.TextBox();
             this.gbSeachComponents = new System.Windows.Forms.GroupBox();
-            this.lbFind = new System.Windows.Forms.Label();
-            this.tbFind = new System.Windows.Forms.TextBox();
-            this.btnAddFind = new System.Windows.Forms.Button();
-            this.btnAddIn = new System.Windows.Forms.Button();
-            this.tbIn = new System.Windows.Forms.TextBox();
-            this.lbIn = new System.Windows.Forms.Label();
             this.btnConditions = new System.Windows.Forms.Button();
             this.tbConditions = new System.Windows.Forms.TextBox();
             this.lbConditions = new System.Windows.Forms.Label();
+            this.btnAddIn = new System.Windows.Forms.Button();
+            this.tbIn = new System.Windows.Forms.TextBox();
+            this.lbIn = new System.Windows.Forms.Label();
+            this.btnAddFind = new System.Windows.Forms.Button();
+            this.tbFind = new System.Windows.Forms.TextBox();
+            this.lbFind = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.gbSQ_String.SuspendLayout();
             this.gbSeachComponents.SuspendLayout();
@@ -111,61 +111,7 @@
             this.gbSeachComponents.Size = new System.Drawing.Size(600, 213);
             this.gbSeachComponents.TabIndex = 4;
             this.gbSeachComponents.TabStop = false;
-            this.gbSeachComponents.Text = "a";
-            // 
-            // lbFind
-            // 
-            this.lbFind.AutoSize = true;
-            this.lbFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbFind.Location = new System.Drawing.Point(22, 32);
-            this.lbFind.Name = "lbFind";
-            this.lbFind.Size = new System.Drawing.Size(40, 18);
-            this.lbFind.TabIndex = 0;
-            this.lbFind.Text = "Find:";
-            // 
-            // tbFind
-            // 
-            this.tbFind.Location = new System.Drawing.Point(77, 33);
-            this.tbFind.Name = "tbFind";
-            this.tbFind.Size = new System.Drawing.Size(408, 20);
-            this.tbFind.TabIndex = 1;
-            // 
-            // btnAddFind
-            // 
-            this.btnAddFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddFind.Location = new System.Drawing.Point(502, 31);
-            this.btnAddFind.Name = "btnAddFind";
-            this.btnAddFind.Size = new System.Drawing.Size(75, 23);
-            this.btnAddFind.TabIndex = 2;
-            this.btnAddFind.Text = "Add Item";
-            this.btnAddFind.UseVisualStyleBackColor = true;
-            // 
-            // btnAddIn
-            // 
-            this.btnAddIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddIn.Location = new System.Drawing.Point(502, 57);
-            this.btnAddIn.Name = "btnAddIn";
-            this.btnAddIn.Size = new System.Drawing.Size(75, 23);
-            this.btnAddIn.TabIndex = 5;
-            this.btnAddIn.Text = "Add Item";
-            this.btnAddIn.UseVisualStyleBackColor = true;
-            // 
-            // tbIn
-            // 
-            this.tbIn.Location = new System.Drawing.Point(77, 59);
-            this.tbIn.Name = "tbIn";
-            this.tbIn.Size = new System.Drawing.Size(408, 20);
-            this.tbIn.TabIndex = 4;
-            // 
-            // lbIn
-            // 
-            this.lbIn.AutoSize = true;
-            this.lbIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbIn.Location = new System.Drawing.Point(22, 58);
-            this.lbIn.Name = "lbIn";
-            this.lbIn.Size = new System.Drawing.Size(23, 18);
-            this.lbIn.TabIndex = 3;
-            this.lbIn.Text = "In:";
+            this.gbSeachComponents.Text = "Search Database";
             // 
             // btnConditions
             // 
@@ -194,6 +140,60 @@
             this.lbConditions.Size = new System.Drawing.Size(83, 18);
             this.lbConditions.TabIndex = 6;
             this.lbConditions.Text = "Conditions:";
+            // 
+            // btnAddIn
+            // 
+            this.btnAddIn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddIn.Location = new System.Drawing.Point(502, 57);
+            this.btnAddIn.Name = "btnAddIn";
+            this.btnAddIn.Size = new System.Drawing.Size(75, 23);
+            this.btnAddIn.TabIndex = 5;
+            this.btnAddIn.Text = "Add Item";
+            this.btnAddIn.UseVisualStyleBackColor = true;
+            // 
+            // tbIn
+            // 
+            this.tbIn.Location = new System.Drawing.Point(77, 59);
+            this.tbIn.Name = "tbIn";
+            this.tbIn.Size = new System.Drawing.Size(408, 20);
+            this.tbIn.TabIndex = 4;
+            // 
+            // lbIn
+            // 
+            this.lbIn.AutoSize = true;
+            this.lbIn.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbIn.Location = new System.Drawing.Point(22, 58);
+            this.lbIn.Name = "lbIn";
+            this.lbIn.Size = new System.Drawing.Size(23, 18);
+            this.lbIn.TabIndex = 3;
+            this.lbIn.Text = "In:";
+            // 
+            // btnAddFind
+            // 
+            this.btnAddFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddFind.Location = new System.Drawing.Point(502, 31);
+            this.btnAddFind.Name = "btnAddFind";
+            this.btnAddFind.Size = new System.Drawing.Size(75, 23);
+            this.btnAddFind.TabIndex = 2;
+            this.btnAddFind.Text = "Add Item";
+            this.btnAddFind.UseVisualStyleBackColor = true;
+            // 
+            // tbFind
+            // 
+            this.tbFind.Location = new System.Drawing.Point(77, 33);
+            this.tbFind.Name = "tbFind";
+            this.tbFind.Size = new System.Drawing.Size(408, 20);
+            this.tbFind.TabIndex = 1;
+            // 
+            // lbFind
+            // 
+            this.lbFind.AutoSize = true;
+            this.lbFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbFind.Location = new System.Drawing.Point(22, 32);
+            this.lbFind.Name = "lbFind";
+            this.lbFind.Size = new System.Drawing.Size(40, 18);
+            this.lbFind.TabIndex = 0;
+            this.lbFind.Text = "Find:";
             // 
             // UserQuery
             // 

@@ -40,7 +40,7 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
-        { m_VM.CreateNewView(m_xFacade.Query(m_sQueryString)); }
+        { m_VM.CreateNewView(m_xFacade.QueryToBindingSource(m_sQueryString)); }
 
 
 

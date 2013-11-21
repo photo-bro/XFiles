@@ -80,7 +80,8 @@ namespace XFiles
         /// <param name="e"></param>
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            m_VM.CreateNewView(m_xFacade.Query("SELECT * FROM test;"));
+            MessageBox.Show(m_xFacade.QueryToString("SELECT * FROM test;"));
+            m_VM.CreateNewView(m_xFacade.QueryToBindingSource("SELECT * FROM test;"));
             updateGUI();
         } // testToolStripMenuItem
 

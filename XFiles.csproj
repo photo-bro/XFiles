@@ -74,6 +74,24 @@
     <Compile Include="Forms\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Search_Forms\AddCondition.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Search_Forms\AddCondition.Designer.cs">
+      <DependentUpon>AddCondition.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Search_Forms\AddEntity.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Search_Forms\AddEntity.Designer.cs">
+      <DependentUpon>AddEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Search_Forms\AddTable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Search_Forms\AddTable.Designer.cs">
+      <DependentUpon>AddTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\UserQuery.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +112,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Search_Forms\AddCondition.resx">
+      <DependentUpon>AddCondition.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Search_Forms\AddEntity.resx">
+      <DependentUpon>AddEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Search_Forms\AddTable.resx">
+      <DependentUpon>AddTable.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\UserQuery.resx">
       <DependentUpon>UserQuery.cs</DependentUpon>

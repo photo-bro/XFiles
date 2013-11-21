@@ -60,7 +60,15 @@ namespace XFiles
                 "Successfully connected to database");
         } // ConnectToDataBase
 
+        /// <summary>
+        /// Disconnect from BNR database
+        /// </summary>
+        public void DisconnectDatabase()
+        {
+            m_SQL.closeConnection();
+            m_bDBConnected = false;
 
+        } // DisconnectDatabase
         /// <summary>
         /// Open and parse file into active database
         /// </summary>

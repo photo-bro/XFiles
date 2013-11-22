@@ -80,7 +80,7 @@ namespace XFiles
         /// <param name="e"></param>
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(m_xFacade.QueryToString("SELECT * FROM test;"));
+            MessageBox.Show(m_xFacade.QueryToString("SELECT * FROM test"));
             m_VM.CreateNewView(m_xFacade.QueryToBindingSource("SELECT * FROM test;"));
             updateGUI();
         } // testToolStripMenuItem
@@ -159,6 +159,12 @@ namespace XFiles
             m_xFacade.DisconnectDatabase();
             Login lgForm = new Login();
             lgForm.Show();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UserQuery uq = new UserQuery();
+            uq.Show();
         }
 
 

@@ -88,23 +88,30 @@ namespace XFiles
         { return m_SQL.QueryToBindingSource(query);}
 
 
+        /// <summary>
+        /// Query database and return result as formatted string
+        /// </summary>
+        /// <param name="query"></param>
+        /// <returns></returns>
         public string QueryToString(string query)
         {
             MySqlDataReader dr = m_SQL.Query(query);
 
             string s = "";
-            int i = 0;
-            while (dr.Read() && dr.HasRows && dr.Depth > 0)
+            // get data from MySql object
+            while (dr.Read())
             {
-
-                var v = dr.GetString(i++);
-                s += v.ToString() + "\r\n";
-            }
+                // Read each row
+                for (int j = 0; j < dr.FieldCount; ++j)
+                {
+                    var v = dr.GetString(j);
+                    s += v.ToString() + " ";
+                } // row
+                s += "\r\n";
+            } // while still stuff to read
             dr.Close();
             return s;
-
-        }
-
+        } // QueryToString
 
 
         public void ExportDataTableToFile(DataTable dt, string path, string name)
@@ -131,8 +138,6 @@ namespace XFiles
 
             m_FM.CreateFile(sb.ToString(), path, name);        
         } // ExportDataTableToFile
-
-
 
     } // XFiles_Facade
 } // namespace XFiles

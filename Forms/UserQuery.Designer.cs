@@ -94,6 +94,7 @@
             this.tbSQL_String.ReadOnly = true;
             this.tbSQL_String.Size = new System.Drawing.Size(588, 143);
             this.tbSQL_String.TabIndex = 0;
+            this.tbSQL_String.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UserQuery_MouseClick);
             // 
             // gbSeachComponents
             // 
@@ -122,6 +123,7 @@
             this.btnConditions.TabIndex = 8;
             this.btnConditions.Text = "Add Condition";
             this.btnConditions.UseVisualStyleBackColor = true;
+            this.btnConditions.Click += new System.EventHandler(this.btnConditions_Click);
             // 
             // tbConditions
             // 
@@ -150,6 +152,7 @@
             this.btnAddIn.TabIndex = 5;
             this.btnAddIn.Text = "Add Item";
             this.btnAddIn.UseVisualStyleBackColor = true;
+            this.btnAddIn.Click += new System.EventHandler(this.btnAddIn_Click);
             // 
             // tbIn
             // 
@@ -177,6 +180,7 @@
             this.btnAddFind.TabIndex = 2;
             this.btnAddFind.Text = "Add Item";
             this.btnAddFind.UseVisualStyleBackColor = true;
+            this.btnAddFind.Click += new System.EventHandler(this.btnAddFind_Click);
             // 
             // tbFind
             // 
@@ -209,6 +213,7 @@
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "UserQuery";
             this.Text = "Search Database";
+            this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UserQuery_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbSQ_String.ResumeLayout(false);
             this.gbSQ_String.PerformLayout();

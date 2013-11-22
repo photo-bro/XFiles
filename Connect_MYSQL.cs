@@ -188,7 +188,7 @@ namespace XFiles
             BindingSource bs = new BindingSource();
             // Pass DataTable into BindingSource
             bs.DataSource = dt;
-
+            da.Dispose();
             return bs;
         } // QueryToDGV
 

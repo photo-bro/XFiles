@@ -31,12 +31,14 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbBox = new System.Windows.Forms.GroupBox();
+            this.tbValue = new System.Windows.Forms.TextBox();
             this.lbCondition = new System.Windows.Forms.Label();
             this.lbValue = new System.Windows.Forms.Label();
             this.lbField = new System.Windows.Forms.Label();
             this.cbxCondition = new System.Windows.Forms.ComboBox();
             this.cbxField = new System.Windows.Forms.ComboBox();
-            this.tbValue = new System.Windows.Forms.TextBox();
+            this.lbBool = new System.Windows.Forms.Label();
+            this.cbxJoinCond = new System.Windows.Forms.ComboBox();
             this.gbBox.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -49,6 +51,7 @@
             this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
+            this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
             // 
             // btnCancel
             // 
@@ -59,9 +62,12 @@
             this.btnCancel.TabIndex = 1;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // gbBox
             // 
+            this.gbBox.Controls.Add(this.lbBool);
+            this.gbBox.Controls.Add(this.cbxJoinCond);
             this.gbBox.Controls.Add(this.tbValue);
             this.gbBox.Controls.Add(this.lbCondition);
             this.gbBox.Controls.Add(this.lbValue);
@@ -75,11 +81,18 @@
             this.gbBox.TabStop = false;
             this.gbBox.Text = "Add Condition";
             // 
+            // tbValue
+            // 
+            this.tbValue.Location = new System.Drawing.Point(294, 49);
+            this.tbValue.Name = "tbValue";
+            this.tbValue.Size = new System.Drawing.Size(150, 20);
+            this.tbValue.TabIndex = 6;
+            // 
             // lbCondition
             // 
             this.lbCondition.AutoSize = true;
             this.lbCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCondition.Location = new System.Drawing.Point(182, 37);
+            this.lbCondition.Location = new System.Drawing.Point(182, 27);
             this.lbCondition.Name = "lbCondition";
             this.lbCondition.Size = new System.Drawing.Size(71, 18);
             this.lbCondition.TabIndex = 5;
@@ -89,7 +102,7 @@
             // 
             this.lbValue.AutoSize = true;
             this.lbValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbValue.Location = new System.Drawing.Point(291, 37);
+            this.lbValue.Location = new System.Drawing.Point(291, 27);
             this.lbValue.Name = "lbValue";
             this.lbValue.Size = new System.Drawing.Size(44, 18);
             this.lbValue.TabIndex = 4;
@@ -99,16 +112,16 @@
             // 
             this.lbField.AutoSize = true;
             this.lbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbField.Location = new System.Drawing.Point(6, 37);
+            this.lbField.Location = new System.Drawing.Point(6, 27);
             this.lbField.Name = "lbField";
-            this.lbField.Size = new System.Drawing.Size(51, 18);
+            this.lbField.Size = new System.Drawing.Size(39, 18);
             this.lbField.TabIndex = 3;
-            this.lbField.Text = "Field 1";
+            this.lbField.Text = "Field";
             // 
             // cbxCondition
             // 
             this.cbxCondition.FormattingEnabled = true;
-            this.cbxCondition.Location = new System.Drawing.Point(185, 58);
+            this.cbxCondition.Location = new System.Drawing.Point(185, 48);
             this.cbxCondition.Name = "cbxCondition";
             this.cbxCondition.Size = new System.Drawing.Size(80, 21);
             this.cbxCondition.TabIndex = 1;
@@ -116,17 +129,28 @@
             // cbxField
             // 
             this.cbxField.FormattingEnabled = true;
-            this.cbxField.Location = new System.Drawing.Point(6, 58);
+            this.cbxField.Location = new System.Drawing.Point(6, 48);
             this.cbxField.Name = "cbxField";
             this.cbxField.Size = new System.Drawing.Size(150, 21);
             this.cbxField.TabIndex = 0;
             // 
-            // tbValue
+            // lbBool
             // 
-            this.tbValue.Location = new System.Drawing.Point(294, 59);
-            this.tbValue.Name = "tbValue";
-            this.tbValue.Size = new System.Drawing.Size(150, 20);
-            this.tbValue.TabIndex = 6;
+            this.lbBool.AutoSize = true;
+            this.lbBool.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbBool.Location = new System.Drawing.Point(125, 85);
+            this.lbBool.Name = "lbBool";
+            this.lbBool.Size = new System.Drawing.Size(103, 18);
+            this.lbBool.TabIndex = 8;
+            this.lbBool.Text = "Join Condition";
+            // 
+            // cbxJoinCond
+            // 
+            this.cbxJoinCond.FormattingEnabled = true;
+            this.cbxJoinCond.Location = new System.Drawing.Point(234, 86);
+            this.cbxJoinCond.Name = "cbxJoinCond";
+            this.cbxJoinCond.Size = new System.Drawing.Size(74, 21);
+            this.cbxJoinCond.TabIndex = 7;
             // 
             // AddCondition
             // 
@@ -159,5 +183,7 @@
         private System.Windows.Forms.Label lbValue;
         private System.Windows.Forms.Label lbField;
         private System.Windows.Forms.TextBox tbValue;
+        private System.Windows.Forms.Label lbBool;
+        private System.Windows.Forms.ComboBox cbxJoinCond;
     }
 }

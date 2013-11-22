@@ -14,19 +14,40 @@ namespace XFiles.Forms.Search_Forms
         UserQueryHandler m_UQH = UserQueryHandler.Instance;
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
 
+        string[] m_sItems;
+
         public AddEntity()
         {
             InitializeComponent();
 
-            // Populate checklistbox items from db
-           // m_xFacade.q
+            // Populate checklistbox possible animals (fields) from DB
+            // Query DB to get all fields,
+            string sFields = m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='xfiles' AND `TABLE_NAME`='test';");
+            string[] sDelim = { " ", "\r\n"  };
+            // Split string into individual items
+            m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
+            chlbxFields.Items.AddRange(m_sItems.ToArray());
+        } // AddEntity constructor
 
-
-        }
-
-        private void chlbxFields_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Add selected fields to handler class. Closes form.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnOK_Click(object sender, EventArgs e)
         {
+            // Add items to handler
+            foreach (var field in chlbxFields.CheckedItems)
+                m_UQH.AddField(field.ToString());
+            this.Close();
+        } // btnOK
 
-        }
-    }
-}
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnCancel_Click(object sender, EventArgs e)
+        { this.Close(); }
+    } // AddEntity
+} // namespace XFiles.Forms.Search_Forms

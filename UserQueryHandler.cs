@@ -45,14 +45,28 @@ namespace XFiles
         public string[] Conditionals = { "=", "!=", "<", ">", "<=", ">=" };
         public string[] JoinConditionals = { "  ", "AND", "OR", "XOR" };
 
-        public void AddField(string field)
-        { m_lsFields.Add(field); }
+        public void Reset()
+        {
+            m_lsFields.Clear();
+            m_lsTables.Clear();
+            m_lsConditions.Clear();
+            m_lsJoinConditions.Clear();
+        }
 
-        public void AddTable(string table)
-        { m_lsTables.Add(table); }
+        public void AddFields(string[] fields)
+        {
+            m_lsFields.Clear();
+            m_lsFields.AddRange(fields);
+        }
 
-        public void AddCondition(string table)
-        { m_lsConditions.Add(table); }
+        public void AddTables(string[] tables)
+        {
+            m_lsTables.Clear();
+            m_lsTables.AddRange(tables);
+        }
+
+        public void AddCondition(string condition)
+        { m_lsConditions.Add(condition); }
 
         public List<string> getFields
         { get { return m_lsFields; } }

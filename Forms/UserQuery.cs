@@ -35,7 +35,9 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
-        { this.Close(); }
+        {
+            m_UQH.Reset();
+            this.Close(); }
 
         /// <summary>
         /// Query DB and create new view
@@ -48,21 +50,32 @@ namespace XFiles.Forms
         private void btnAddFind_Click(object sender, EventArgs e)
         {
             AddEntity aeForm = new AddEntity();
-            aeForm.Show();
-
+            if (aeForm.ShowDialog() == DialogResult.OK)
+            {
+                tbFind.Text = aeForm.SelectedItems;
+                updateGUI();
+            }
         }
 
         private void btnAddIn_Click(object sender, EventArgs e)
         {
             AddTable atForm = new AddTable();
-            atForm.Show();
+            if (atForm.ShowDialog() == DialogResult.OK)
+            {
+                tbIn.Text = atForm.SelectedItems;
+                updateGUI();
+            }
         }
 
         private void btnConditions_Click(object sender, EventArgs e)
         {
 
             AddCondition acForm = new AddCondition();
-            acForm.Show();
+            if (acForm.ShowDialog() == DialogResult.OK)
+            {
+                tbConditions.Text += acForm.SelectedItems + "\r\n";
+                updateGUI();
+            }
         }
 
         private void UserQuery_MouseClick(object sender, MouseEventArgs e)

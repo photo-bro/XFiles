@@ -29,8 +29,31 @@ namespace XFiles.Forms.Search_Forms
             if (m_UQH.getConditions.Count < 1) cbxJoinCond.Enabled = false;
         }
 
+        /// <summary>
+        /// Returns condition as formatted string
+        /// </summary>
+        public string SelectedItems
+        {
+            get
+            {
+                string s = "";
+                if (cbxJoinCond.Enabled)
+                    s = cbxJoinCond.SelectedItem.ToString() + " " +
+                        cbxField.SelectedItem.ToString()
+                        + " " + cbxCondition.SelectedItem.ToString()
+                        + " " + tbValue.Text;
+                else
+                    s = cbxField.SelectedItem.ToString()
+                         + " " + cbxCondition.SelectedItem.ToString() + " " +
+                         tbValue.Text;
+
+                return s;
+            } // get
+        } // SelectedItems
+
         private void btnOK_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             // Add condition to handler
             if (cbxJoinCond.Enabled)
                 m_UQH.AddCondition(cbxJoinCond.SelectedItem.ToString() + " " +
@@ -46,7 +69,10 @@ namespace XFiles.Forms.Search_Forms
         } // btnOK
 
         private void btnCancel_Click(object sender, EventArgs e)
-        { this.Close(); }
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close(); 
+        }
 
         /// <summary>
         /// Returns a string list of all fields in tables handler

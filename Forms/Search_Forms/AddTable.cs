@@ -27,7 +27,27 @@ namespace XFiles.Forms.Search_Forms
             // Split string into individual items
             m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
             chlbxTables.Items.AddRange(m_sItems.ToArray());
+
+            // check items already included in query
+            for (int i = 0; i < chlbxTables.Items.Count; ++i)
+                if (m_UQH.getTables.Contains(chlbxTables.Items[i]))
+                    chlbxTables.SetItemChecked(i, true);
+
         }
+
+        /// <summary>
+        /// Returns checked items as formatted string
+        /// </summary>
+        public string SelectedItems
+        {
+            get
+            {
+                string s = "";
+                foreach (var v in chlbxTables.CheckedItems)
+                    s += v.ToString() + " ";
+                return s;
+            } // get
+        } // SelectedItems
 
         /// <summary>
         /// Add selected tables to handler class. Closes form.
@@ -36,14 +56,20 @@ namespace XFiles.Forms.Search_Forms
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
-
+            this.DialogResult = DialogResult.OK;
             // Add items to handler
+            List<string> lsTables = new List<string>(); ;
+
             foreach (var table in chlbxTables.CheckedItems)
-                m_UQH.AddTable(table.ToString());
+                lsTables.Add(table.ToString());
+            m_UQH.AddTables(lsTables.ToArray());
+
             this.Close();
         } // btnOK
 
         private void btnCancel_Click(object sender, EventArgs e)
-        { this.Close(); }
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close(); }
     } // AddTable
 } // namespace XFiles.Forms.Search_Forms

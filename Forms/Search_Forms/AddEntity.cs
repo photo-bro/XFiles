@@ -27,7 +27,27 @@ namespace XFiles.Forms.Search_Forms
             // Split string into individual items
             m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
             chlbxFields.Items.AddRange(m_sItems.ToArray());
+
+            // check items already included in query
+            for(int i = 0; i<chlbxFields.Items.Count; ++i)
+                if (m_UQH.getFields.Contains(chlbxFields.Items[i]))
+                    chlbxFields.SetItemChecked(i, true);
+                    
         } // AddEntity constructor
+
+        /// <summary>
+        /// Returns checked items as formatted string
+        /// </summary>
+        public string SelectedItems
+        {
+            get
+            {
+                string s = "";
+                foreach (var v in chlbxFields.CheckedItems)
+                    s += v.ToString() + " ";
+                return s;
+            } // get
+        } // SelectedItems
 
         /// <summary>
         /// Add selected fields to handler class. Closes form.
@@ -36,9 +56,13 @@ namespace XFiles.Forms.Search_Forms
         /// <param name="e"></param>
         private void btnOK_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             // Add items to handler
+            List<string> lsFields = new List<string>();;
             foreach (var field in chlbxFields.CheckedItems)
-                m_UQH.AddField(field.ToString());
+                lsFields.Add(field.ToString());
+            m_UQH.AddFields(lsFields.ToArray());
+
             this.Close();
         } // btnOK
 
@@ -48,6 +72,8 @@ namespace XFiles.Forms.Search_Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
-        { this.Close(); }
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close(); }
     } // AddEntity
 } // namespace XFiles.Forms.Search_Forms

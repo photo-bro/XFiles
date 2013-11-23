@@ -38,7 +38,7 @@
             // gbBox
             // 
             this.gbBox.Controls.Add(this.chlbxTables);
-            this.gbBox.Location = new System.Drawing.Point(12, 12);
+            this.gbBox.Location = new System.Drawing.Point(6, 12);
             this.gbBox.Name = "gbBox";
             this.gbBox.Size = new System.Drawing.Size(260, 209);
             this.gbBox.TabIndex = 8;
@@ -56,7 +56,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 227);
+            this.btnCancel.Location = new System.Drawing.Point(6, 237);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 7;
@@ -67,7 +67,7 @@
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(197, 227);
+            this.btnOK.Location = new System.Drawing.Point(191, 237);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 6;
@@ -79,13 +79,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(274, 272);
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MaximumSize = new System.Drawing.Size(290, 286);
-            this.MinimumSize = new System.Drawing.Size(290, 286);
+            this.MaximumSize = new System.Drawing.Size(290, 306);
+            this.MinimumSize = new System.Drawing.Size(290, 306);
             this.Name = "AddTable";
             this.Text = "Add Table";
             this.gbBox.ResumeLayout(false);

@@ -31,21 +31,21 @@
             this.btnOK = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbBox = new System.Windows.Forms.GroupBox();
+            this.lbBool = new System.Windows.Forms.Label();
+            this.cbxJoinCond = new System.Windows.Forms.ComboBox();
             this.tbValue = new System.Windows.Forms.TextBox();
             this.lbCondition = new System.Windows.Forms.Label();
             this.lbValue = new System.Windows.Forms.Label();
             this.lbField = new System.Windows.Forms.Label();
             this.cbxCondition = new System.Windows.Forms.ComboBox();
             this.cbxField = new System.Windows.Forms.ComboBox();
-            this.lbBool = new System.Windows.Forms.Label();
-            this.cbxJoinCond = new System.Windows.Forms.ComboBox();
             this.gbBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(387, 142);
+            this.btnOK.Location = new System.Drawing.Point(377, 151);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 0;
@@ -56,7 +56,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 142);
+            this.btnCancel.Location = new System.Drawing.Point(12, 151);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 1;
@@ -76,63 +76,10 @@
             this.gbBox.Controls.Add(this.cbxField);
             this.gbBox.Location = new System.Drawing.Point(12, 12);
             this.gbBox.Name = "gbBox";
-            this.gbBox.Size = new System.Drawing.Size(450, 124);
+            this.gbBox.Size = new System.Drawing.Size(440, 124);
             this.gbBox.TabIndex = 2;
             this.gbBox.TabStop = false;
             this.gbBox.Text = "Add Condition";
-            // 
-            // tbValue
-            // 
-            this.tbValue.Location = new System.Drawing.Point(294, 49);
-            this.tbValue.Name = "tbValue";
-            this.tbValue.Size = new System.Drawing.Size(150, 20);
-            this.tbValue.TabIndex = 6;
-            // 
-            // lbCondition
-            // 
-            this.lbCondition.AutoSize = true;
-            this.lbCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbCondition.Location = new System.Drawing.Point(182, 27);
-            this.lbCondition.Name = "lbCondition";
-            this.lbCondition.Size = new System.Drawing.Size(71, 18);
-            this.lbCondition.TabIndex = 5;
-            this.lbCondition.Text = "Condition";
-            // 
-            // lbValue
-            // 
-            this.lbValue.AutoSize = true;
-            this.lbValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbValue.Location = new System.Drawing.Point(291, 27);
-            this.lbValue.Name = "lbValue";
-            this.lbValue.Size = new System.Drawing.Size(44, 18);
-            this.lbValue.TabIndex = 4;
-            this.lbValue.Text = "Value";
-            // 
-            // lbField
-            // 
-            this.lbField.AutoSize = true;
-            this.lbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbField.Location = new System.Drawing.Point(6, 27);
-            this.lbField.Name = "lbField";
-            this.lbField.Size = new System.Drawing.Size(39, 18);
-            this.lbField.TabIndex = 3;
-            this.lbField.Text = "Field";
-            // 
-            // cbxCondition
-            // 
-            this.cbxCondition.FormattingEnabled = true;
-            this.cbxCondition.Location = new System.Drawing.Point(185, 48);
-            this.cbxCondition.Name = "cbxCondition";
-            this.cbxCondition.Size = new System.Drawing.Size(80, 21);
-            this.cbxCondition.TabIndex = 1;
-            // 
-            // cbxField
-            // 
-            this.cbxField.FormattingEnabled = true;
-            this.cbxField.Location = new System.Drawing.Point(6, 48);
-            this.cbxField.Name = "cbxField";
-            this.cbxField.Size = new System.Drawing.Size(150, 21);
-            this.cbxField.TabIndex = 0;
             // 
             // lbBool
             // 
@@ -152,17 +99,70 @@
             this.cbxJoinCond.Size = new System.Drawing.Size(74, 21);
             this.cbxJoinCond.TabIndex = 7;
             // 
+            // tbValue
+            // 
+            this.tbValue.Location = new System.Drawing.Point(284, 48);
+            this.tbValue.Name = "tbValue";
+            this.tbValue.Size = new System.Drawing.Size(150, 20);
+            this.tbValue.TabIndex = 6;
+            // 
+            // lbCondition
+            // 
+            this.lbCondition.AutoSize = true;
+            this.lbCondition.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbCondition.Location = new System.Drawing.Point(177, 27);
+            this.lbCondition.Name = "lbCondition";
+            this.lbCondition.Size = new System.Drawing.Size(71, 18);
+            this.lbCondition.TabIndex = 5;
+            this.lbCondition.Text = "Condition";
+            // 
+            // lbValue
+            // 
+            this.lbValue.AutoSize = true;
+            this.lbValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbValue.Location = new System.Drawing.Point(281, 27);
+            this.lbValue.Name = "lbValue";
+            this.lbValue.Size = new System.Drawing.Size(156, 18);
+            this.lbValue.TabIndex = 4;
+            this.lbValue.Text = "Value (strings need \" \")";
+            // 
+            // lbField
+            // 
+            this.lbField.AutoSize = true;
+            this.lbField.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbField.Location = new System.Drawing.Point(6, 27);
+            this.lbField.Name = "lbField";
+            this.lbField.Size = new System.Drawing.Size(39, 18);
+            this.lbField.TabIndex = 3;
+            this.lbField.Text = "Field";
+            // 
+            // cbxCondition
+            // 
+            this.cbxCondition.FormattingEnabled = true;
+            this.cbxCondition.Location = new System.Drawing.Point(180, 48);
+            this.cbxCondition.Name = "cbxCondition";
+            this.cbxCondition.Size = new System.Drawing.Size(79, 21);
+            this.cbxCondition.TabIndex = 1;
+            // 
+            // cbxField
+            // 
+            this.cbxField.FormattingEnabled = true;
+            this.cbxField.Location = new System.Drawing.Point(6, 48);
+            this.cbxField.Name = "cbxField";
+            this.cbxField.Size = new System.Drawing.Size(150, 21);
+            this.cbxField.TabIndex = 0;
+            // 
             // AddCondition
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(474, 176);
+            this.ClientSize = new System.Drawing.Size(464, 186);
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnOK);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(480, 200);
+            this.MaximumSize = new System.Drawing.Size(480, 220);
             this.MinimumSize = new System.Drawing.Size(480, 200);
             this.Name = "AddCondition";
             this.Text = "Add Condition";

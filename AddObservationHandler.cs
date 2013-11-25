@@ -37,7 +37,25 @@ namespace XFiles
 
 
 
+        public string GetQuery
+        {
+            get
+            {
+                StringBuilder sb = new StringBuilder();
 
+                // INSERT INTO table (*, table)
+                sb.Append("INSERT INTO ");
+                // sb.Append("Observation_T VALUES"):
+
+                sb.Append("(");
+                //
+                
+
+
+
+                return sb.ToString();
+            } // get
+        } // GetQuery
 
 
 

@@ -38,6 +38,12 @@ namespace XFiles
         private string c_sPassword = "mudpie";
 
         /// <summary>
+        /// Return the active database name
+        /// </summary>
+        public string DatabaseName
+        { get { return c_sDatabase; } }
+
+        /// <summary>
         /// Set database login information
         /// </summary>
         /// <param name="server"></param>

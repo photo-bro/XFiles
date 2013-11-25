@@ -100,7 +100,7 @@ namespace XFiles
                     if (i == m_lsTables.Count - 1)
                         sb.AppendFormat("{0} ", m_lsTables[i]);
                     else
-                        sb.AppendFormat("{0}, ", m_lsTables[i]);
+                        sb.AppendFormat("{0} NATURAL JOIN  ", m_lsTables[i]);
                 }
 
                 // Determine condition(s) to query on

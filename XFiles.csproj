@@ -84,6 +84,12 @@
     <Compile Include="Forms\Observation_Forms\Add_Animal.Designer.cs">
       <DependentUpon>Add_Animal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\ResultWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\ResultWindow.Designer.cs">
+      <DependentUpon>ResultWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\Search_Forms\AddCondition.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,7 +119,7 @@
     <Compile Include="SourceReader.cs" />
     <Compile Include="Status.cs" />
     <Compile Include="UserQueryHandler.cs" />
-    <Compile Include="View_Manager.cs" />
+    <Compile Include="Query_Manager.cs" />
     <Compile Include="XFiles_Facade.cs" />
     <EmbeddedResource Include="Forms\AddObservation.resx">
       <DependentUpon>AddObservation.cs</DependentUpon>
@@ -129,6 +135,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Observation_Forms\Add_Animal.resx">
       <DependentUpon>Add_Animal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\ResultWindow.resx">
+      <DependentUpon>ResultWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\Search_Forms\AddCondition.resx">
       <DependentUpon>AddCondition.cs</DependentUpon>

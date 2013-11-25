@@ -13,7 +13,7 @@ namespace XFiles.Forms
     {
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        View_Manager m_VM = View_Manager.Instance;
+        Query_Manager m_VM = Query_Manager.Instance;
 
 
         public CustomQuery()
@@ -37,7 +37,7 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnQuery_Click(object sender, EventArgs e)
-        {m_VM.CreateNewView(m_xFacade.QueryToBindingSource(tbCustQuery.Text));}
+        { m_VM.CreateNewView(tbCustQuery.Text, m_xFacade.QueryToBindingSource(tbCustQuery.Text)); }
 
     } // CustomQuery
 } // namespace XFiles

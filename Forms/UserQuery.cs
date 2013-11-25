@@ -14,7 +14,7 @@ namespace XFiles.Forms
     {
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        View_Manager m_VM = View_Manager.Instance;
+        Query_Manager m_VM = Query_Manager.Instance;
         UserQueryHandler m_UQH = UserQueryHandler.Instance;
 
         public UserQuery()
@@ -46,7 +46,7 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnSearch_Click(object sender, EventArgs e)
-        { m_VM.CreateNewView(m_xFacade.QueryToBindingSource(m_UQH.GetQuery)); }
+        { m_VM.CreateNewView(m_UQH.GetQuery, m_xFacade.QueryToBindingSource(m_UQH.GetQuery)); }
 
         private void btnAddFind_Click(object sender, EventArgs e)
         {

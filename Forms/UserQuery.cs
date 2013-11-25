@@ -20,13 +20,13 @@ namespace XFiles.Forms
         public UserQuery()
         {
             InitializeComponent();
+            m_UQH.Reset();
         }
 
 
         public void updateGUI()
         {
             tbSQL_String.Text = m_UQH.GetQuery;
-
         }
 
         /// <summary>
@@ -37,7 +37,8 @@ namespace XFiles.Forms
         private void btnCancel_Click(object sender, EventArgs e)
         {
             m_UQH.Reset();
-            this.Close(); }
+            this.Close(); 
+        }
 
         /// <summary>
         /// Query DB and create new view

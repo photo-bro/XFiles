@@ -127,9 +127,11 @@
             // 
             // tbConditions
             // 
+            this.tbConditions.BackColor = System.Drawing.Color.White;
             this.tbConditions.Location = new System.Drawing.Point(111, 85);
             this.tbConditions.Multiline = true;
             this.tbConditions.Name = "tbConditions";
+            this.tbConditions.ReadOnly = true;
             this.tbConditions.Size = new System.Drawing.Size(374, 122);
             this.tbConditions.TabIndex = 7;
             // 
@@ -156,8 +158,10 @@
             // 
             // tbIn
             // 
+            this.tbIn.BackColor = System.Drawing.Color.White;
             this.tbIn.Location = new System.Drawing.Point(77, 59);
             this.tbIn.Name = "tbIn";
+            this.tbIn.ReadOnly = true;
             this.tbIn.Size = new System.Drawing.Size(408, 20);
             this.tbIn.TabIndex = 4;
             // 
@@ -184,8 +188,10 @@
             // 
             // tbFind
             // 
+            this.tbFind.BackColor = System.Drawing.Color.White;
             this.tbFind.Location = new System.Drawing.Point(77, 33);
             this.tbFind.Name = "tbFind";
+            this.tbFind.ReadOnly = true;
             this.tbFind.Size = new System.Drawing.Size(408, 20);
             this.tbFind.TabIndex = 1;
             // 
@@ -213,6 +219,7 @@
             this.MinimumSize = new System.Drawing.Size(640, 480);
             this.Name = "UserQuery";
             this.Text = "Search Database";
+            this.TopMost = true;
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.UserQuery_MouseClick);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.gbSQ_String.ResumeLayout(false);

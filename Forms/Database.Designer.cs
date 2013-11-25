@@ -50,6 +50,7 @@
             this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -59,7 +60,6 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddObservation = new System.Windows.Forms.Button();
-            this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -76,7 +76,6 @@
             this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabControlMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControlMain.Controls.Add(this.tabOne);
             this.tabControlMain.Controls.Add(this.tabTwo);
             this.tabControlMain.Controls.Add(this.tabThree);
@@ -89,34 +88,35 @@
             // 
             // tabOne
             // 
+            this.tabOne.BackColor = System.Drawing.Color.White;
             this.tabOne.Controls.Add(this.dgvView1);
-            this.tabOne.Location = new System.Drawing.Point(4, 25);
+            this.tabOne.Location = new System.Drawing.Point(4, 22);
             this.tabOne.Name = "tabOne";
             this.tabOne.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOne.Size = new System.Drawing.Size(752, 450);
+            this.tabOne.Size = new System.Drawing.Size(752, 453);
             this.tabOne.TabIndex = 0;
             this.tabOne.Text = "View 1";
-            this.tabOne.UseVisualStyleBackColor = true;
             // 
             // dgvView1
             // 
             this.dgvView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvView1.BackgroundColor = System.Drawing.Color.White;
             this.dgvView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView1.Location = new System.Drawing.Point(6, 6);
             this.dgvView1.Name = "dgvView1";
-            this.dgvView1.Size = new System.Drawing.Size(740, 440);
+            this.dgvView1.Size = new System.Drawing.Size(740, 443);
             this.dgvView1.TabIndex = 0;
             this.dgvView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabTwo
             // 
             this.tabTwo.Controls.Add(this.dgvView2);
-            this.tabTwo.Location = new System.Drawing.Point(4, 25);
+            this.tabTwo.Location = new System.Drawing.Point(4, 22);
             this.tabTwo.Name = "tabTwo";
             this.tabTwo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTwo.Size = new System.Drawing.Size(752, 450);
+            this.tabTwo.Size = new System.Drawing.Size(752, 453);
             this.tabTwo.TabIndex = 1;
             this.tabTwo.Text = "View 2";
             this.tabTwo.UseVisualStyleBackColor = true;
@@ -126,19 +126,20 @@
             this.dgvView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvView2.BackgroundColor = System.Drawing.Color.White;
             this.dgvView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView2.Location = new System.Drawing.Point(6, 6);
             this.dgvView2.Name = "dgvView2";
-            this.dgvView2.Size = new System.Drawing.Size(740, 440);
+            this.dgvView2.Size = new System.Drawing.Size(740, 443);
             this.dgvView2.TabIndex = 1;
             this.dgvView2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabThree
             // 
             this.tabThree.Controls.Add(this.dgvView3);
-            this.tabThree.Location = new System.Drawing.Point(4, 25);
+            this.tabThree.Location = new System.Drawing.Point(4, 22);
             this.tabThree.Name = "tabThree";
-            this.tabThree.Size = new System.Drawing.Size(752, 450);
+            this.tabThree.Size = new System.Drawing.Size(752, 453);
             this.tabThree.TabIndex = 2;
             this.tabThree.Text = "View 3";
             this.tabThree.UseVisualStyleBackColor = true;
@@ -148,15 +149,17 @@
             this.dgvView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
                         | System.Windows.Forms.AnchorStyles.Left)
                         | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvView3.BackgroundColor = System.Drawing.Color.White;
             this.dgvView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView3.Location = new System.Drawing.Point(6, 6);
             this.dgvView3.Name = "dgvView3";
-            this.dgvView3.Size = new System.Drawing.Size(740, 440);
+            this.dgvView3.Size = new System.Drawing.Size(740, 443);
             this.dgvView3.TabIndex = 1;
             this.dgvView3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.editToolStripMenuItem,
@@ -184,7 +187,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -192,7 +195,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -204,20 +207,20 @@
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // exportViewToolStripMenuItem
             // 
             this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.exportViewToolStripMenuItem.Text = "Export View";
             this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -274,6 +277,12 @@
             this.customSearchToolStripMenuItem.Text = "Custom Search";
             this.customSearchToolStripMenuItem.Click += new System.EventHandler(this.customSearchToolStripMenuItem_Click);
             // 
+            // addObservationToolStripMenuItem
+            // 
+            this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
+            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.addObservationToolStripMenuItem.Text = "Add Observation";
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -285,7 +294,7 @@
             // helpMenuToolStripMenuItem
             // 
             this.helpMenuToolStripMenuItem.Name = "helpMenuToolStripMenuItem";
-            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.helpMenuToolStripMenuItem.Text = "Help Menu";
             // 
             // btnQuery
@@ -313,6 +322,7 @@
             // 
             // statusStrip1
             // 
+            this.statusStrip1.BackColor = System.Drawing.Color.Transparent;
             this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.StatusLabel,
             this.ConnectionStatus,
@@ -353,16 +363,11 @@
             this.btnAddObservation.Text = "Add Observation";
             this.btnAddObservation.UseVisualStyleBackColor = true;
             // 
-            // addObservationToolStripMenuItem
-            // 
-            this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
-            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.addObservationToolStripMenuItem.Text = "Add Observation";
-            // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.btnAddObservation);
             this.Controls.Add(this.statusStrip1);

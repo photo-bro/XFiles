@@ -31,24 +31,23 @@
             this.btnLogin = new System.Windows.Forms.Button();
             this.btnQuit = new System.Windows.Forms.Button();
             this.gbBox = new System.Windows.Forms.GroupBox();
-            this.tbServer = new System.Windows.Forms.TextBox();
-            this.lbServer = new System.Windows.Forms.Label();
-            this.lbDataBase = new System.Windows.Forms.Label();
-            this.tbDataBase = new System.Windows.Forms.TextBox();
+            this.lbUID = new System.Windows.Forms.Label();
             this.lbPassword = new System.Windows.Forms.Label();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.tbUID = new System.Windows.Forms.TextBox();
-            this.lbUID = new System.Windows.Forms.Label();
-            this.lbTitle = new System.Windows.Forms.Label();
-            this.lbTitle2 = new System.Windows.Forms.Label();
-            this.lbTitle3 = new System.Windows.Forms.Label();
+            this.lbDataBase = new System.Windows.Forms.Label();
+            this.tbDataBase = new System.Windows.Forms.TextBox();
+            this.lbServer = new System.Windows.Forms.Label();
+            this.tbServer = new System.Windows.Forms.TextBox();
+            this.SplashLogo = new System.Windows.Forms.PictureBox();
             this.gbBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplashLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLogin.Location = new System.Drawing.Point(297, 227);
+            this.btnLogin.Location = new System.Drawing.Point(295, 275);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(75, 23);
             this.btnLogin.TabIndex = 0;
@@ -59,7 +58,7 @@
             // btnQuit
             // 
             this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuit.Location = new System.Drawing.Point(14, 227);
+            this.btnQuit.Location = new System.Drawing.Point(12, 275);
             this.btnQuit.Name = "btnQuit";
             this.btnQuit.Size = new System.Drawing.Size(75, 23);
             this.btnQuit.TabIndex = 1;
@@ -77,43 +76,21 @@
             this.gbBox.Controls.Add(this.tbDataBase);
             this.gbBox.Controls.Add(this.lbServer);
             this.gbBox.Controls.Add(this.tbServer);
-            this.gbBox.Location = new System.Drawing.Point(14, 90);
+            this.gbBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbBox.Location = new System.Drawing.Point(12, 138);
             this.gbBox.Name = "gbBox";
             this.gbBox.Size = new System.Drawing.Size(358, 126);
             this.gbBox.TabIndex = 2;
             this.gbBox.TabStop = false;
             // 
-            // tbServer
+            // lbUID
             // 
-            this.tbServer.Location = new System.Drawing.Point(165, 18);
-            this.tbServer.Name = "tbServer";
-            this.tbServer.Size = new System.Drawing.Size(165, 20);
-            this.tbServer.TabIndex = 0;
-            // 
-            // lbServer
-            // 
-            this.lbServer.AutoSize = true;
-            this.lbServer.Location = new System.Drawing.Point(22, 21);
-            this.lbServer.Name = "lbServer";
-            this.lbServer.Size = new System.Drawing.Size(72, 13);
-            this.lbServer.TabIndex = 1;
-            this.lbServer.Text = "Server Name:";
-            // 
-            // lbDataBase
-            // 
-            this.lbDataBase.AutoSize = true;
-            this.lbDataBase.Location = new System.Drawing.Point(22, 47);
-            this.lbDataBase.Name = "lbDataBase";
-            this.lbDataBase.Size = new System.Drawing.Size(87, 13);
-            this.lbDataBase.TabIndex = 3;
-            this.lbDataBase.Text = "Database Name:";
-            // 
-            // tbDataBase
-            // 
-            this.tbDataBase.Location = new System.Drawing.Point(165, 44);
-            this.tbDataBase.Name = "tbDataBase";
-            this.tbDataBase.Size = new System.Drawing.Size(165, 20);
-            this.tbDataBase.TabIndex = 2;
+            this.lbUID.AutoSize = true;
+            this.lbUID.Location = new System.Drawing.Point(22, 73);
+            this.lbUID.Name = "lbUID";
+            this.lbUID.Size = new System.Drawing.Size(46, 13);
+            this.lbUID.TabIndex = 7;
+            this.lbUID.Text = "User ID:";
             // 
             // lbPassword
             // 
@@ -139,53 +116,54 @@
             this.tbUID.Size = new System.Drawing.Size(165, 20);
             this.tbUID.TabIndex = 4;
             // 
-            // lbUID
+            // lbDataBase
             // 
-            this.lbUID.AutoSize = true;
-            this.lbUID.Location = new System.Drawing.Point(22, 73);
-            this.lbUID.Name = "lbUID";
-            this.lbUID.Size = new System.Drawing.Size(46, 13);
-            this.lbUID.TabIndex = 7;
-            this.lbUID.Text = "User ID:";
+            this.lbDataBase.AutoSize = true;
+            this.lbDataBase.Location = new System.Drawing.Point(22, 47);
+            this.lbDataBase.Name = "lbDataBase";
+            this.lbDataBase.Size = new System.Drawing.Size(87, 13);
+            this.lbDataBase.TabIndex = 3;
+            this.lbDataBase.Text = "Database Name:";
             // 
-            // lbTitle
+            // tbDataBase
             // 
-            this.lbTitle.AutoSize = true;
-            this.lbTitle.Font = new System.Drawing.Font("Agency FB", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle.Location = new System.Drawing.Point(12, 10);
-            this.lbTitle.Name = "lbTitle";
-            this.lbTitle.Size = new System.Drawing.Size(141, 77);
-            this.lbTitle.TabIndex = 3;
-            this.lbTitle.Text = "XFiles";
+            this.tbDataBase.Location = new System.Drawing.Point(165, 44);
+            this.tbDataBase.Name = "tbDataBase";
+            this.tbDataBase.Size = new System.Drawing.Size(165, 20);
+            this.tbDataBase.TabIndex = 2;
             // 
-            // lbTitle2
+            // lbServer
             // 
-            this.lbTitle2.AutoSize = true;
-            this.lbTitle2.Font = new System.Drawing.Font("Agency FB", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle2.Location = new System.Drawing.Point(288, 10);
-            this.lbTitle2.Name = "lbTitle2";
-            this.lbTitle2.Size = new System.Drawing.Size(82, 40);
-            this.lbTitle2.TabIndex = 4;
-            this.lbTitle2.Text = "Animal";
+            this.lbServer.AutoSize = true;
+            this.lbServer.Location = new System.Drawing.Point(22, 21);
+            this.lbServer.Name = "lbServer";
+            this.lbServer.Size = new System.Drawing.Size(72, 13);
+            this.lbServer.TabIndex = 1;
+            this.lbServer.Text = "Server Name:";
             // 
-            // lbTitle3
+            // tbServer
             // 
-            this.lbTitle3.AutoSize = true;
-            this.lbTitle3.Font = new System.Drawing.Font("Agency FB", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTitle3.Location = new System.Drawing.Point(179, 50);
-            this.lbTitle3.Name = "lbTitle3";
-            this.lbTitle3.Size = new System.Drawing.Size(193, 32);
-            this.lbTitle3.TabIndex = 5;
-            this.lbTitle3.Text = "Observation Database";
+            this.tbServer.Location = new System.Drawing.Point(165, 18);
+            this.tbServer.Name = "tbServer";
+            this.tbServer.Size = new System.Drawing.Size(165, 20);
+            this.tbServer.TabIndex = 0;
+            // 
+            // SplashLogo
+            // 
+            this.SplashLogo.Image = global::XFiles.Properties.Resources.XFiles_Splash;
+            this.SplashLogo.Location = new System.Drawing.Point(12, 12);
+            this.SplashLogo.Name = "SplashLogo";
+            this.SplashLogo.Size = new System.Drawing.Size(360, 120);
+            this.SplashLogo.TabIndex = 3;
+            this.SplashLogo.TabStop = false;
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(384, 262);
-            this.Controls.Add(this.lbTitle3);
-            this.Controls.Add(this.lbTitle2);
-            this.Controls.Add(this.lbTitle);
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(384, 308);
+            this.Controls.Add(this.SplashLogo);
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnQuit);
             this.Controls.Add(this.btnLogin);
@@ -193,10 +171,11 @@
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.TopMost = true;
             this.gbBox.ResumeLayout(false);
             this.gbBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplashLogo)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -213,8 +192,6 @@
         private System.Windows.Forms.TextBox tbDataBase;
         private System.Windows.Forms.Label lbServer;
         private System.Windows.Forms.TextBox tbServer;
-        private System.Windows.Forms.Label lbTitle;
-        private System.Windows.Forms.Label lbTitle2;
-        private System.Windows.Forms.Label lbTitle3;
+        private System.Windows.Forms.PictureBox SplashLogo;
     }
 }

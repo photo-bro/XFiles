@@ -59,5 +59,12 @@ namespace XFiles.Properties {
                 resourceCulture = value;
             }
         }
+        
+        internal static System.Drawing.Bitmap XFiles_Splash {
+            get {
+                object obj = ResourceManager.GetObject("XFiles_Splash", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

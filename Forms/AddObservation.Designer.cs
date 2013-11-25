@@ -59,9 +59,9 @@
             // gbSQ_String
             // 
             this.gbSQ_String.Controls.Add(this.tbSQL_String);
-            this.gbSQ_String.Location = new System.Drawing.Point(12, 385);
+            this.gbSQ_String.Location = new System.Drawing.Point(12, 406);
             this.gbSQ_String.Name = "gbSQ_String";
-            this.gbSQ_String.Size = new System.Drawing.Size(600, 168);
+            this.gbSQ_String.Size = new System.Drawing.Size(600, 147);
             this.gbSQ_String.TabIndex = 4;
             this.gbSQ_String.TabStop = false;
             this.gbSQ_String.Text = "SQL String";
@@ -73,14 +73,14 @@
             this.tbSQL_String.Multiline = true;
             this.tbSQL_String.Name = "tbSQL_String";
             this.tbSQL_String.ReadOnly = true;
-            this.tbSQL_String.Size = new System.Drawing.Size(588, 143);
+            this.tbSQL_String.Size = new System.Drawing.Size(588, 122);
             this.tbSQL_String.TabIndex = 0;
             // 
             // gbObserParam
             // 
             this.gbObserParam.Location = new System.Drawing.Point(18, 12);
             this.gbObserParam.Name = "gbObserParam";
-            this.gbObserParam.Size = new System.Drawing.Size(588, 367);
+            this.gbObserParam.Size = new System.Drawing.Size(588, 388);
             this.gbObserParam.TabIndex = 5;
             this.gbObserParam.TabStop = false;
             this.gbObserParam.Text = "Observation Parameters";
@@ -89,6 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(624, 602);
             this.Controls.Add(this.gbObserParam);
             this.Controls.Add(this.gbSQ_String);

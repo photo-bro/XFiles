@@ -38,7 +38,7 @@
             // gbBox
             // 
             this.gbBox.Controls.Add(this.chlbxFields);
-            this.gbBox.Location = new System.Drawing.Point(6, 12);
+            this.gbBox.Location = new System.Drawing.Point(12, 12);
             this.gbBox.Name = "gbBox";
             this.gbBox.Size = new System.Drawing.Size(260, 209);
             this.gbBox.TabIndex = 5;
@@ -56,7 +56,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(6, 237);
+            this.btnCancel.Location = new System.Drawing.Point(12, 247);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 4;
@@ -67,7 +67,7 @@
             // btnOK
             // 
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOK.Location = new System.Drawing.Point(191, 237);
+            this.btnOK.Location = new System.Drawing.Point(197, 247);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
             this.btnOK.TabIndex = 3;
@@ -79,6 +79,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(284, 282);
             this.Controls.Add(this.gbBox);
             this.Controls.Add(this.btnCancel);

@@ -85,7 +85,7 @@ namespace XFiles.Forms.Search_Forms
             foreach (string s in m_UQH.getTables)
             {
                 string items =
-                    m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='xfiles' AND `TABLE_NAME`='test';");
+                    m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='" + FileManager.Instance.DatabaseName + "';");
                 lsFields.AddRange(items.Split(sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray());
             }
             return lsFields;

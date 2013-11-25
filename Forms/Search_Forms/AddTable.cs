@@ -22,7 +22,7 @@ namespace XFiles.Forms.Search_Forms
 
             // Populate checklistbox possible animals (fields) from DB
             // Query DB to get all fields,
-            string sFields = m_xFacade.QueryToString("SHOW TABLES IN xfiles");
+            string sFields = m_xFacade.QueryToString("SHOW TABLES IN " + FileManager.Instance.DatabaseName + ";");
             string[] sDelim = { " ", "\r\n" };
             // Split string into individual items
             m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);

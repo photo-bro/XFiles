@@ -183,7 +183,9 @@ namespace XFiles
             else return;
 
             ResultWindow rw = new ResultWindow(q);
-            rw.Show();
+            try { rw.Show(); }
+            catch (Exception ee)
+            { MessageBox.Show("Query loading... Please try again"); }
         }
 
 

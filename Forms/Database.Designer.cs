@@ -58,6 +58,8 @@
             this.StatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.btnAddObservation = new System.Windows.Forms.Button();
+            this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -71,6 +73,10 @@
             // 
             // tabControlMain
             // 
+            this.tabControlMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControlMain.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
             this.tabControlMain.Controls.Add(this.tabOne);
             this.tabControlMain.Controls.Add(this.tabTwo);
             this.tabControlMain.Controls.Add(this.tabThree);
@@ -78,22 +84,25 @@
             this.tabControlMain.Name = "tabControlMain";
             this.tabControlMain.SelectedIndex = 0;
             this.tabControlMain.Size = new System.Drawing.Size(760, 479);
-            this.tabControlMain.TabIndex = 0;
+            this.tabControlMain.TabIndex = 5;
             this.tabControlMain.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             // 
             // tabOne
             // 
             this.tabOne.Controls.Add(this.dgvView1);
-            this.tabOne.Location = new System.Drawing.Point(4, 22);
+            this.tabOne.Location = new System.Drawing.Point(4, 25);
             this.tabOne.Name = "tabOne";
             this.tabOne.Padding = new System.Windows.Forms.Padding(3);
-            this.tabOne.Size = new System.Drawing.Size(752, 453);
+            this.tabOne.Size = new System.Drawing.Size(752, 450);
             this.tabOne.TabIndex = 0;
             this.tabOne.Text = "View 1";
             this.tabOne.UseVisualStyleBackColor = true;
             // 
             // dgvView1
             // 
+            this.dgvView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView1.Location = new System.Drawing.Point(6, 6);
             this.dgvView1.Name = "dgvView1";
@@ -104,16 +113,19 @@
             // tabTwo
             // 
             this.tabTwo.Controls.Add(this.dgvView2);
-            this.tabTwo.Location = new System.Drawing.Point(4, 22);
+            this.tabTwo.Location = new System.Drawing.Point(4, 25);
             this.tabTwo.Name = "tabTwo";
             this.tabTwo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabTwo.Size = new System.Drawing.Size(752, 453);
+            this.tabTwo.Size = new System.Drawing.Size(752, 450);
             this.tabTwo.TabIndex = 1;
             this.tabTwo.Text = "View 2";
             this.tabTwo.UseVisualStyleBackColor = true;
             // 
             // dgvView2
             // 
+            this.dgvView2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView2.Location = new System.Drawing.Point(6, 6);
             this.dgvView2.Name = "dgvView2";
@@ -124,15 +136,18 @@
             // tabThree
             // 
             this.tabThree.Controls.Add(this.dgvView3);
-            this.tabThree.Location = new System.Drawing.Point(4, 22);
+            this.tabThree.Location = new System.Drawing.Point(4, 25);
             this.tabThree.Name = "tabThree";
-            this.tabThree.Size = new System.Drawing.Size(752, 453);
+            this.tabThree.Size = new System.Drawing.Size(752, 450);
             this.tabThree.TabIndex = 2;
             this.tabThree.Text = "View 3";
             this.tabThree.UseVisualStyleBackColor = true;
             // 
             // dgvView3
             // 
+            this.dgvView3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView3.Location = new System.Drawing.Point(6, 6);
             this.dgvView3.Name = "dgvView3";
@@ -147,10 +162,11 @@
             this.editToolStripMenuItem,
             this.commandsToolStripMenuItem,
             this.helpToolStripMenuItem});
+            this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(784, 24);
-            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Size = new System.Drawing.Size(784, 23);
+            this.menuStrip1.TabIndex = 4;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
@@ -162,13 +178,13 @@
             this.exportViewToolStripMenuItem,
             this.quitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 19);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -176,7 +192,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -188,27 +204,27 @@
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // exportViewToolStripMenuItem
             // 
             this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exportViewToolStripMenuItem.Text = "Export View";
             this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 19);
             this.editToolStripMenuItem.Text = "Edit";
             // 
             // commandsToolStripMenuItem
@@ -218,42 +234,43 @@
             this.testToolStripMenuItem,
             this.modifyToolStripMenuItem,
             this.searchToolStripMenuItem,
-            this.customSearchToolStripMenuItem});
+            this.customSearchToolStripMenuItem,
+            this.addObservationToolStripMenuItem});
             this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
             this.commandsToolStripMenuItem.Text = "Commands";
             // 
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // modifyToolStripMenuItem
             // 
             this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.modifyToolStripMenuItem.Text = "Modify";
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // customSearchToolStripMenuItem
             // 
             this.customSearchToolStripMenuItem.Name = "customSearchToolStripMenuItem";
-            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.customSearchToolStripMenuItem.Text = "Custom Search";
             this.customSearchToolStripMenuItem.Click += new System.EventHandler(this.customSearchToolStripMenuItem_Click);
             // 
@@ -262,32 +279,35 @@
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.helpMenuToolStripMenuItem});
             this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 19);
             this.helpToolStripMenuItem.Text = "Help";
             // 
             // helpMenuToolStripMenuItem
             // 
             this.helpMenuToolStripMenuItem.Name = "helpMenuToolStripMenuItem";
-            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.helpMenuToolStripMenuItem.Text = "Help Menu";
             // 
             // btnQuery
             // 
+            this.btnQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnQuery.Location = new System.Drawing.Point(12, 512);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
-            this.btnQuery.TabIndex = 2;
+            this.btnQuery.TabIndex = 0;
             this.btnQuery.Text = "Search";
             this.btnQuery.UseVisualStyleBackColor = true;
+            this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
             // 
             // btnModify
             // 
+            this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModify.Location = new System.Drawing.Point(93, 512);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
-            this.btnModify.TabIndex = 3;
+            this.btnModify.TabIndex = 1;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
             // 
@@ -297,35 +317,54 @@
             this.StatusLabel,
             this.ConnectionStatus,
             this.ErrorStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 540);
+            this.statusStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
+            this.statusStrip1.Location = new System.Drawing.Point(0, 542);
             this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 20);
             this.statusStrip1.TabIndex = 4;
             this.statusStrip1.Text = "statusStrip1";
             // 
             // StatusLabel
             // 
             this.StatusLabel.Name = "StatusLabel";
-            this.StatusLabel.Size = new System.Drawing.Size(82, 17);
+            this.StatusLabel.Size = new System.Drawing.Size(82, 15);
             this.StatusLabel.Text = "Current Status";
             // 
             // ConnectionStatus
             // 
             this.ConnectionStatus.Name = "ConnectionStatus";
-            this.ConnectionStatus.Size = new System.Drawing.Size(104, 17);
+            this.ConnectionStatus.Size = new System.Drawing.Size(104, 15);
             this.ConnectionStatus.Text = "Connection Status";
             // 
             // ErrorStatus
             // 
             this.ErrorStatus.Name = "ErrorStatus";
-            this.ErrorStatus.Size = new System.Drawing.Size(56, 17);
+            this.ErrorStatus.Size = new System.Drawing.Size(56, 15);
             this.ErrorStatus.Text = "Last Error";
+            // 
+            // btnAddObservation
+            // 
+            this.btnAddObservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnAddObservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddObservation.Location = new System.Drawing.Point(174, 512);
+            this.btnAddObservation.Name = "btnAddObservation";
+            this.btnAddObservation.Size = new System.Drawing.Size(104, 23);
+            this.btnAddObservation.TabIndex = 2;
+            this.btnAddObservation.Text = "Add Observation";
+            this.btnAddObservation.UseVisualStyleBackColor = true;
+            // 
+            // addObservationToolStripMenuItem
+            // 
+            this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
+            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.addObservationToolStripMenuItem.Text = "Add Observation";
             // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
+            this.Controls.Add(this.btnAddObservation);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.btnModify);
             this.Controls.Add(this.btnQuery);
@@ -333,8 +372,6 @@
             this.Controls.Add(this.menuStrip1);
             this.HelpButton = true;
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(800, 600);
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Database";
             this.ShowIcon = false;
@@ -388,6 +425,8 @@
         private System.Windows.Forms.ToolStripMenuItem exportArcGISToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exportViewToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem customSearchToolStripMenuItem;
+        private System.Windows.Forms.Button btnAddObservation;
+        private System.Windows.Forms.ToolStripMenuItem addObservationToolStripMenuItem;
     }
 }
 

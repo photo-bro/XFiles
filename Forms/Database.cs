@@ -167,6 +167,9 @@ namespace XFiles
             uq.Show();
         }
 
+        private void btnQuery_Click(object sender, EventArgs e)
+        {searchToolStripMenuItem.PerformClick();}
+
 
 
     } // Database Form

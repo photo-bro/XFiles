@@ -14,7 +14,7 @@ namespace XFiles
     public partial class Database : Form
     {
         private XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        private View_Manager m_VM = View_Manager.Instance;
+        private Query_Manager m_VM = Query_Manager.Instance;
 
        
         public Database()
@@ -43,11 +43,11 @@ namespace XFiles
             ErrorStatus.ForeColor = (ErrorHandler.CurrentError < (ErrorHandler.XFILES_ERROR) 1) ? Color.Green : Color.Red;
 
             // views
-            dgvView1.DataSource = m_VM[0];
+            dgvView1.DataSource = m_VM[0].DataSource;
             dgvView1.AutoResizeColumns();
-            dgvView2.DataSource = m_VM[1];
+            dgvView2.DataSource = m_VM[1].DataSource;
             dgvView2.AutoResizeColumns();
-            dgvView3.DataSource = m_VM[2];
+            dgvView3.DataSource = m_VM[2].DataSource;
             dgvView3.AutoResizeColumns();
         
         } // updateGUI
@@ -81,7 +81,7 @@ namespace XFiles
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MessageBox.Show(m_xFacade.QueryToString("SELECT * FROM test"));
-            m_VM.CreateNewView(m_xFacade.QueryToBindingSource("SELECT * FROM test;"));
+            m_VM.CreateNewView("SELECT * FROM test;", m_xFacade.QueryToBindingSource("SELECT * FROM test;"));
             updateGUI();
         } // testToolStripMenuItem
 
@@ -169,6 +169,22 @@ namespace XFiles
 
         private void btnQuery_Click(object sender, EventArgs e)
         {searchToolStripMenuItem.PerformClick();}
+
+        private void openViewInNewWindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Query q;
+             // Get current view
+            if (tabControlMain.SelectedTab == tabOne)
+                q = m_VM[0];
+            else if (tabControlMain.SelectedTab == tabTwo)
+                q = m_VM[1];
+            else if (tabControlMain.SelectedTab == tabThree)
+                q = m_VM[2];
+            else return;
+
+            ResultWindow rw = new ResultWindow(q);
+            rw.Show();
+        }
 
 
 

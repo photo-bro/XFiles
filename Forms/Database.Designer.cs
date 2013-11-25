@@ -60,6 +60,7 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddObservation = new System.Windows.Forms.Button();
+            this.openViewInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -176,6 +177,7 @@
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aboutToolStripMenuItem,
+            this.openViewInNewWindowToolStripMenuItem,
             this.openToolStripMenuItem,
             this.exportArcGISToolStripMenuItem,
             this.exportViewToolStripMenuItem,
@@ -187,7 +189,7 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.aboutToolStripMenuItem.Text = "About";
             // 
             // openToolStripMenuItem
@@ -195,7 +197,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -207,20 +209,20 @@
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // exportViewToolStripMenuItem
             // 
             this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.exportViewToolStripMenuItem.Text = "Export View";
             this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -363,6 +365,13 @@
             this.btnAddObservation.Text = "Add Observation";
             this.btnAddObservation.UseVisualStyleBackColor = true;
             // 
+            // openViewInNewWindowToolStripMenuItem
+            // 
+            this.openViewInNewWindowToolStripMenuItem.Name = "openViewInNewWindowToolStripMenuItem";
+            this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.openViewInNewWindowToolStripMenuItem.Text = "Open View in New Window";
+            this.openViewInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openViewInNewWindowToolStripMenuItem_Click);
+            // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -432,6 +441,7 @@
         private System.Windows.Forms.ToolStripMenuItem customSearchToolStripMenuItem;
         private System.Windows.Forms.Button btnAddObservation;
         private System.Windows.Forms.ToolStripMenuItem addObservationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openViewInNewWindowToolStripMenuItem;
     }
 }
 

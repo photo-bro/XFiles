@@ -20,6 +20,18 @@ namespace XFiles.Forms
             InitializeComponent();
         }
 
+        private void updateGUI()
+        {
+            tbSQL_String.Text = m_AOH.GetInsertQuery;
+
+
+        }
+
+        /// <summary>
+        /// Closes form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         {this.Close();}
 
@@ -69,5 +81,73 @@ namespace XFiles.Forms
                 return;
             }
         }
+
+
+        // ***********************************************
+        //           Component Change    S T U F F
+        // ***********************************************
+       
+
+        private void cbxWeather_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Weather", cbxWeather.SelectedItem.ToString());
+            updateGUI();
+        }
+
+        private void tbLatitude_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Latitude", tbLatitude.Text);
+            updateGUI();
+        }
+
+        private void tbLongitude_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Longitude", tbLongitude.Text);
+            updateGUI();
+        }
+
+        private void tbLocale_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Locality", tbLocale.Text);
+            updateGUI();
+        }
+
+        private void tbObservCount_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Number", tbObservCount.Text);
+            updateGUI();
+        }
+
+        private void tbColor_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Color", tbColor.Text);
+            updateGUI();
+        }
+
+        private void tbTemperature_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("AirTemperature", tbTemperature.Text);
+            updateGUI();
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("DateAndTime", dateTimePicker1.Value.ToString());
+            updateGUI();
+        }
+
+        private void tbCharacteristics_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Characteristics", tbCharacteristics.Text);
+            updateGUI();
+        }
+
+        private void tbComments_TextChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("Comments", tbComments.Text);
+            updateGUI();
+        }
+
+
     } // AddObservation
 } // namespace XFiles.Forms

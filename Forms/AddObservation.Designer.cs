@@ -33,7 +33,15 @@
             this.gbSQ_String = new System.Windows.Forms.GroupBox();
             this.tbSQL_String = new System.Windows.Forms.TextBox();
             this.gbObserParam = new System.Windows.Forms.GroupBox();
+            this.tbLocale = new System.Windows.Forms.TextBox();
+            this.lbLocale = new System.Windows.Forms.Label();
+            this.tbTemperature = new System.Windows.Forms.TextBox();
+            this.tbLongitude = new System.Windows.Forms.TextBox();
+            this.lbTemperature = new System.Windows.Forms.Label();
+            this.lbLong = new System.Windows.Forms.Label();
+            this.tbLatitude = new System.Windows.Forms.TextBox();
             this.tbComments = new System.Windows.Forms.TextBox();
+            this.lbLat = new System.Windows.Forms.Label();
             this.lbComments = new System.Windows.Forms.Label();
             this.tbCharacteristics = new System.Windows.Forms.TextBox();
             this.lbCharacteristics = new System.Windows.Forms.Label();
@@ -54,7 +62,7 @@
             // btnAddObserv
             // 
             this.btnAddObserv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddObserv.Location = new System.Drawing.Point(510, 496);
+            this.btnAddObserv.Location = new System.Drawing.Point(510, 515);
             this.btnAddObserv.Name = "btnAddObserv";
             this.btnAddObserv.Size = new System.Drawing.Size(102, 23);
             this.btnAddObserv.TabIndex = 0;
@@ -64,7 +72,7 @@
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(12, 496);
+            this.btnClose.Location = new System.Drawing.Point(12, 515);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 1;
@@ -75,7 +83,7 @@
             // gbSQ_String
             // 
             this.gbSQ_String.Controls.Add(this.tbSQL_String);
-            this.gbSQ_String.Location = new System.Drawing.Point(12, 334);
+            this.gbSQ_String.Location = new System.Drawing.Point(12, 353);
             this.gbSQ_String.Name = "gbSQ_String";
             this.gbSQ_String.Size = new System.Drawing.Size(600, 147);
             this.gbSQ_String.TabIndex = 4;
@@ -94,7 +102,15 @@
             // 
             // gbObserParam
             // 
+            this.gbObserParam.Controls.Add(this.tbLocale);
+            this.gbObserParam.Controls.Add(this.lbLocale);
+            this.gbObserParam.Controls.Add(this.tbTemperature);
+            this.gbObserParam.Controls.Add(this.tbLongitude);
+            this.gbObserParam.Controls.Add(this.lbTemperature);
+            this.gbObserParam.Controls.Add(this.lbLong);
+            this.gbObserParam.Controls.Add(this.tbLatitude);
             this.gbObserParam.Controls.Add(this.tbComments);
+            this.gbObserParam.Controls.Add(this.lbLat);
             this.gbObserParam.Controls.Add(this.lbComments);
             this.gbObserParam.Controls.Add(this.tbCharacteristics);
             this.gbObserParam.Controls.Add(this.lbCharacteristics);
@@ -110,23 +126,92 @@
             this.gbObserParam.Controls.Add(this.cbxLocation);
             this.gbObserParam.Location = new System.Drawing.Point(18, 12);
             this.gbObserParam.Name = "gbObserParam";
-            this.gbObserParam.Size = new System.Drawing.Size(588, 316);
+            this.gbObserParam.Size = new System.Drawing.Size(588, 335);
             this.gbObserParam.TabIndex = 5;
             this.gbObserParam.TabStop = false;
             this.gbObserParam.Text = "Observation Parameters";
             // 
+            // tbLocale
+            // 
+            this.tbLocale.Location = new System.Drawing.Point(135, 121);
+            this.tbLocale.Name = "tbLocale";
+            this.tbLocale.Size = new System.Drawing.Size(224, 20);
+            this.tbLocale.TabIndex = 17;
+            this.tbLocale.TextChanged += new System.EventHandler(this.tbLocale_TextChanged);
+            // 
+            // lbLocale
+            // 
+            this.lbLocale.AutoSize = true;
+            this.lbLocale.Location = new System.Drawing.Point(21, 124);
+            this.lbLocale.Name = "lbLocale";
+            this.lbLocale.Size = new System.Drawing.Size(45, 13);
+            this.lbLocale.TabIndex = 16;
+            this.lbLocale.Text = "Locale: ";
+            // 
+            // tbTemperature
+            // 
+            this.tbTemperature.Location = new System.Drawing.Point(465, 98);
+            this.tbTemperature.Name = "tbTemperature";
+            this.tbTemperature.Size = new System.Drawing.Size(100, 20);
+            this.tbTemperature.TabIndex = 15;
+            this.tbTemperature.TextChanged += new System.EventHandler(this.tbTemperature_TextChanged);
+            // 
+            // tbLongitude
+            // 
+            this.tbLongitude.Location = new System.Drawing.Point(135, 97);
+            this.tbLongitude.Name = "tbLongitude";
+            this.tbLongitude.Size = new System.Drawing.Size(224, 20);
+            this.tbLongitude.TabIndex = 7;
+            this.tbLongitude.TextChanged += new System.EventHandler(this.tbLongitude_TextChanged);
+            // 
+            // lbTemperature
+            // 
+            this.lbTemperature.AutoSize = true;
+            this.lbTemperature.Location = new System.Drawing.Point(371, 101);
+            this.lbTemperature.Name = "lbTemperature";
+            this.lbTemperature.Size = new System.Drawing.Size(88, 13);
+            this.lbTemperature.TabIndex = 14;
+            this.lbTemperature.Text = "Air Temperature: ";
+            // 
+            // lbLong
+            // 
+            this.lbLong.AutoSize = true;
+            this.lbLong.Location = new System.Drawing.Point(21, 101);
+            this.lbLong.Name = "lbLong";
+            this.lbLong.Size = new System.Drawing.Size(57, 13);
+            this.lbLong.TabIndex = 6;
+            this.lbLong.Text = "Longitude:";
+            // 
+            // tbLatitude
+            // 
+            this.tbLatitude.Location = new System.Drawing.Point(135, 72);
+            this.tbLatitude.Name = "tbLatitude";
+            this.tbLatitude.Size = new System.Drawing.Size(224, 20);
+            this.tbLatitude.TabIndex = 5;
+            this.tbLatitude.TextChanged += new System.EventHandler(this.tbLatitude_TextChanged);
+            // 
             // tbComments
             // 
-            this.tbComments.Location = new System.Drawing.Point(301, 200);
+            this.tbComments.Location = new System.Drawing.Point(301, 228);
             this.tbComments.Multiline = true;
             this.tbComments.Name = "tbComments";
             this.tbComments.Size = new System.Drawing.Size(264, 98);
             this.tbComments.TabIndex = 13;
+            this.tbComments.TextChanged += new System.EventHandler(this.tbComments_TextChanged);
+            // 
+            // lbLat
+            // 
+            this.lbLat.AutoSize = true;
+            this.lbLat.Location = new System.Drawing.Point(21, 74);
+            this.lbLat.Name = "lbLat";
+            this.lbLat.Size = new System.Drawing.Size(48, 13);
+            this.lbLat.TabIndex = 4;
+            this.lbLat.Text = "Latitude:";
             // 
             // lbComments
             // 
             this.lbComments.AutoSize = true;
-            this.lbComments.Location = new System.Drawing.Point(298, 184);
+            this.lbComments.Location = new System.Drawing.Point(298, 212);
             this.lbComments.Name = "lbComments";
             this.lbComments.Size = new System.Drawing.Size(59, 13);
             this.lbComments.TabIndex = 12;
@@ -134,16 +219,17 @@
             // 
             // tbCharacteristics
             // 
-            this.tbCharacteristics.Location = new System.Drawing.Point(24, 200);
+            this.tbCharacteristics.Location = new System.Drawing.Point(24, 228);
             this.tbCharacteristics.Multiline = true;
             this.tbCharacteristics.Name = "tbCharacteristics";
             this.tbCharacteristics.Size = new System.Drawing.Size(264, 98);
             this.tbCharacteristics.TabIndex = 11;
+            this.tbCharacteristics.TextChanged += new System.EventHandler(this.tbCharacteristics_TextChanged);
             // 
             // lbCharacteristics
             // 
             this.lbCharacteristics.AutoSize = true;
-            this.lbCharacteristics.Location = new System.Drawing.Point(21, 184);
+            this.lbCharacteristics.Location = new System.Drawing.Point(21, 212);
             this.lbCharacteristics.Name = "lbCharacteristics";
             this.lbCharacteristics.Size = new System.Drawing.Size(130, 13);
             this.lbCharacteristics.TabIndex = 10;
@@ -151,15 +237,16 @@
             // 
             // tbColor
             // 
-            this.tbColor.Location = new System.Drawing.Point(133, 151);
+            this.tbColor.Location = new System.Drawing.Point(135, 174);
             this.tbColor.Name = "tbColor";
             this.tbColor.Size = new System.Drawing.Size(100, 20);
             this.tbColor.TabIndex = 9;
+            this.tbColor.TextChanged += new System.EventHandler(this.tbColor_TextChanged);
             // 
             // lbColor
             // 
             this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(21, 154);
+            this.lbColor.Location = new System.Drawing.Point(21, 177);
             this.lbColor.Name = "lbColor";
             this.lbColor.Size = new System.Drawing.Size(37, 13);
             this.lbColor.TabIndex = 8;
@@ -167,15 +254,16 @@
             // 
             // tbObservCount
             // 
-            this.tbObservCount.Location = new System.Drawing.Point(133, 124);
+            this.tbObservCount.Location = new System.Drawing.Point(135, 147);
             this.tbObservCount.Name = "tbObservCount";
             this.tbObservCount.Size = new System.Drawing.Size(100, 20);
             this.tbObservCount.TabIndex = 7;
+            this.tbObservCount.TextChanged += new System.EventHandler(this.tbObservCount_TextChanged);
             // 
             // lbObservCount
             // 
             this.lbObservCount.AutoSize = true;
-            this.lbObservCount.Location = new System.Drawing.Point(21, 127);
+            this.lbObservCount.Location = new System.Drawing.Point(21, 150);
             this.lbObservCount.Name = "lbObservCount";
             this.lbObservCount.Size = new System.Drawing.Size(98, 13);
             this.lbObservCount.TabIndex = 6;
@@ -184,23 +272,25 @@
             // cbxWeather
             // 
             this.cbxWeather.FormattingEnabled = true;
-            this.cbxWeather.Location = new System.Drawing.Point(24, 85);
+            this.cbxWeather.Location = new System.Drawing.Point(416, 71);
             this.cbxWeather.Name = "cbxWeather";
             this.cbxWeather.Size = new System.Drawing.Size(149, 21);
             this.cbxWeather.TabIndex = 5;
             this.cbxWeather.Text = "Weather";
+            this.cbxWeather.SelectedIndexChanged += new System.EventHandler(this.cbxWeather_SelectedIndexChanged);
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(365, 91);
+            this.dateTimePicker1.Location = new System.Drawing.Point(365, 148);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 4;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbDateTime
             // 
             this.lbDateTime.AutoSize = true;
-            this.lbDateTime.Location = new System.Drawing.Point(276, 93);
+            this.lbDateTime.Location = new System.Drawing.Point(276, 150);
             this.lbDateTime.Name = "lbDateTime";
             this.lbDateTime.Size = new System.Drawing.Size(83, 13);
             this.lbDateTime.TabIndex = 3;
@@ -247,7 +337,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(624, 532);
+            this.ClientSize = new System.Drawing.Size(624, 547);
             this.Controls.Add(this.gbObserParam);
             this.Controls.Add(this.gbSQ_String);
             this.Controls.Add(this.btnClose);
@@ -286,5 +376,13 @@
         private System.Windows.Forms.ComboBox cbxGroup;
         private System.Windows.Forms.ComboBox cbxAnimal;
         private System.Windows.Forms.ComboBox cbxLocation;
+        private System.Windows.Forms.TextBox tbTemperature;
+        private System.Windows.Forms.Label lbTemperature;
+        private System.Windows.Forms.TextBox tbLongitude;
+        private System.Windows.Forms.Label lbLong;
+        private System.Windows.Forms.TextBox tbLatitude;
+        private System.Windows.Forms.Label lbLat;
+        private System.Windows.Forms.TextBox tbLocale;
+        private System.Windows.Forms.Label lbLocale;
     }
 }

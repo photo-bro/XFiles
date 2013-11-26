@@ -31,12 +31,14 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.gbAdd = new System.Windows.Forms.GroupBox();
-            this.lbCommonName = new System.Windows.Forms.Label();
-            this.tbCommonName = new System.Windows.Forms.TextBox();
-            this.tbScientificName = new System.Windows.Forms.TextBox();
-            this.lbScientificName = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lbCharacteristics = new System.Windows.Forms.Label();
+            this.tbGenus = new System.Windows.Forms.TextBox();
+            this.lbGenus = new System.Windows.Forms.Label();
+            this.tbCommonName = new System.Windows.Forms.TextBox();
+            this.lbCommonName = new System.Windows.Forms.Label();
+            this.tbSpecies = new System.Windows.Forms.TextBox();
+            this.lbSpecies = new System.Windows.Forms.Label();
             this.gbAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,10 +65,12 @@
             // 
             // gbAdd
             // 
+            this.gbAdd.Controls.Add(this.tbSpecies);
+            this.gbAdd.Controls.Add(this.lbSpecies);
             this.gbAdd.Controls.Add(this.textBox1);
             this.gbAdd.Controls.Add(this.lbCharacteristics);
-            this.gbAdd.Controls.Add(this.tbScientificName);
-            this.gbAdd.Controls.Add(this.lbScientificName);
+            this.gbAdd.Controls.Add(this.tbGenus);
+            this.gbAdd.Controls.Add(this.lbGenus);
             this.gbAdd.Controls.Add(this.tbCommonName);
             this.gbAdd.Controls.Add(this.lbCommonName);
             this.gbAdd.Location = new System.Drawing.Point(12, 12);
@@ -75,6 +79,46 @@
             this.gbAdd.TabIndex = 2;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Animal";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(155, 102);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(189, 91);
+            this.textBox1.TabIndex = 5;
+            // 
+            // lbCharacteristics
+            // 
+            this.lbCharacteristics.AutoSize = true;
+            this.lbCharacteristics.Location = new System.Drawing.Point(6, 105);
+            this.lbCharacteristics.Name = "lbCharacteristics";
+            this.lbCharacteristics.Size = new System.Drawing.Size(79, 13);
+            this.lbCharacteristics.TabIndex = 4;
+            this.lbCharacteristics.Text = "Characteristics:";
+            // 
+            // tbGenus
+            // 
+            this.tbGenus.Location = new System.Drawing.Point(155, 50);
+            this.tbGenus.Name = "tbGenus";
+            this.tbGenus.Size = new System.Drawing.Size(189, 20);
+            this.tbGenus.TabIndex = 3;
+            // 
+            // lbGenus
+            // 
+            this.lbGenus.AutoSize = true;
+            this.lbGenus.Location = new System.Drawing.Point(6, 53);
+            this.lbGenus.Name = "lbGenus";
+            this.lbGenus.Size = new System.Drawing.Size(41, 13);
+            this.lbGenus.TabIndex = 2;
+            this.lbGenus.Text = "Genus:";
+            // 
+            // tbCommonName
+            // 
+            this.tbCommonName.Location = new System.Drawing.Point(155, 24);
+            this.tbCommonName.Name = "tbCommonName";
+            this.tbCommonName.Size = new System.Drawing.Size(189, 20);
+            this.tbCommonName.TabIndex = 1;
             // 
             // lbCommonName
             // 
@@ -85,45 +129,21 @@
             this.lbCommonName.TabIndex = 0;
             this.lbCommonName.Text = "Common Name:";
             // 
-            // tbCommonName
+            // tbSpecies
             // 
-            this.tbCommonName.Location = new System.Drawing.Point(155, 24);
-            this.tbCommonName.Name = "tbCommonName";
-            this.tbCommonName.Size = new System.Drawing.Size(189, 20);
-            this.tbCommonName.TabIndex = 1;
+            this.tbSpecies.Location = new System.Drawing.Point(155, 76);
+            this.tbSpecies.Name = "tbSpecies";
+            this.tbSpecies.Size = new System.Drawing.Size(189, 20);
+            this.tbSpecies.TabIndex = 7;
             // 
-            // tbScientificName
+            // lbSpecies
             // 
-            this.tbScientificName.Location = new System.Drawing.Point(155, 50);
-            this.tbScientificName.Name = "tbScientificName";
-            this.tbScientificName.Size = new System.Drawing.Size(189, 20);
-            this.tbScientificName.TabIndex = 3;
-            // 
-            // lbScientificName
-            // 
-            this.lbScientificName.AutoSize = true;
-            this.lbScientificName.Location = new System.Drawing.Point(6, 53);
-            this.lbScientificName.Name = "lbScientificName";
-            this.lbScientificName.Size = new System.Drawing.Size(84, 13);
-            this.lbScientificName.TabIndex = 2;
-            this.lbScientificName.Text = "Scientific Name:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(155, 76);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(189, 91);
-            this.textBox1.TabIndex = 5;
-            // 
-            // lbCharacteristics
-            // 
-            this.lbCharacteristics.AutoSize = true;
-            this.lbCharacteristics.Location = new System.Drawing.Point(6, 79);
-            this.lbCharacteristics.Name = "lbCharacteristics";
-            this.lbCharacteristics.Size = new System.Drawing.Size(79, 13);
-            this.lbCharacteristics.TabIndex = 4;
-            this.lbCharacteristics.Text = "Characteristics:";
+            this.lbSpecies.AutoSize = true;
+            this.lbSpecies.Location = new System.Drawing.Point(6, 79);
+            this.lbSpecies.Name = "lbSpecies";
+            this.lbSpecies.Size = new System.Drawing.Size(48, 13);
+            this.lbSpecies.TabIndex = 6;
+            this.lbSpecies.Text = "Species:";
             // 
             // Add_Animal
             // 
@@ -151,9 +171,11 @@
         private System.Windows.Forms.GroupBox gbAdd;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lbCharacteristics;
-        private System.Windows.Forms.TextBox tbScientificName;
-        private System.Windows.Forms.Label lbScientificName;
+        private System.Windows.Forms.TextBox tbGenus;
+        private System.Windows.Forms.Label lbGenus;
         private System.Windows.Forms.TextBox tbCommonName;
         private System.Windows.Forms.Label lbCommonName;
+        private System.Windows.Forms.TextBox tbSpecies;
+        private System.Windows.Forms.Label lbSpecies;
     }
 }

@@ -42,10 +42,32 @@ namespace XFiles.Forms
             }
         }
 
-
-
         private void RefreshFromServer()
         {
+        }
+
+        private void cbxAnimal_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxAnimal.SelectedItem.ToString() == "Add Animal")
+            {
+                Add_Animal aa = new Add_Animal();
+                var result = aa.ShowDialog();
+                RefreshFromServer(); // make sure box is repopulated with new enitity
+                cbxLocation.SelectedValue = result;
+                return;
+            }
+        }
+
+        private void cbxGroup_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cbxGroup.SelectedItem.ToString() == "Create New Group")
+            {
+                Add_Group ag = new Add_Group();
+                var result = ag.ShowDialog();
+                RefreshFromServer(); // make sure box is repopulated with new enitity
+                cbxLocation.SelectedValue = result;
+                return;
+            }
         }
     } // AddObservation
 } // namespace XFiles.Forms

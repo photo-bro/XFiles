@@ -46,10 +46,10 @@
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dbActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -249,12 +249,12 @@
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
-            // testToolStripMenuItem
+            // addObservationToolStripMenuItem
             // 
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
+            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.addObservationToolStripMenuItem.Text = "Add Observation";
+            this.addObservationToolStripMenuItem.Click += new System.EventHandler(this.addObservationToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
@@ -270,12 +270,12 @@
             this.customSearchToolStripMenuItem.Text = "Custom Search";
             this.customSearchToolStripMenuItem.Click += new System.EventHandler(this.customSearchToolStripMenuItem_Click);
             // 
-            // addObservationToolStripMenuItem
+            // testToolStripMenuItem
             // 
-            this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
-            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.addObservationToolStripMenuItem.Text = "Add Observation";
-            this.addObservationToolStripMenuItem.Click += new System.EventHandler(this.addObservationToolStripMenuItem_Click);
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -295,10 +295,10 @@
             // 
             this.btnQuery.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuery.Location = new System.Drawing.Point(12, 512);
+            this.btnQuery.Location = new System.Drawing.Point(122, 512);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
-            this.btnQuery.TabIndex = 0;
+            this.btnQuery.TabIndex = 1;
             this.btnQuery.Text = "Search";
             this.btnQuery.UseVisualStyleBackColor = true;
             this.btnQuery.Click += new System.EventHandler(this.btnQuery_Click);
@@ -307,10 +307,10 @@
             // 
             this.btnModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnModify.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModify.Location = new System.Drawing.Point(93, 512);
+            this.btnModify.Location = new System.Drawing.Point(203, 512);
             this.btnModify.Name = "btnModify";
             this.btnModify.Size = new System.Drawing.Size(75, 23);
-            this.btnModify.TabIndex = 1;
+            this.btnModify.TabIndex = 2;
             this.btnModify.Text = "Modify";
             this.btnModify.UseVisualStyleBackColor = true;
             // 
@@ -350,10 +350,10 @@
             // 
             this.btnAddObservation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnAddObservation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddObservation.Location = new System.Drawing.Point(174, 512);
+            this.btnAddObservation.Location = new System.Drawing.Point(12, 512);
             this.btnAddObservation.Name = "btnAddObservation";
             this.btnAddObservation.Size = new System.Drawing.Size(104, 23);
-            this.btnAddObservation.TabIndex = 2;
+            this.btnAddObservation.TabIndex = 0;
             this.btnAddObservation.Text = "Add Observation";
             this.btnAddObservation.UseVisualStyleBackColor = true;
             this.btnAddObservation.Click += new System.EventHandler(this.btnAddObservation_Click);

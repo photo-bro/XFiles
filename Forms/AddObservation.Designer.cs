@@ -33,20 +33,20 @@
             this.gbSQ_String = new System.Windows.Forms.GroupBox();
             this.tbSQL_String = new System.Windows.Forms.TextBox();
             this.gbObserParam = new System.Windows.Forms.GroupBox();
-            this.cbxLocation = new System.Windows.Forms.ComboBox();
-            this.cbxAnimal = new System.Windows.Forms.ComboBox();
-            this.cbxGroup = new System.Windows.Forms.ComboBox();
-            this.lbDateTime = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.cbxWeather = new System.Windows.Forms.ComboBox();
-            this.lbObservCount = new System.Windows.Forms.Label();
-            this.tbObservCount = new System.Windows.Forms.TextBox();
-            this.tbColor = new System.Windows.Forms.TextBox();
-            this.lbColor = new System.Windows.Forms.Label();
-            this.tbCharacteristics = new System.Windows.Forms.TextBox();
-            this.lbCharacteristics = new System.Windows.Forms.Label();
             this.tbComments = new System.Windows.Forms.TextBox();
             this.lbComments = new System.Windows.Forms.Label();
+            this.tbCharacteristics = new System.Windows.Forms.TextBox();
+            this.lbCharacteristics = new System.Windows.Forms.Label();
+            this.tbColor = new System.Windows.Forms.TextBox();
+            this.lbColor = new System.Windows.Forms.Label();
+            this.tbObservCount = new System.Windows.Forms.TextBox();
+            this.lbObservCount = new System.Windows.Forms.Label();
+            this.cbxWeather = new System.Windows.Forms.ComboBox();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.lbDateTime = new System.Windows.Forms.Label();
+            this.cbxGroup = new System.Windows.Forms.ComboBox();
+            this.cbxAnimal = new System.Windows.Forms.ComboBox();
+            this.cbxLocation = new System.Windows.Forms.ComboBox();
             this.gbSQ_String.SuspendLayout();
             this.gbObserParam.SuspendLayout();
             this.SuspendLayout();
@@ -115,96 +115,22 @@
             this.gbObserParam.TabStop = false;
             this.gbObserParam.Text = "Observation Parameters";
             // 
-            // cbxLocation
+            // tbComments
             // 
-            this.cbxLocation.FormattingEnabled = true;
-            this.cbxLocation.Items.AddRange(new object[] {
-            "Add Location"});
-            this.cbxLocation.Location = new System.Drawing.Point(24, 38);
-            this.cbxLocation.Name = "cbxLocation";
-            this.cbxLocation.Size = new System.Drawing.Size(199, 21);
-            this.cbxLocation.TabIndex = 0;
-            this.cbxLocation.Text = "Location";
-            this.cbxLocation.SelectedValueChanged += new System.EventHandler(this.cbxLocation_SelectedValueChanged);
+            this.tbComments.Location = new System.Drawing.Point(301, 200);
+            this.tbComments.Multiline = true;
+            this.tbComments.Name = "tbComments";
+            this.tbComments.Size = new System.Drawing.Size(264, 98);
+            this.tbComments.TabIndex = 13;
             // 
-            // cbxAnimal
+            // lbComments
             // 
-            this.cbxAnimal.FormattingEnabled = true;
-            this.cbxAnimal.Items.AddRange(new object[] {
-            "Add Animal"});
-            this.cbxAnimal.Location = new System.Drawing.Point(229, 38);
-            this.cbxAnimal.Name = "cbxAnimal";
-            this.cbxAnimal.Size = new System.Drawing.Size(209, 21);
-            this.cbxAnimal.TabIndex = 1;
-            this.cbxAnimal.Text = "Animal";
-            // 
-            // cbxGroup
-            // 
-            this.cbxGroup.FormattingEnabled = true;
-            this.cbxGroup.Items.AddRange(new object[] {
-            "Create New Group"});
-            this.cbxGroup.Location = new System.Drawing.Point(444, 38);
-            this.cbxGroup.Name = "cbxGroup";
-            this.cbxGroup.Size = new System.Drawing.Size(121, 21);
-            this.cbxGroup.TabIndex = 2;
-            this.cbxGroup.Text = "Observer Group";
-            // 
-            // lbDateTime
-            // 
-            this.lbDateTime.AutoSize = true;
-            this.lbDateTime.Location = new System.Drawing.Point(276, 93);
-            this.lbDateTime.Name = "lbDateTime";
-            this.lbDateTime.Size = new System.Drawing.Size(83, 13);
-            this.lbDateTime.TabIndex = 3;
-            this.lbDateTime.Text = "Date and Time: ";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(365, 91);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 4;
-            // 
-            // cbxWeather
-            // 
-            this.cbxWeather.FormattingEnabled = true;
-            this.cbxWeather.Location = new System.Drawing.Point(24, 85);
-            this.cbxWeather.Name = "cbxWeather";
-            this.cbxWeather.Size = new System.Drawing.Size(149, 21);
-            this.cbxWeather.TabIndex = 5;
-            this.cbxWeather.Text = "Weather";
-            // 
-            // lbObservCount
-            // 
-            this.lbObservCount.AutoSize = true;
-            this.lbObservCount.Location = new System.Drawing.Point(21, 127);
-            this.lbObservCount.Name = "lbObservCount";
-            this.lbObservCount.Size = new System.Drawing.Size(98, 13);
-            this.lbObservCount.TabIndex = 6;
-            this.lbObservCount.Text = "Number of Animals:";
-            // 
-            // tbObservCount
-            // 
-            this.tbObservCount.Location = new System.Drawing.Point(133, 124);
-            this.tbObservCount.Name = "tbObservCount";
-            this.tbObservCount.Size = new System.Drawing.Size(100, 20);
-            this.tbObservCount.TabIndex = 7;
-            // 
-            // tbColor
-            // 
-            this.tbColor.Location = new System.Drawing.Point(133, 151);
-            this.tbColor.Name = "tbColor";
-            this.tbColor.Size = new System.Drawing.Size(100, 20);
-            this.tbColor.TabIndex = 9;
-            // 
-            // lbColor
-            // 
-            this.lbColor.AutoSize = true;
-            this.lbColor.Location = new System.Drawing.Point(21, 154);
-            this.lbColor.Name = "lbColor";
-            this.lbColor.Size = new System.Drawing.Size(37, 13);
-            this.lbColor.TabIndex = 8;
-            this.lbColor.Text = "Color: ";
+            this.lbComments.AutoSize = true;
+            this.lbComments.Location = new System.Drawing.Point(298, 184);
+            this.lbComments.Name = "lbComments";
+            this.lbComments.Size = new System.Drawing.Size(59, 13);
+            this.lbComments.TabIndex = 12;
+            this.lbComments.Text = "Comments:";
             // 
             // tbCharacteristics
             // 
@@ -223,22 +149,98 @@
             this.lbCharacteristics.TabIndex = 10;
             this.lbCharacteristics.Text = "Identifying Characteristics:";
             // 
-            // tbComments
+            // tbColor
             // 
-            this.tbComments.Location = new System.Drawing.Point(301, 200);
-            this.tbComments.Multiline = true;
-            this.tbComments.Name = "tbComments";
-            this.tbComments.Size = new System.Drawing.Size(264, 98);
-            this.tbComments.TabIndex = 13;
+            this.tbColor.Location = new System.Drawing.Point(133, 151);
+            this.tbColor.Name = "tbColor";
+            this.tbColor.Size = new System.Drawing.Size(100, 20);
+            this.tbColor.TabIndex = 9;
             // 
-            // lbComments
+            // lbColor
             // 
-            this.lbComments.AutoSize = true;
-            this.lbComments.Location = new System.Drawing.Point(298, 184);
-            this.lbComments.Name = "lbComments";
-            this.lbComments.Size = new System.Drawing.Size(59, 13);
-            this.lbComments.TabIndex = 12;
-            this.lbComments.Text = "Comments:";
+            this.lbColor.AutoSize = true;
+            this.lbColor.Location = new System.Drawing.Point(21, 154);
+            this.lbColor.Name = "lbColor";
+            this.lbColor.Size = new System.Drawing.Size(37, 13);
+            this.lbColor.TabIndex = 8;
+            this.lbColor.Text = "Color: ";
+            // 
+            // tbObservCount
+            // 
+            this.tbObservCount.Location = new System.Drawing.Point(133, 124);
+            this.tbObservCount.Name = "tbObservCount";
+            this.tbObservCount.Size = new System.Drawing.Size(100, 20);
+            this.tbObservCount.TabIndex = 7;
+            // 
+            // lbObservCount
+            // 
+            this.lbObservCount.AutoSize = true;
+            this.lbObservCount.Location = new System.Drawing.Point(21, 127);
+            this.lbObservCount.Name = "lbObservCount";
+            this.lbObservCount.Size = new System.Drawing.Size(98, 13);
+            this.lbObservCount.TabIndex = 6;
+            this.lbObservCount.Text = "Number of Animals:";
+            // 
+            // cbxWeather
+            // 
+            this.cbxWeather.FormattingEnabled = true;
+            this.cbxWeather.Location = new System.Drawing.Point(24, 85);
+            this.cbxWeather.Name = "cbxWeather";
+            this.cbxWeather.Size = new System.Drawing.Size(149, 21);
+            this.cbxWeather.TabIndex = 5;
+            this.cbxWeather.Text = "Weather";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(365, 91);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.TabIndex = 4;
+            // 
+            // lbDateTime
+            // 
+            this.lbDateTime.AutoSize = true;
+            this.lbDateTime.Location = new System.Drawing.Point(276, 93);
+            this.lbDateTime.Name = "lbDateTime";
+            this.lbDateTime.Size = new System.Drawing.Size(83, 13);
+            this.lbDateTime.TabIndex = 3;
+            this.lbDateTime.Text = "Date and Time: ";
+            // 
+            // cbxGroup
+            // 
+            this.cbxGroup.FormattingEnabled = true;
+            this.cbxGroup.Items.AddRange(new object[] {
+            "Create New Group"});
+            this.cbxGroup.Location = new System.Drawing.Point(444, 38);
+            this.cbxGroup.Name = "cbxGroup";
+            this.cbxGroup.Size = new System.Drawing.Size(121, 21);
+            this.cbxGroup.TabIndex = 2;
+            this.cbxGroup.Text = "Observer Group";
+            this.cbxGroup.SelectedValueChanged += new System.EventHandler(this.cbxGroup_SelectedValueChanged);
+            // 
+            // cbxAnimal
+            // 
+            this.cbxAnimal.FormattingEnabled = true;
+            this.cbxAnimal.Items.AddRange(new object[] {
+            "Add Animal"});
+            this.cbxAnimal.Location = new System.Drawing.Point(229, 38);
+            this.cbxAnimal.Name = "cbxAnimal";
+            this.cbxAnimal.Size = new System.Drawing.Size(209, 21);
+            this.cbxAnimal.TabIndex = 1;
+            this.cbxAnimal.Text = "Animal";
+            this.cbxAnimal.SelectedValueChanged += new System.EventHandler(this.cbxAnimal_SelectedValueChanged);
+            // 
+            // cbxLocation
+            // 
+            this.cbxLocation.FormattingEnabled = true;
+            this.cbxLocation.Items.AddRange(new object[] {
+            "Add Location"});
+            this.cbxLocation.Location = new System.Drawing.Point(24, 38);
+            this.cbxLocation.Name = "cbxLocation";
+            this.cbxLocation.Size = new System.Drawing.Size(199, 21);
+            this.cbxLocation.TabIndex = 0;
+            this.cbxLocation.Text = "Location";
+            this.cbxLocation.SelectedValueChanged += new System.EventHandler(this.cbxLocation_SelectedValueChanged);
             // 
             // AddObservation
             // 

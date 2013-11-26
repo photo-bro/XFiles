@@ -105,6 +105,7 @@
             this.dgvView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView1.Location = new System.Drawing.Point(6, 6);
             this.dgvView1.Name = "dgvView1";
+            this.dgvView1.ReadOnly = true;
             this.dgvView1.Size = new System.Drawing.Size(740, 443);
             this.dgvView1.TabIndex = 0;
             this.dgvView1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
@@ -129,6 +130,7 @@
             this.dgvView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView2.Location = new System.Drawing.Point(6, 6);
             this.dgvView2.Name = "dgvView2";
+            this.dgvView2.ReadOnly = true;
             this.dgvView2.Size = new System.Drawing.Size(740, 443);
             this.dgvView2.TabIndex = 1;
             this.dgvView2.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
@@ -152,6 +154,7 @@
             this.dgvView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvView3.Location = new System.Drawing.Point(6, 6);
             this.dgvView3.Name = "dgvView3";
+            this.dgvView3.ReadOnly = true;
             this.dgvView3.Size = new System.Drawing.Size(740, 443);
             this.dgvView3.TabIndex = 1;
             this.dgvView3.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);

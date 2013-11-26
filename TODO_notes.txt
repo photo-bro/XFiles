@@ -1,8 +1,9 @@
-﻿- Put Lat/Long of observation form, remove from add location form
-- Create overarching location entity
-- Create locale entity
-- Genus/Species for animal instead of scientific name
-- Air temp for observation
+﻿x Put Lat/Long of observation form, remove from add location form
+x Create overarching location entity
+x Create locale entity
+	= Added locale field to Observation, kept location as overarching type
+x Genus/Species for animal instead of scientific name
+x Air temp for observation
 - Get modify to work
 	- New form
 - Save to file better formatted, easier to use

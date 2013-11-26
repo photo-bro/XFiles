@@ -30,7 +30,8 @@ CONSTRAINT PRIMARY KEY (AddressID));
 CREATE TABLE Animal_T
 		(AnimalID 		INT NOT NULL AUTO_INCREMENT,
 		 CommonName		VARCHAR(45) NOT NULL,
-		 ScientificName VARCHAR(60),
+		 Genus 			VARCHAR(60),
+		 Species 		VARCHAR(60),
 		 Characteristics VARCHAR(255),
 CONSTRAINT PRIMARY KEY (AnimalID));
 
@@ -50,9 +51,6 @@ CREATE TABLE Location_T
 		(LocationID		INT NOT NULL AUTO_INCREMENT,
 		 AddressID		INT NOT NULL,
 		 OfficialName	VARCHAR(45) NOT NULL,
-		 Locality		VARCHAR(45),
-		 Latitude		DECIMAL(10, 8),
-		 Longitude		DECIMAL(10,8),
 CONSTRAINT PRIMARY KEY (LocationID),
 CONSTRAINT FOREIGN KEY (AddressID) REFERENCES Address_T(AddressID) ON UPDATE CASCADE ON DELETE CASCADE);
 
@@ -60,6 +58,7 @@ CREATE TABLE Group_T
 		(GroupID		INT NOT NULL AUTO_INCREMENT,
 		 ObserverID		INT NOT NULL,
 		 GroupName		VARCHAR(45),
+		 Active			BOOL NOT NULL DEFAULT TRUE,
 CONSTRAINT Group_PK PRIMARY KEY (GroupID),
 CONSTRAINT FOREIGN KEY (ObserverID) REFERENCES Observer_T(ObserverID) ON UPDATE CASCADE ON DELETE CASCADE);
 
@@ -68,8 +67,12 @@ CREATE TABLE Observation_T
 		 LocationID		INT NOT NULL,
 		 AnimalID		INT NOT NULL,
 		 GroupID		INT NOT NULL,
+		 Locality		VARCHAR(45),
+		 Latitude		DECIMAL(10, 8),
+		 Longitude		DECIMAL(10,8),
 		 DateAndTime	DATETIME NOT NULL,
-		 Weather		ENUM ("Sunny", "Cloudy", "Raining", "Snowing", "Overcast"),
+		 Weather		ENUM ("Sunny", "Partly Cloudy", "Cloudy", "Overcast", "Raining"),
+		 AirTemperature INT,
 		 Number			INT NOT NULL,
 		 Color			VARCHAR(24),
 		 Characteristics VARCHAR(255),

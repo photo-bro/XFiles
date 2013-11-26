@@ -35,22 +35,6 @@ namespace XFiles
         //           H A N D L E R    S T U F F
         // ***********************************************
 
-        // Observation:
-        // Location(entity), DateTime, Weather, Wind, Temperature(f), Observer(entity)
-        // Animal(entity), number, color, identifying characteristics, comment
-        //
-        // Location:
-        // Lat/Long, Name, Locality (Science center, Eliestoun etc), address info (optional)
-        //
-        // Observer:
-        // FirstName, LastName, Credentials (student, prof, staff, etc), age
-        //
-        // Animal:
-        // Common Name, Scientific Name, phylum, class, order, family, genus, species, 
-        // characteristics
-        //  
-
-
         public string GetQuery
         {
             get

@@ -38,16 +38,15 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openViewInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.inputFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportArcGISToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exportViewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.commandsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dbActionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.modifyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addObservationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,7 +59,6 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddObservation = new System.Windows.Forms.Button();
-            this.openViewInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -163,8 +161,7 @@
             this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
-            this.editToolStripMenuItem,
-            this.commandsToolStripMenuItem,
+            this.dbActionsToolStripMenuItem,
             this.helpToolStripMenuItem});
             this.menuStrip1.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.Flow;
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
@@ -191,6 +188,13 @@
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             this.aboutToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            // 
+            // openViewInNewWindowToolStripMenuItem
+            // 
+            this.openViewInNewWindowToolStripMenuItem.Name = "openViewInNewWindowToolStripMenuItem";
+            this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.openViewInNewWindowToolStripMenuItem.Text = "Open View in New Window";
+            this.openViewInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openViewInNewWindowToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -226,24 +230,17 @@
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
-            // editToolStripMenuItem
+            // dbActionsToolStripMenuItem
             // 
-            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 19);
-            this.editToolStripMenuItem.Text = "Edit";
-            // 
-            // commandsToolStripMenuItem
-            // 
-            this.commandsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.dbActionsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.loginToolStripMenuItem,
-            this.testToolStripMenuItem,
-            this.modifyToolStripMenuItem,
+            this.addObservationToolStripMenuItem,
             this.searchToolStripMenuItem,
             this.customSearchToolStripMenuItem,
-            this.addObservationToolStripMenuItem});
-            this.commandsToolStripMenuItem.Name = "commandsToolStripMenuItem";
-            this.commandsToolStripMenuItem.Size = new System.Drawing.Size(81, 19);
-            this.commandsToolStripMenuItem.Text = "Commands";
+            this.testToolStripMenuItem});
+            this.dbActionsToolStripMenuItem.Name = "dbActionsToolStripMenuItem";
+            this.dbActionsToolStripMenuItem.Size = new System.Drawing.Size(110, 19);
+            this.dbActionsToolStripMenuItem.Text = "Database Actions";
             // 
             // loginToolStripMenuItem
             // 
@@ -258,12 +255,6 @@
             this.testToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
-            // 
-            // modifyToolStripMenuItem
-            // 
-            this.modifyToolStripMenuItem.Name = "modifyToolStripMenuItem";
-            this.modifyToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
-            this.modifyToolStripMenuItem.Text = "Modify";
             // 
             // searchToolStripMenuItem
             // 
@@ -284,6 +275,7 @@
             this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
             this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.addObservationToolStripMenuItem.Text = "Add Observation";
+            this.addObservationToolStripMenuItem.Click += new System.EventHandler(this.addObservationToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
             // 
@@ -364,13 +356,7 @@
             this.btnAddObservation.TabIndex = 2;
             this.btnAddObservation.Text = "Add Observation";
             this.btnAddObservation.UseVisualStyleBackColor = true;
-            // 
-            // openViewInNewWindowToolStripMenuItem
-            // 
-            this.openViewInNewWindowToolStripMenuItem.Name = "openViewInNewWindowToolStripMenuItem";
-            this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.openViewInNewWindowToolStripMenuItem.Text = "Open View in New Window";
-            this.openViewInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openViewInNewWindowToolStripMenuItem_Click);
+            this.btnAddObservation.Click += new System.EventHandler(this.btnAddObservation_Click);
             // 
             // Database
             // 
@@ -414,8 +400,7 @@
         private System.Windows.Forms.TabPage tabTwo;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem commandsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dbActionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.DataGridView dgvView1;
         private System.Windows.Forms.DataGridView dgvView2;
@@ -430,7 +415,6 @@
         private System.Windows.Forms.ToolStripMenuItem inputFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem modifyToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpMenuToolStripMenuItem;
         private System.Windows.Forms.ToolStripStatusLabel ConnectionStatus;
         private System.Windows.Forms.ToolStripStatusLabel ErrorStatus;

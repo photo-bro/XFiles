@@ -188,6 +188,17 @@ namespace XFiles
             { MessageBox.Show("Query loading... Please try again"); }
         }
 
+        private void btnAddObservation_Click(object sender, EventArgs e)
+        { AddObservationWindow(); }
+
+        private void addObservationToolStripMenuItem_Click(object sender, EventArgs e)
+        { AddObservationWindow(); }
+
+        private void AddObservationWindow()
+        {
+            AddObservation ao = new AddObservation();
+            ao.Show();
+        }
 
 
     } // Database Form

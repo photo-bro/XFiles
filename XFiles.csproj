@@ -84,6 +84,18 @@
     <Compile Include="Forms\Observation_Forms\Add_Animal.Designer.cs">
       <DependentUpon>Add_Animal.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Observation_Forms\Add_Group.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Observation_Forms\Add_Group.Designer.cs">
+      <DependentUpon>Add_Group.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Observation_Forms\Add_Location.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Observation_Forms\Add_Location.Designer.cs">
+      <DependentUpon>Add_Location.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\ResultWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -136,6 +148,12 @@
     <EmbeddedResource Include="Forms\Observation_Forms\Add_Animal.resx">
       <DependentUpon>Add_Animal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Observation_Forms\Add_Group.resx">
+      <DependentUpon>Add_Group.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Observation_Forms\Add_Location.resx">
+      <DependentUpon>Add_Location.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\ResultWindow.resx">
       <DependentUpon>ResultWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,6 +197,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\XFiles_Splash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="XFilesDBCreate.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

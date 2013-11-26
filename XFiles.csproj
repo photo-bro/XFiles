@@ -36,6 +36,7 @@
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>C:\Program Files\MySQL\Connector NET 6.7.4\Assemblies\v4.0\MySql.Data.dll</HintPath>
     </Reference>
+    <Reference Include="MySql.Data.CF, Version=6.7.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web.Services" />
@@ -199,6 +200,7 @@
     <None Include="Resources\XFiles_Splash.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TODO_notes.txt" />
     <Content Include="XFilesDBCreate.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

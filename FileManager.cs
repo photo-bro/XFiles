@@ -32,10 +32,10 @@ namespace XFiles
         private string m_sLastFileName = "";
 
         // Database login information
-        private string c_sServer = "cs-vh1";
-        private string c_sDatabase = "xfiles";
-        private string c_sUID = "josh";
-        private string c_sPassword = "mudpie";
+        private string c_sServer = "sql3.freemysqlhosting.net";  //"cs-vh1";
+        private string c_sDatabase = "sql323644";                //"xfiles";
+        private string c_sUID = "sql323644";                     //"josh";
+        private string c_sPassword = "uP8%bG6%";                 //"mudpie";
 
         /// <summary>
         /// Return the active database name

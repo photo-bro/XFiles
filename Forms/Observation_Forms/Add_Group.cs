@@ -42,7 +42,8 @@ namespace XFiles.Forms.Observation_Forms
         {
             // get AddressID from AddressName
             string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
-            m_AOH.InsertGroup(
+            string ObserverID = m_AOH.getObserverID(tbFirstName.Text, tbLastName.Text);
+            m_AOH.InsertGroup(ObserverID, tbGroupName.Text, cbxGroupStatus.ToString());
             this.Close();
         }
     }

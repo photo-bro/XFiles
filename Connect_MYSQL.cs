@@ -117,7 +117,7 @@ namespace XFiles
         /// <param name="sCommand"></param>
         public void sendCommand(string sCommand)
         {
-            openConnection();
+            if (!m_bIsOpen) openConnection();
 
             MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 

@@ -78,13 +78,27 @@ namespace XFiles
         {
         }
 
+        public void Command(string command)
+        {
+            try
+            {
+                m_SQL.sendCommand(command);
+                Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Command sent and processed correctly");
+            }
+            catch (MySqlException e)
+            {
+                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR, e.ToString());
+                Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Command send or process error");
+            }
+        }
+
         /// <summary>
         /// Return a BindingSource object containing the data selected by the query
         /// </summary>
         /// <param name="tablename"></param>
         /// <param name="query"></param>
         /// <returns></returns>
-        public BindingSource QueryToBindingSource(string query )
+        public BindingSource QueryToBindingSource(string query)
         { return m_SQL.QueryToBindingSource(query);}
 
 

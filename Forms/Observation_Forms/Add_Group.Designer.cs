@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.lbEmail = new System.Windows.Forms.Label();
+            this.tbEmail = new System.Windows.Forms.TextBox();
+            this.lbPhone2 = new System.Windows.Forms.Label();
+            this.tbPhone2 = new System.Windows.Forms.TextBox();
+            this.tbPhone1 = new System.Windows.Forms.TextBox();
+            this.lbPhone1 = new System.Windows.Forms.Label();
+            this.cbxCredentials = new System.Windows.Forms.ComboBox();
+            this.tbLastName = new System.Windows.Forms.TextBox();
+            this.lbLastName = new System.Windows.Forms.Label();
             this.cbxAddress = new System.Windows.Forms.ComboBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tbLastName = new System.Windows.Forms.TextBox();
-            this.lbLastName = new System.Windows.Forms.Label();
-            this.cbxCredentials = new System.Windows.Forms.ComboBox();
-            this.tbPhone2 = new System.Windows.Forms.TextBox();
-            this.tbPhone1 = new System.Windows.Forms.TextBox();
-            this.lbPhone1 = new System.Windows.Forms.Label();
-            this.lbPhone2 = new System.Windows.Forms.Label();
-            this.lbEmail = new System.Windows.Forms.Label();
-            this.tbEmail = new System.Windows.Forms.TextBox();
-            this.btnAddMember = new System.Windows.Forms.Button();
             this.tbGroup = new System.Windows.Forms.GroupBox();
-            this.lbxMembers = new System.Windows.Forms.ListBox();
-            this.cbxGroupStatus = new System.Windows.Forms.ComboBox();
-            this.lbGroupName = new System.Windows.Forms.Label();
-            this.tbGroupName = new System.Windows.Forms.TextBox();
             this.btnRemoveMember = new System.Windows.Forms.Button();
+            this.lbGroupName = new System.Windows.Forms.Label();
+            this.cbxGroupStatus = new System.Windows.Forms.ComboBox();
+            this.tbGroupName = new System.Windows.Forms.TextBox();
+            this.lbxMembers = new System.Windows.Forms.ListBox();
             this.gbAdd.SuspendLayout();
             this.tbGroup.SuspendLayout();
             this.SuspendLayout();
@@ -75,6 +75,89 @@
             this.gbAdd.TabIndex = 8;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Member";
+            // 
+            // btnAddMember
+            // 
+            this.btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddMember.Location = new System.Drawing.Point(228, 183);
+            this.btnAddMember.Name = "btnAddMember";
+            this.btnAddMember.Size = new System.Drawing.Size(116, 23);
+            this.btnAddMember.TabIndex = 20;
+            this.btnAddMember.Text = "Add Member";
+            this.btnAddMember.UseVisualStyleBackColor = true;
+            // 
+            // lbEmail
+            // 
+            this.lbEmail.AutoSize = true;
+            this.lbEmail.Location = new System.Drawing.Point(6, 153);
+            this.lbEmail.Name = "lbEmail";
+            this.lbEmail.Size = new System.Drawing.Size(76, 13);
+            this.lbEmail.TabIndex = 19;
+            this.lbEmail.Text = "Email Address:";
+            // 
+            // tbEmail
+            // 
+            this.tbEmail.Location = new System.Drawing.Point(155, 150);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(189, 20);
+            this.tbEmail.TabIndex = 18;
+            // 
+            // lbPhone2
+            // 
+            this.lbPhone2.AutoSize = true;
+            this.lbPhone2.Location = new System.Drawing.Point(6, 127);
+            this.lbPhone2.Name = "lbPhone2";
+            this.lbPhone2.Size = new System.Drawing.Size(90, 13);
+            this.lbPhone2.TabIndex = 17;
+            this.lbPhone2.Text = "Phone Number 2:";
+            // 
+            // tbPhone2
+            // 
+            this.tbPhone2.Location = new System.Drawing.Point(155, 124);
+            this.tbPhone2.Name = "tbPhone2";
+            this.tbPhone2.Size = new System.Drawing.Size(189, 20);
+            this.tbPhone2.TabIndex = 16;
+            // 
+            // tbPhone1
+            // 
+            this.tbPhone1.Location = new System.Drawing.Point(155, 98);
+            this.tbPhone1.Name = "tbPhone1";
+            this.tbPhone1.Size = new System.Drawing.Size(189, 20);
+            this.tbPhone1.TabIndex = 14;
+            // 
+            // lbPhone1
+            // 
+            this.lbPhone1.AutoSize = true;
+            this.lbPhone1.Location = new System.Drawing.Point(6, 101);
+            this.lbPhone1.Name = "lbPhone1";
+            this.lbPhone1.Size = new System.Drawing.Size(90, 13);
+            this.lbPhone1.TabIndex = 13;
+            this.lbPhone1.Text = "Phone Number 1:";
+            // 
+            // cbxCredentials
+            // 
+            this.cbxCredentials.FormattingEnabled = true;
+            this.cbxCredentials.Location = new System.Drawing.Point(199, 71);
+            this.cbxCredentials.Name = "cbxCredentials";
+            this.cbxCredentials.Size = new System.Drawing.Size(145, 21);
+            this.cbxCredentials.TabIndex = 12;
+            this.cbxCredentials.Text = "Credentials";
+            // 
+            // tbLastName
+            // 
+            this.tbLastName.Location = new System.Drawing.Point(155, 45);
+            this.tbLastName.Name = "tbLastName";
+            this.tbLastName.Size = new System.Drawing.Size(189, 20);
+            this.tbLastName.TabIndex = 11;
+            // 
+            // lbLastName
+            // 
+            this.lbLastName.AutoSize = true;
+            this.lbLastName.Location = new System.Drawing.Point(6, 48);
+            this.lbLastName.Name = "lbLastName";
+            this.lbLastName.Size = new System.Drawing.Size(61, 13);
+            this.lbLastName.TabIndex = 10;
+            this.lbLastName.Text = "Last Name:";
             // 
             // cbxAddress
             // 
@@ -123,89 +206,7 @@
             this.btnAdd.TabIndex = 6;
             this.btnAdd.Text = "Add Group";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // tbLastName
-            // 
-            this.tbLastName.Location = new System.Drawing.Point(155, 45);
-            this.tbLastName.Name = "tbLastName";
-            this.tbLastName.Size = new System.Drawing.Size(189, 20);
-            this.tbLastName.TabIndex = 11;
-            // 
-            // lbLastName
-            // 
-            this.lbLastName.AutoSize = true;
-            this.lbLastName.Location = new System.Drawing.Point(6, 48);
-            this.lbLastName.Name = "lbLastName";
-            this.lbLastName.Size = new System.Drawing.Size(61, 13);
-            this.lbLastName.TabIndex = 10;
-            this.lbLastName.Text = "Last Name:";
-            // 
-            // cbxCredentials
-            // 
-            this.cbxCredentials.FormattingEnabled = true;
-            this.cbxCredentials.Location = new System.Drawing.Point(199, 71);
-            this.cbxCredentials.Name = "cbxCredentials";
-            this.cbxCredentials.Size = new System.Drawing.Size(145, 21);
-            this.cbxCredentials.TabIndex = 12;
-            this.cbxCredentials.Text = "Credentials";
-            // 
-            // tbPhone2
-            // 
-            this.tbPhone2.Location = new System.Drawing.Point(155, 124);
-            this.tbPhone2.Name = "tbPhone2";
-            this.tbPhone2.Size = new System.Drawing.Size(189, 20);
-            this.tbPhone2.TabIndex = 16;
-            // 
-            // tbPhone1
-            // 
-            this.tbPhone1.Location = new System.Drawing.Point(155, 98);
-            this.tbPhone1.Name = "tbPhone1";
-            this.tbPhone1.Size = new System.Drawing.Size(189, 20);
-            this.tbPhone1.TabIndex = 14;
-            // 
-            // lbPhone1
-            // 
-            this.lbPhone1.AutoSize = true;
-            this.lbPhone1.Location = new System.Drawing.Point(6, 101);
-            this.lbPhone1.Name = "lbPhone1";
-            this.lbPhone1.Size = new System.Drawing.Size(90, 13);
-            this.lbPhone1.TabIndex = 13;
-            this.lbPhone1.Text = "Phone Number 1:";
-            // 
-            // lbPhone2
-            // 
-            this.lbPhone2.AutoSize = true;
-            this.lbPhone2.Location = new System.Drawing.Point(6, 127);
-            this.lbPhone2.Name = "lbPhone2";
-            this.lbPhone2.Size = new System.Drawing.Size(90, 13);
-            this.lbPhone2.TabIndex = 17;
-            this.lbPhone2.Text = "Phone Number 2:";
-            // 
-            // lbEmail
-            // 
-            this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(6, 153);
-            this.lbEmail.Name = "lbEmail";
-            this.lbEmail.Size = new System.Drawing.Size(76, 13);
-            this.lbEmail.TabIndex = 19;
-            this.lbEmail.Text = "Email Address:";
-            // 
-            // tbEmail
-            // 
-            this.tbEmail.Location = new System.Drawing.Point(155, 150);
-            this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(189, 20);
-            this.tbEmail.TabIndex = 18;
-            // 
-            // btnAddMember
-            // 
-            this.btnAddMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddMember.Location = new System.Drawing.Point(228, 183);
-            this.btnAddMember.Name = "btnAddMember";
-            this.btnAddMember.Size = new System.Drawing.Size(116, 23);
-            this.btnAddMember.TabIndex = 20;
-            this.btnAddMember.Text = "Add Member";
-            this.btnAddMember.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // tbGroup
             // 
@@ -221,13 +222,24 @@
             this.tbGroup.TabStop = false;
             this.tbGroup.Text = "Group";
             // 
-            // lbxMembers
+            // btnRemoveMember
             // 
-            this.lbxMembers.FormattingEnabled = true;
-            this.lbxMembers.Location = new System.Drawing.Point(6, 82);
-            this.lbxMembers.Name = "lbxMembers";
-            this.lbxMembers.Size = new System.Drawing.Size(335, 121);
-            this.lbxMembers.TabIndex = 10;
+            this.btnRemoveMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRemoveMember.Location = new System.Drawing.Point(6, 53);
+            this.btnRemoveMember.Name = "btnRemoveMember";
+            this.btnRemoveMember.Size = new System.Drawing.Size(105, 23);
+            this.btnRemoveMember.TabIndex = 21;
+            this.btnRemoveMember.Text = "Remove Member";
+            this.btnRemoveMember.UseVisualStyleBackColor = true;
+            // 
+            // lbGroupName
+            // 
+            this.lbGroupName.AutoSize = true;
+            this.lbGroupName.Location = new System.Drawing.Point(6, 22);
+            this.lbGroupName.Name = "lbGroupName";
+            this.lbGroupName.Size = new System.Drawing.Size(64, 13);
+            this.lbGroupName.TabIndex = 22;
+            this.lbGroupName.Text = "GroupName";
             // 
             // cbxGroupStatus
             // 
@@ -241,15 +253,6 @@
             this.cbxGroupStatus.TabIndex = 11;
             this.cbxGroupStatus.Text = "Group Status";
             // 
-            // lbGroupName
-            // 
-            this.lbGroupName.AutoSize = true;
-            this.lbGroupName.Location = new System.Drawing.Point(6, 22);
-            this.lbGroupName.Name = "lbGroupName";
-            this.lbGroupName.Size = new System.Drawing.Size(64, 13);
-            this.lbGroupName.TabIndex = 22;
-            this.lbGroupName.Text = "GroupName";
-            // 
             // tbGroupName
             // 
             this.tbGroupName.Location = new System.Drawing.Point(155, 19);
@@ -257,15 +260,13 @@
             this.tbGroupName.Size = new System.Drawing.Size(189, 20);
             this.tbGroupName.TabIndex = 21;
             // 
-            // btnRemoveMember
+            // lbxMembers
             // 
-            this.btnRemoveMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveMember.Location = new System.Drawing.Point(6, 53);
-            this.btnRemoveMember.Name = "btnRemoveMember";
-            this.btnRemoveMember.Size = new System.Drawing.Size(105, 23);
-            this.btnRemoveMember.TabIndex = 21;
-            this.btnRemoveMember.Text = "Remove Member";
-            this.btnRemoveMember.UseVisualStyleBackColor = true;
+            this.lbxMembers.FormattingEnabled = true;
+            this.lbxMembers.Location = new System.Drawing.Point(6, 82);
+            this.lbxMembers.Name = "lbxMembers";
+            this.lbxMembers.Size = new System.Drawing.Size(335, 121);
+            this.lbxMembers.TabIndex = 10;
             // 
             // Add_Group
             // 

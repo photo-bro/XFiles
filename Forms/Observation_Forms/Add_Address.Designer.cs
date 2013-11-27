@@ -39,11 +39,15 @@
             this.lbStreetName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
             this.gbAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbAdd
             // 
+            this.gbAdd.Controls.Add(this.tbName);
+            this.gbAdd.Controls.Add(this.lbName);
             this.gbAdd.Controls.Add(this.lbZipcode);
             this.gbAdd.Controls.Add(this.tbZipcode);
             this.gbAdd.Controls.Add(this.tbState);
@@ -54,7 +58,7 @@
             this.gbAdd.Controls.Add(this.lbStreetName);
             this.gbAdd.Location = new System.Drawing.Point(12, 20);
             this.gbAdd.Name = "gbAdd";
-            this.gbAdd.Size = new System.Drawing.Size(350, 141);
+            this.gbAdd.Size = new System.Drawing.Size(350, 166);
             this.gbAdd.TabIndex = 9;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Address";
@@ -62,7 +66,7 @@
             // lbZipcode
             // 
             this.lbZipcode.AutoSize = true;
-            this.lbZipcode.Location = new System.Drawing.Point(6, 100);
+            this.lbZipcode.Location = new System.Drawing.Point(6, 133);
             this.lbZipcode.Name = "lbZipcode";
             this.lbZipcode.Size = new System.Drawing.Size(49, 13);
             this.lbZipcode.TabIndex = 17;
@@ -70,14 +74,14 @@
             // 
             // tbZipcode
             // 
-            this.tbZipcode.Location = new System.Drawing.Point(155, 97);
+            this.tbZipcode.Location = new System.Drawing.Point(155, 130);
             this.tbZipcode.Name = "tbZipcode";
             this.tbZipcode.Size = new System.Drawing.Size(189, 20);
             this.tbZipcode.TabIndex = 16;
             // 
             // tbState
             // 
-            this.tbState.Location = new System.Drawing.Point(155, 71);
+            this.tbState.Location = new System.Drawing.Point(155, 104);
             this.tbState.Name = "tbState";
             this.tbState.Size = new System.Drawing.Size(189, 20);
             this.tbState.TabIndex = 14;
@@ -85,7 +89,7 @@
             // lbState
             // 
             this.lbState.AutoSize = true;
-            this.lbState.Location = new System.Drawing.Point(6, 74);
+            this.lbState.Location = new System.Drawing.Point(6, 107);
             this.lbState.Name = "lbState";
             this.lbState.Size = new System.Drawing.Size(38, 13);
             this.lbState.TabIndex = 13;
@@ -93,7 +97,7 @@
             // 
             // tbBuildingNo
             // 
-            this.tbBuildingNo.Location = new System.Drawing.Point(155, 45);
+            this.tbBuildingNo.Location = new System.Drawing.Point(155, 78);
             this.tbBuildingNo.Name = "tbBuildingNo";
             this.tbBuildingNo.Size = new System.Drawing.Size(189, 20);
             this.tbBuildingNo.TabIndex = 11;
@@ -101,7 +105,7 @@
             // lbBuildingNo
             // 
             this.lbBuildingNo.AutoSize = true;
-            this.lbBuildingNo.Location = new System.Drawing.Point(6, 48);
+            this.lbBuildingNo.Location = new System.Drawing.Point(6, 81);
             this.lbBuildingNo.Name = "lbBuildingNo";
             this.lbBuildingNo.Size = new System.Drawing.Size(87, 13);
             this.lbBuildingNo.TabIndex = 10;
@@ -109,7 +113,7 @@
             // 
             // tbStreetName
             // 
-            this.tbStreetName.Location = new System.Drawing.Point(155, 19);
+            this.tbStreetName.Location = new System.Drawing.Point(155, 52);
             this.tbStreetName.Name = "tbStreetName";
             this.tbStreetName.Size = new System.Drawing.Size(189, 20);
             this.tbStreetName.TabIndex = 1;
@@ -117,7 +121,7 @@
             // lbStreetName
             // 
             this.lbStreetName.AutoSize = true;
-            this.lbStreetName.Location = new System.Drawing.Point(6, 22);
+            this.lbStreetName.Location = new System.Drawing.Point(6, 55);
             this.lbStreetName.Name = "lbStreetName";
             this.lbStreetName.Size = new System.Drawing.Size(63, 13);
             this.lbStreetName.TabIndex = 0;
@@ -126,7 +130,7 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 167);
+            this.btnCancel.Location = new System.Drawing.Point(12, 192);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
@@ -136,19 +140,35 @@
             // btnAdd
             // 
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(254, 167);
+            this.btnAdd.Location = new System.Drawing.Point(254, 192);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(108, 23);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Address";
             this.btnAdd.UseVisualStyleBackColor = true;
             // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(155, 26);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(189, 20);
+            this.tbName.TabIndex = 19;
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(6, 29);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(79, 13);
+            this.lbName.TabIndex = 18;
+            this.lbName.Text = "Address Name:";
+            // 
             // Add_Address
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(374, 202);
+            this.ClientSize = new System.Drawing.Size(374, 242);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.gbAdd);
@@ -175,5 +195,7 @@
         private System.Windows.Forms.Label lbStreetName;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.TextBox tbName;
+        private System.Windows.Forms.Label lbName;
     }
 }

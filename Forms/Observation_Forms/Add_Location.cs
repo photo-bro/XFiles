@@ -11,9 +11,12 @@ namespace XFiles.Forms.Observation_Forms
 {
     public partial class Add_Location : Form
     {
+        AddObservationHandler m_AOH = AddObservationHandler.Instance;
+
         public Add_Location()
         {
             InitializeComponent();
+
         }
 
         /// <summary>
@@ -26,7 +29,10 @@ namespace XFiles.Forms.Observation_Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            // get AddressID from AddressName
+            string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
+            m_AOH.InsertLocation(AddressID, tbOfficialName.Text);
+            this.Close();
         }
 
         private void cbxAddress_SelectedIndexChanged(object sender, EventArgs e)

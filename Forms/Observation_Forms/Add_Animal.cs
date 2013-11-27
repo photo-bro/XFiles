@@ -11,6 +11,8 @@ namespace XFiles.Forms.Observation_Forms
 {
     public partial class Add_Animal : Form
     {
+        AddObservationHandler m_AOH = AddObservationHandler.Instance;
+
         public Add_Animal()
         {
             InitializeComponent();
@@ -18,5 +20,11 @@ namespace XFiles.Forms.Observation_Forms
 
         private void btnCancel_Click(object sender, EventArgs e)
         { this.Close(); }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            m_AOH.InsertAnimal(tbCommonName.Text, tbGenus.Text, tbSpecies.Text, tbCharacteristics.Text);
+            this.Close();
+        }
     }
 }

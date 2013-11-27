@@ -11,9 +11,12 @@ namespace XFiles.Forms.Observation_Forms
 {
     public partial class Add_Group : Form
     {
+        AddObservationHandler m_AOH = AddObservationHandler.Instance;
+
         public Add_Group()
         {
             InitializeComponent();
+            // Populate combobox
         }
 
         private void cbxAddress_SelectedIndexChanged(object sender, EventArgs e)
@@ -33,6 +36,14 @@ namespace XFiles.Forms.Observation_Forms
         /// </summary>
         private void RefreshFromServer()
         {
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            // get AddressID from AddressName
+            string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
+            m_AOH.InsertGroup(
+            this.Close();
         }
     }
 }

@@ -18,6 +18,15 @@ namespace XFiles.Forms
         public AddObservation()
         {
             InitializeComponent();
+
+            // Populate comboboxes
+            cbxLocation.Items.AddRange(m_AOH.getLocations());
+            // Populate combobox
+            cbxAnimal.Items.AddRange(m_AOH.getAnimals());
+            // Populate combobox
+            cbxGroup.Items.AddRange(m_AOH.getGroups());
+
+
         }
 
         private void updateGUI()

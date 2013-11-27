@@ -92,9 +92,9 @@ namespace XFiles
 
         public string getObserverID(string FirstName, string LastName)
         {
-
-            // todo
+            return m_xFacade.QueryToString("SELECT ObserverID FROM Observer_T WHERE FirstName = " + FirstName + "AND LastName = " + LastName + ";");
         }
+
         public string GetInsertQuery
         {
             get

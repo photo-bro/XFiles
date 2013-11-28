@@ -82,6 +82,13 @@ namespace XFiles
             return sLocations.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray();
         }
 
+        public string[] getObservers()
+        {
+            string sObservers = m_xFacade.QueryToString("SELECT FirstName, LastName FROM Observer_T;");
+            return sObservers.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray();
+
+        }
+
         public string[] getAnimals()
         {
             // get all animals from server
@@ -104,6 +111,21 @@ namespace XFiles
         public string getObserverID(string FirstName, string LastName)
         {
             return m_xFacade.QueryToString("SELECT ObserverID FROM Observer_T WHERE FirstName = \"" + FirstName + "\" AND LastName = \"" + LastName + "\";");
+        }
+
+        public string getGroupID(string GroupName)
+        {
+            return m_xFacade.QueryToString("SELECT GroupID FROM Group_T WHERE GroupName = \"" + GroupName + "\";");
+        }
+
+        public string getLocationID(string LocationName)
+        {
+            return m_xFacade.QueryToString("SELECT LocationID FROM Location_T WHERE OfficialName = \"" + LocationName + "\";");
+        }
+
+        public string getAnimalID(string AnimalName)
+        {
+            return m_xFacade.QueryToString("SELECT AnimalID FROM Animal_T WHERE CommonName = \"" + AnimalName + "\";");
         }
 
         public string GetInsertQuery
@@ -154,10 +176,10 @@ namespace XFiles
             m_xFacade.Command(s);
         }
 
-        public void InsertGroup(string ObserverID, string GroupName, string Active)
+        public void InsertGroup(string GroupName, string Active)
         {
-            string s = string.Format("INSERT INTO Group_T (ObserverID, GroupName, Active) VALUE (\"{0}\", \"{1}\", \"{2}\");",
-            ObserverID, GroupName, Active);
+            string s = string.Format("INSERT INTO Group_T (GroupName, Active) VALUE (\"{0}\", \"{1}\");",
+             GroupName, Active);
 
             m_xFacade.Command(s);
         }
@@ -176,6 +198,13 @@ namespace XFiles
             string s = string.Format("INSERT INTO Address_T (AddressName, State, StreetName, BuildingNumber, Zipcode) VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");",
             AddressName, State, StreetName, BuildingNumber, Zipcode);
 
+            m_xFacade.Command(s);
+        }
+
+        public void InsertObserverList(string GroupID, string ObserverID)
+        {
+            string s = string.Format("INSERT INTO ObserverList_T(GroupID, ObserverID) VALUE (\"{0}\", \"{1}\")",
+                GroupID, ObserverID);
             m_xFacade.Command(s);
         }
 

@@ -17,6 +17,10 @@ namespace XFiles.Forms.Observation_Forms
         {
             InitializeComponent();
             // Populate combobox
+            // Weather Combobox
+            cbxCredentials.Items.AddRange(m_AOH.getCredentials);
+
+            RefreshFromServer();
         }
 
         private void cbxAddress_SelectedIndexChanged(object sender, EventArgs e)
@@ -36,6 +40,11 @@ namespace XFiles.Forms.Observation_Forms
         /// </summary>
         private void RefreshFromServer()
         {
+            // Address Combobox
+            cbxAddress.Items.Clear();
+            cbxAddress.Items.AddRange(m_AOH.getAddresses());
+            cbxAddress.Items.Add("Add Address");
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

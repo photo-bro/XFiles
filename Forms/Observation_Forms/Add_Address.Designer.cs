@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.gbAdd = new System.Windows.Forms.GroupBox();
+            this.tbName = new System.Windows.Forms.TextBox();
+            this.lbName = new System.Windows.Forms.Label();
             this.lbZipcode = new System.Windows.Forms.Label();
             this.tbZipcode = new System.Windows.Forms.TextBox();
             this.tbState = new System.Windows.Forms.TextBox();
@@ -39,8 +41,6 @@
             this.lbStreetName = new System.Windows.Forms.Label();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.tbName = new System.Windows.Forms.TextBox();
-            this.lbName = new System.Windows.Forms.Label();
             this.gbAdd.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,6 +62,22 @@
             this.gbAdd.TabIndex = 9;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Address";
+            // 
+            // tbName
+            // 
+            this.tbName.Location = new System.Drawing.Point(155, 26);
+            this.tbName.Name = "tbName";
+            this.tbName.Size = new System.Drawing.Size(189, 20);
+            this.tbName.TabIndex = 19;
+            // 
+            // lbName
+            // 
+            this.lbName.AutoSize = true;
+            this.lbName.Location = new System.Drawing.Point(6, 29);
+            this.lbName.Name = "lbName";
+            this.lbName.Size = new System.Drawing.Size(79, 13);
+            this.lbName.TabIndex = 18;
+            this.lbName.Text = "Address Name:";
             // 
             // lbZipcode
             // 
@@ -130,38 +146,24 @@
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 192);
+            this.btnCancel.Location = new System.Drawing.Point(12, 207);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
             this.btnCancel.TabIndex = 11;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnAdd
             // 
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Location = new System.Drawing.Point(254, 192);
+            this.btnAdd.Location = new System.Drawing.Point(254, 207);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(108, 23);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add Address";
             this.btnAdd.UseVisualStyleBackColor = true;
-            // 
-            // tbName
-            // 
-            this.tbName.Location = new System.Drawing.Point(155, 26);
-            this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(189, 20);
-            this.tbName.TabIndex = 19;
-            // 
-            // lbName
-            // 
-            this.lbName.AutoSize = true;
-            this.lbName.Location = new System.Drawing.Point(6, 29);
-            this.lbName.Name = "lbName";
-            this.lbName.Size = new System.Drawing.Size(79, 13);
-            this.lbName.TabIndex = 18;
-            this.lbName.Text = "Address Name:";
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // Add_Address
             // 

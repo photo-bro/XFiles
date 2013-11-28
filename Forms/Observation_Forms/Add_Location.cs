@@ -16,7 +16,7 @@ namespace XFiles.Forms.Observation_Forms
         public Add_Location()
         {
             InitializeComponent();
-
+            cbxAddress.Items.AddRange(m_AOH.getAddresses());
         }
 
         /// <summary>
@@ -32,6 +32,7 @@ namespace XFiles.Forms.Observation_Forms
             // get AddressID from AddressName
             string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
             m_AOH.InsertLocation(AddressID, tbOfficialName.Text);
+            m_AOH.addFieldToObservation("AddressName", AddressID);
             this.Close();
         }
 
@@ -52,6 +53,7 @@ namespace XFiles.Forms.Observation_Forms
         /// </summary>
         private void RefreshFromServer()
         {
+            cbxAddress.Items.AddRange(m_AOH.getAddresses());
         }
     }
 }

@@ -111,8 +111,11 @@ namespace XFiles
         {
             MySqlDataReader dr = m_SQL.Query(query);
 
+            // return blank string if query fails
+            if (dr == null) return "";
+
             string s = "";
-            // get data from MySql object
+            // get data from MySql objects
             while (dr.Read())
             {
                 // Read each row

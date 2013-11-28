@@ -37,19 +37,17 @@
             // 
             // gbBox
             // 
-            this.gbBox.Controls.Add(this.btnClose);
-            this.gbBox.Controls.Add(this.btnQuery);
             this.gbBox.Controls.Add(this.tbCustQuery);
             this.gbBox.Location = new System.Drawing.Point(12, 12);
             this.gbBox.Name = "gbBox";
-            this.gbBox.Size = new System.Drawing.Size(450, 268);
+            this.gbBox.Size = new System.Drawing.Size(440, 234);
             this.gbBox.TabIndex = 0;
             this.gbBox.TabStop = false;
             // 
             // btnClose
             // 
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Location = new System.Drawing.Point(6, 239);
+            this.btnClose.Location = new System.Drawing.Point(12, 252);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
             this.btnClose.TabIndex = 2;
@@ -60,7 +58,7 @@
             // btnQuery
             // 
             this.btnQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuery.Location = new System.Drawing.Point(369, 239);
+            this.btnQuery.Location = new System.Drawing.Point(377, 252);
             this.btnQuery.Name = "btnQuery";
             this.btnQuery.Size = new System.Drawing.Size(75, 23);
             this.btnQuery.TabIndex = 1;
@@ -70,10 +68,10 @@
             // 
             // tbCustQuery
             // 
-            this.tbCustQuery.Location = new System.Drawing.Point(26, 26);
+            this.tbCustQuery.Location = new System.Drawing.Point(6, 19);
             this.tbCustQuery.Multiline = true;
             this.tbCustQuery.Name = "tbCustQuery";
-            this.tbCustQuery.Size = new System.Drawing.Size(395, 199);
+            this.tbCustQuery.Size = new System.Drawing.Size(428, 209);
             this.tbCustQuery.TabIndex = 0;
             this.tbCustQuery.Text = "Enter MySQL Query";
             // 
@@ -82,7 +80,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(474, 292);
+            this.ClientSize = new System.Drawing.Size(464, 282);
+            this.Controls.Add(this.btnQuery);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbBox);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximumSize = new System.Drawing.Size(480, 320);

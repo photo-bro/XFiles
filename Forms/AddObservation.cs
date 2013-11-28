@@ -104,9 +104,8 @@ namespace XFiles.Forms
             if (cbxGroup.SelectedItem.ToString() == "Create New Group")
             {
                 Add_Group ag = new Add_Group();
-                var result = ag.ShowDialog();
+                var result = ag.ShowDialog(); // wait for form to close before refresh
                 RefreshFromServer(); // make sure box is repopulated with new enitity
-                cbxLocation.SelectedValue = result;
                 return;
             }
         }
@@ -174,6 +173,24 @@ namespace XFiles.Forms
         private void tbComments_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Comments", tbComments.Text);
+            updateGUI();
+        }
+
+        private void cbxLocation_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("LocationID", m_AOH.getLocationID(cbxLocation.SelectedItem.ToString()));
+            updateGUI();
+        }
+
+        private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("AnimalID", m_AOH.getAnimalID(cbxAnimal.SelectedItem.ToString()));
+            updateGUI();
+        }
+
+        private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            m_AOH.addFieldToObservation("GroupID", m_AOH.getGroupID(cbxGroup.SelectedItem.ToString()));
             updateGUI();
         }
 

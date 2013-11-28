@@ -306,6 +306,7 @@
             this.cbxGroup.Size = new System.Drawing.Size(121, 21);
             this.cbxGroup.TabIndex = 2;
             this.cbxGroup.Text = "Observer Group";
+            this.cbxGroup.SelectedIndexChanged += new System.EventHandler(this.cbxGroup_SelectedIndexChanged);
             this.cbxGroup.SelectedValueChanged += new System.EventHandler(this.cbxGroup_SelectedValueChanged);
             // 
             // cbxAnimal
@@ -318,6 +319,7 @@
             this.cbxAnimal.Size = new System.Drawing.Size(209, 21);
             this.cbxAnimal.TabIndex = 1;
             this.cbxAnimal.Text = "Animal";
+            this.cbxAnimal.SelectedIndexChanged += new System.EventHandler(this.cbxAnimal_SelectedIndexChanged);
             this.cbxAnimal.SelectedValueChanged += new System.EventHandler(this.cbxAnimal_SelectedValueChanged);
             // 
             // cbxLocation
@@ -330,6 +332,7 @@
             this.cbxLocation.Size = new System.Drawing.Size(199, 21);
             this.cbxLocation.TabIndex = 0;
             this.cbxLocation.Text = "Location";
+            this.cbxLocation.SelectedIndexChanged += new System.EventHandler(this.cbxLocation_SelectedIndexChanged);
             this.cbxLocation.SelectedValueChanged += new System.EventHandler(this.cbxLocation_SelectedValueChanged);
             // 
             // AddObservation

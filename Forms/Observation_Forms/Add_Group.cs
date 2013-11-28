@@ -13,26 +13,15 @@ namespace XFiles.Forms.Observation_Forms
     {
         AddObservationHandler m_AOH = AddObservationHandler.Instance;
 
+        // Hold members to be in group
+        List<string> m_lsObservers = new List<string>();
+
         public Add_Group()
         {
             InitializeComponent();
-            // Populate combobox
-            // Weather Combobox
-            cbxCredentials.Items.AddRange(m_AOH.getCredentials);
 
             RefreshFromServer();
-        }
-
-        private void cbxAddress_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (cbxAddress.SelectedItem.ToString() == "New Address")
-            {
-                Add_Address aa = new Add_Address();
-                var result = aa.ShowDialog();
-                RefreshFromServer(); // make sure box is repopulated with new enitity
-                cbxAddress.SelectedValue = result;
-                return;
-            }
+            // Refresh lbxMembers
         }
             
         /// <summary>
@@ -40,20 +29,51 @@ namespace XFiles.Forms.Observation_Forms
         /// </summary>
         private void RefreshFromServer()
         {
-            // Address Combobox
-            cbxAddress.Items.Clear();
-            cbxAddress.Items.AddRange(m_AOH.getAddresses());
-            cbxAddress.Items.Add("Add Address");
+            // lbxExisting observers
+            lbxExisting.Items.Clear();
+            lbxExisting.Items.AddRange(m_AOH.getObservers());
 
+            // lbxMembers members
+            lbxMembers.Items.Clear();
+            lbxMembers.Items.AddRange(m_lsObservers.ToArray());
+
+        }
+
+
+        private void btnAddNewObserver_Click(object sender, EventArgs e)
+        {
+            Add_Observer ao = new Add_Observer();
+            DialogResult dr = ao.ShowDialog();
+            RefreshFromServer();
+        }
+
+        private void btnAddExisiting_Click(object sender, EventArgs e)
+        {
+            // Split full name into first/last
+            //string[] sName = lbxExisting.SelectedItem.ToString().Split(" ".ToCharArray());
+            m_lsObservers.Add(lbxExisting.SelectedItem.ToString());//m_AOH.getObserverID(sName[0], sName[1]);
+            RefreshFromServer();
+        }
+
+        private void btnRemoveMember_Click(object sender, EventArgs e)
+        {
+            m_lsObservers.Remove(lbxMembers.SelectedItem.ToString());
+            RefreshFromServer();
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            // get AddressID from AddressName
-            string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
-            string ObserverID = m_AOH.getObserverID(tbFirstName.Text, tbLastName.Text);
-            m_AOH.InsertGroup(ObserverID, tbGroupName.Text, cbxGroupStatus.ToString());
-            this.Close();
+            // Create group
+         string sActive = (cbxGroupStatus.SelectedItem.ToString() == "Active") ?"TRUE":"FALSE";
+         m_AOH.InsertGroup(tbGroupName.Text, sActive);
+            // Create observerlist
+         foreach (var item in lbxMembers.Items)
+         {
+             m_AOH.InsertObserverList(m_AOH.getGroupID(tbGroupName.Text),
+                 m_AOH.getObserverID(item.ToString().Split(" ".ToCharArray())[0],
+                 item.ToString().Split(" ".ToCharArray())[1]));
+         }
+         this.Close();
         }
     }
 }

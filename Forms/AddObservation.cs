@@ -19,12 +19,17 @@ namespace XFiles.Forms
         {
             InitializeComponent();
 
-            // Populate comboboxes
-            cbxLocation.Items.AddRange(m_AOH.getLocations());
-            // Populate combobox
-            cbxAnimal.Items.AddRange(m_AOH.getAnimals());
-            // Populate combobox
-            cbxGroup.Items.AddRange(m_AOH.getGroups());
+            RefreshFromServer();
+
+            // Weather Combobox
+            cbxWeather.Items.AddRange(m_AOH.getWeather);
+
+            //// Populate comboboxes
+            //cbxLocation.Items.AddRange(m_AOH.getLocations());
+            //// Populate combobox
+            //cbxAnimal.Items.AddRange(m_AOH.getAnimals());
+            //// Populate combobox
+            //cbxGroup.Items.AddRange(m_AOH.getGroups());
 
 
         }
@@ -65,6 +70,21 @@ namespace XFiles.Forms
 
         private void RefreshFromServer()
         {
+            // Location Combobox
+            cbxLocation.Items.Clear();
+            cbxLocation.Items.AddRange(m_AOH.getLocations());
+            cbxLocation.Items.Add("Add Location");
+
+            // Animal Combobox
+            cbxAnimal.Items.Clear();
+            cbxAnimal.Items.AddRange(m_AOH.getAnimals());
+            cbxAnimal.Items.Add("Add Animal");
+
+            // Group Combobox
+            cbxGroup.Items.Clear();
+            cbxGroup.Items.AddRange(m_AOH.getGroups());
+            cbxGroup.Items.Add("Create New Group");
+
         }
 
         private void cbxAnimal_SelectedValueChanged(object sender, EventArgs e)
@@ -156,6 +176,7 @@ namespace XFiles.Forms
             m_AOH.addFieldToObservation("Comments", tbComments.Text);
             updateGUI();
         }
+
 
 
     } // AddObservation

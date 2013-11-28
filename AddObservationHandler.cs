@@ -39,7 +39,7 @@ namespace XFiles
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         Query_Manager m_QM = Query_Manager.Instance;
 
-        string[] m_sDelim = { " ", "\r\n" };
+        string[] m_sDelim = { "\r\n" };
 
         // Use Hashtable to store fields from the AddObservationForm.
         private Hashtable m_ht = new Hashtable();
@@ -62,6 +62,17 @@ namespace XFiles
             { return (string)m_ht[key]; }
             catch (Exception e)
             { return ""; }
+        }
+
+        public string[] getWeather = {"Sunny", "Partly Cloudy", "Cloudy", "Overcast", "Raining"};
+
+        public string[] getCredentials = { "Student", "Professor", "Staff", "Visitor", "Other" };
+
+        public string[] getAddresses()
+        {
+            // get all locations from server
+            string sAddresses = m_xFacade.QueryToString("SELECT AddressName FROM Address_T;");
+            return sAddresses.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray();
         }
 
         public string[] getLocations()
@@ -87,12 +98,12 @@ namespace XFiles
 
         public string getAddressID(string AddressName)
         {
-            return m_xFacade.QueryToString("SELECT AddressID FROM Address_T WHERE AddressName = " + AddressName + ";");
+            return m_xFacade.QueryToString("SELECT AddressID FROM Address_T WHERE AddressName = \"" + AddressName + "\";");
         }
 
         public string getObserverID(string FirstName, string LastName)
         {
-            return m_xFacade.QueryToString("SELECT ObserverID FROM Observer_T WHERE FirstName = " + FirstName + "AND LastName = " + LastName + ";");
+            return m_xFacade.QueryToString("SELECT ObserverID FROM Observer_T WHERE FirstName = \"" + FirstName + "\" AND LastName = \"" + LastName + "\";");
         }
 
         public string GetInsertQuery
@@ -104,7 +115,7 @@ namespace XFiles
                 // INSERT INTO table (*, table)
                 sb.Append("INSERT INTO Observation_T(LocationID, AnimalID, GroupID, " +
                     "Locality, Latitude, Longitude, DateAndTime, Weather, AirTemperature, " +
-                    "Number, Color, Characteristics, Comments) VALUES");
+                    "Number, Color, Characteristics, Comments) VALUES\r\n");
                 sb.Append("(");
 
                 // get fields
@@ -130,14 +141,14 @@ namespace XFiles
 
         public void InsertLocation(string AddressID, string OfficialName)
         {
-            string s = string.Format("INSERT INTO Location_T (AddressID, OfficialName) VALUE ({0}, {1});",
+            string s = string.Format("INSERT INTO Location_T (AddressID, OfficialName) VALUE (\"{0}\", \"{1}\");",
                 AddressID, OfficialName);
             m_xFacade.Command(s);
         }
 
         public void InsertAnimal(string CommonName, string Genus, string Species, string Characteristics)
         {
-            string s = string.Format("INSERT INTO Animal_T (CommonName, Genus, Species, Characteristics) VALUE ({0}, {1}, {2}, {3});",
+            string s = string.Format("INSERT INTO Animal_T (CommonName, Genus, Species, Characteristics) VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\");",
             CommonName, Genus, Species, Characteristics);
 
             m_xFacade.Command(s);
@@ -145,7 +156,7 @@ namespace XFiles
 
         public void InsertGroup(string ObserverID, string GroupName, string Active)
         {
-            string s = string.Format("INSERT INTO Group_T (ObserverID, GroupName, Active) VALUE ({0}, {1}, {2});",
+            string s = string.Format("INSERT INTO Group_T (ObserverID, GroupName, Active) VALUE (\"{0}\", \"{1}\", \"{2}\");",
             ObserverID, GroupName, Active);
 
             m_xFacade.Command(s);
@@ -155,14 +166,14 @@ namespace XFiles
             string PhoneNumber_2, string EmailAddress)
         {
             string s = string.Format("INSERT INTO Observer_T (AddressID, FirstName, LastName, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress)" +
-            "VALUE ({0}, {1}, {2}, {3}, {4}, {5}, {6});", AddressID, FirstName, LastName, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress);
+            "VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\");", AddressID, FirstName, LastName, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress);
 
             m_xFacade.Command(s);
         }
 
         public void InsertAddress(string AddressName, string State, string StreetName, string BuildingNumber, string Zipcode)
         {
-            string s = string.Format("INSERT INTO Address_T (AddressName, State, StreetName, BuildingNumber, Zipcode) VALUE ({0}, {1}, {2}, {3}, {4});",
+            string s = string.Format("INSERT INTO Address_T (AddressName, State, StreetName, BuildingNumber, Zipcode) VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\");",
             AddressName, State, StreetName, BuildingNumber, Zipcode);
 
             m_xFacade.Command(s);

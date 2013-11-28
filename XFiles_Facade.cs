@@ -108,27 +108,7 @@ namespace XFiles
         /// <param name="query"></param>
         /// <returns></returns>
         public string QueryToString(string query)
-        {
-            MySqlDataReader dr = m_SQL.Query(query);
-
-            // return blank string if query fails
-            if (dr == null) return "";
-
-            string s = "";
-            // get data from MySql objects
-            while (dr.Read())
-            {
-                // Read each row
-                for (int j = 0; j < dr.FieldCount; ++j)
-                {
-                    var v = dr.GetString(j);
-                    s += v.ToString() + " ";
-                } // row
-                s += "\r\n";
-            } // while still stuff to read
-            dr.Close();
-            return s;
-        } // QueryToString
+        { return m_SQL.QueryToString(query); }
 
 
         public void ExportDataTableToFile(DataTable dt, string path, string name)

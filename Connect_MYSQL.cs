@@ -135,17 +135,48 @@ namespace XFiles
         /// <param name="sCommand"></param>
         public MySqlDataReader Query(string sCommand)
         {
-            if (!m_bIsOpen)
-            {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
-                    "Database is not connected");
-                return null;
-            }
+            //if (!m_bIsOpen)
+            //{
+            //    ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
+            //        "Database is not connected");
+            //    return null;
+            //}
+            if (!m_bIsOpen) openConnection();
 
             MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
-            return command.ExecuteReader();
+            MySqlDataReader dr = command.ExecuteReader();
+            closeConnection();
+            return dr;
         } // Query
+
+        public string QueryToString(string query)
+        {
+            if (!m_bIsOpen) openConnection();
+
+            MySqlCommand command = new MySqlCommand(query, m_sqlConnection);
+
+            MySqlDataReader dr = command.ExecuteReader();
+
+            // return blank string if query fails
+            if (dr == null) return "";
+
+            string s = "";
+            // get data from MySql objects
+            while (dr.Read())
+            {
+                // Read each row
+                for (int j = 0; j < dr.FieldCount; ++j)
+                {
+                    var v = dr.GetString(j);
+                    s += v.ToString() + " ";
+                } // row
+                s += "\r\n";
+            } // while still stuff to read
+            dr.Close();
+            closeConnection();
+            return s;
+        }
 
         /// <summary>
         /// Returns a BindingSource containing the contents of the query
@@ -155,13 +186,13 @@ namespace XFiles
         /// <returns></returns>
         public BindingSource QueryToBindingSource(string query)
         {
-            if (!m_bIsOpen)
-            {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
-                    "Database is not connected");
-                return null;
-            }
-
+            //if (!m_bIsOpen)
+            //{
+            //    ErrorHandler.Error(ErrorHandler.XFILES_ERROR.MySQL_CONNECTION_NOT_OPEN,
+            //        "Database is not connected");
+            //    return null;
+            //}
+            if (!m_bIsOpen) openConnection();
             // Some Credit:
             // http://solibnis.blogspot.com/2013/02/connecting-mysql-table-to-datagridview.html
 
@@ -181,6 +212,8 @@ namespace XFiles
                 ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR, e.ToString());
                 return null;
             } // catch
+
+            closeConnection();
 
             Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Test successful");
 

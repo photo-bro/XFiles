@@ -37,7 +37,6 @@ namespace XFiles
         // ***********************************************
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
-        Query_Manager m_QM = Query_Manager.Instance;
 
         string[] m_sDelim = { "\r\n" };
 

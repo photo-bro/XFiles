@@ -178,7 +178,7 @@ namespace XFiles
 
         public void InsertGroup(string GroupName, string Active)
         {
-            string s = string.Format("INSERT INTO Group_T (GroupName, Active) VALUE (\"{0}\", \"{1}\");",
+            string s = string.Format("INSERT INTO Group_T (GroupName, Active) VALUE (\"{0}\", {1});",
              GroupName, Active);
 
             m_xFacade.Command(s);

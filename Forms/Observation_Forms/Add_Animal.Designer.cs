@@ -48,7 +48,7 @@
             this.btnAdd.Location = new System.Drawing.Point(287, 239);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
-            this.btnAdd.TabIndex = 0;
+            this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "Add Animal";
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -59,7 +59,7 @@
             this.btnCancel.Location = new System.Drawing.Point(12, 239);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 1;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -77,7 +77,7 @@
             this.gbAdd.Location = new System.Drawing.Point(12, 12);
             this.gbAdd.Name = "gbAdd";
             this.gbAdd.Size = new System.Drawing.Size(350, 216);
-            this.gbAdd.TabIndex = 2;
+            this.gbAdd.TabIndex = 0;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add Animal";
             // 
@@ -86,7 +86,7 @@
             this.tbSpecies.Location = new System.Drawing.Point(155, 76);
             this.tbSpecies.Name = "tbSpecies";
             this.tbSpecies.Size = new System.Drawing.Size(189, 20);
-            this.tbSpecies.TabIndex = 7;
+            this.tbSpecies.TabIndex = 2;
             // 
             // lbSpecies
             // 
@@ -102,13 +102,13 @@
             this.tbCharacteristics.Location = new System.Drawing.Point(155, 102);
             this.tbCharacteristics.Multiline = true;
             this.tbCharacteristics.Name = "tbCharacteristics";
-            this.tbCharacteristics.Size = new System.Drawing.Size(189, 91);
-            this.tbCharacteristics.TabIndex = 5;
+            this.tbCharacteristics.Size = new System.Drawing.Size(189, 108);
+            this.tbCharacteristics.TabIndex = 4;
             // 
             // lbCharacteristics
             // 
             this.lbCharacteristics.AutoSize = true;
-            this.lbCharacteristics.Location = new System.Drawing.Point(6, 105);
+            this.lbCharacteristics.Location = new System.Drawing.Point(6, 103);
             this.lbCharacteristics.Name = "lbCharacteristics";
             this.lbCharacteristics.Size = new System.Drawing.Size(79, 13);
             this.lbCharacteristics.TabIndex = 4;
@@ -119,7 +119,7 @@
             this.tbGenus.Location = new System.Drawing.Point(155, 50);
             this.tbGenus.Name = "tbGenus";
             this.tbGenus.Size = new System.Drawing.Size(189, 20);
-            this.tbGenus.TabIndex = 3;
+            this.tbGenus.TabIndex = 1;
             // 
             // lbGenus
             // 
@@ -135,7 +135,7 @@
             this.tbCommonName.Location = new System.Drawing.Point(155, 24);
             this.tbCommonName.Name = "tbCommonName";
             this.tbCommonName.Size = new System.Drawing.Size(189, 20);
-            this.tbCommonName.TabIndex = 1;
+            this.tbCommonName.TabIndex = 0;
             // 
             // lbCommonName
             // 

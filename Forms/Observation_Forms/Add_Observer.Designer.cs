@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.gbAdd = new System.Windows.Forms.GroupBox();
-            this.btnAddObserver = new System.Windows.Forms.Button();
             this.lbEmail = new System.Windows.Forms.Label();
             this.tbEmail = new System.Windows.Forms.TextBox();
             this.lbPhone2 = new System.Windows.Forms.Label();
@@ -42,12 +41,15 @@
             this.cbxAddress = new System.Windows.Forms.ComboBox();
             this.tbFirstName = new System.Windows.Forms.TextBox();
             this.lbFirstName = new System.Windows.Forms.Label();
+            this.btnAddObserver = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
+            this.cbxGender = new System.Windows.Forms.ComboBox();
             this.gbAdd.SuspendLayout();
             this.SuspendLayout();
             // 
             // gbAdd
             // 
+            this.gbAdd.Controls.Add(this.cbxGender);
             this.gbAdd.Controls.Add(this.lbEmail);
             this.gbAdd.Controls.Add(this.tbEmail);
             this.gbAdd.Controls.Add(this.lbPhone2);
@@ -62,26 +64,15 @@
             this.gbAdd.Controls.Add(this.lbFirstName);
             this.gbAdd.Location = new System.Drawing.Point(12, 12);
             this.gbAdd.Name = "gbAdd";
-            this.gbAdd.Size = new System.Drawing.Size(350, 183);
-            this.gbAdd.TabIndex = 9;
+            this.gbAdd.Size = new System.Drawing.Size(350, 212);
+            this.gbAdd.TabIndex = 0;
             this.gbAdd.TabStop = false;
             this.gbAdd.Text = "Add New Observer";
-            // 
-            // btnAddObserver
-            // 
-            this.btnAddObserver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddObserver.Location = new System.Drawing.Point(241, 204);
-            this.btnAddObserver.Name = "btnAddObserver";
-            this.btnAddObserver.Size = new System.Drawing.Size(121, 23);
-            this.btnAddObserver.TabIndex = 7;
-            this.btnAddObserver.Text = "Add New Observer";
-            this.btnAddObserver.UseVisualStyleBackColor = true;
-            this.btnAddObserver.Click += new System.EventHandler(this.btnAddObserver_Click);
             // 
             // lbEmail
             // 
             this.lbEmail.AutoSize = true;
-            this.lbEmail.Location = new System.Drawing.Point(6, 153);
+            this.lbEmail.Location = new System.Drawing.Point(6, 181);
             this.lbEmail.Name = "lbEmail";
             this.lbEmail.Size = new System.Drawing.Size(76, 13);
             this.lbEmail.TabIndex = 19;
@@ -89,15 +80,15 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(155, 150);
+            this.tbEmail.Location = new System.Drawing.Point(155, 178);
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(189, 20);
-            this.tbEmail.TabIndex = 6;
+            this.tbEmail.TabIndex = 7;
             // 
             // lbPhone2
             // 
             this.lbPhone2.AutoSize = true;
-            this.lbPhone2.Location = new System.Drawing.Point(6, 127);
+            this.lbPhone2.Location = new System.Drawing.Point(6, 155);
             this.lbPhone2.Name = "lbPhone2";
             this.lbPhone2.Size = new System.Drawing.Size(90, 13);
             this.lbPhone2.TabIndex = 17;
@@ -105,22 +96,22 @@
             // 
             // tbPhone2
             // 
-            this.tbPhone2.Location = new System.Drawing.Point(155, 124);
+            this.tbPhone2.Location = new System.Drawing.Point(155, 152);
             this.tbPhone2.Name = "tbPhone2";
             this.tbPhone2.Size = new System.Drawing.Size(189, 20);
-            this.tbPhone2.TabIndex = 5;
+            this.tbPhone2.TabIndex = 6;
             // 
             // tbPhone1
             // 
-            this.tbPhone1.Location = new System.Drawing.Point(155, 98);
+            this.tbPhone1.Location = new System.Drawing.Point(155, 126);
             this.tbPhone1.Name = "tbPhone1";
             this.tbPhone1.Size = new System.Drawing.Size(189, 20);
-            this.tbPhone1.TabIndex = 4;
+            this.tbPhone1.TabIndex = 5;
             // 
             // lbPhone1
             // 
             this.lbPhone1.AutoSize = true;
-            this.lbPhone1.Location = new System.Drawing.Point(6, 101);
+            this.lbPhone1.Location = new System.Drawing.Point(6, 129);
             this.lbPhone1.Name = "lbPhone1";
             this.lbPhone1.Size = new System.Drawing.Size(90, 13);
             this.lbPhone1.TabIndex = 13;
@@ -129,10 +120,10 @@
             // cbxCredentials
             // 
             this.cbxCredentials.FormattingEnabled = true;
-            this.cbxCredentials.Location = new System.Drawing.Point(199, 71);
+            this.cbxCredentials.Location = new System.Drawing.Point(199, 99);
             this.cbxCredentials.Name = "cbxCredentials";
             this.cbxCredentials.Size = new System.Drawing.Size(145, 21);
-            this.cbxCredentials.TabIndex = 3;
+            this.cbxCredentials.TabIndex = 4;
             this.cbxCredentials.Text = "Credentials";
             // 
             // tbLastName
@@ -156,10 +147,10 @@
             this.cbxAddress.FormattingEnabled = true;
             this.cbxAddress.Items.AddRange(new object[] {
             "New Address"});
-            this.cbxAddress.Location = new System.Drawing.Point(9, 71);
+            this.cbxAddress.Location = new System.Drawing.Point(9, 83);
             this.cbxAddress.Name = "cbxAddress";
             this.cbxAddress.Size = new System.Drawing.Size(184, 21);
-            this.cbxAddress.TabIndex = 2;
+            this.cbxAddress.TabIndex = 3;
             this.cbxAddress.Text = "Address";
             // 
             // tbFirstName
@@ -178,23 +169,46 @@
             this.lbFirstName.TabIndex = 0;
             this.lbFirstName.Text = "First Name:";
             // 
+            // btnAddObserver
+            // 
+            this.btnAddObserver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddObserver.Location = new System.Drawing.Point(241, 232);
+            this.btnAddObserver.Name = "btnAddObserver";
+            this.btnAddObserver.Size = new System.Drawing.Size(121, 23);
+            this.btnAddObserver.TabIndex = 1;
+            this.btnAddObserver.Text = "Add New Observer";
+            this.btnAddObserver.UseVisualStyleBackColor = true;
+            this.btnAddObserver.Click += new System.EventHandler(this.btnAddObserver_Click);
+            // 
             // btnCancel
             // 
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancel.Location = new System.Drawing.Point(12, 204);
+            this.btnCancel.Location = new System.Drawing.Point(12, 232);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 8;
+            this.btnCancel.TabIndex = 2;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
+            // 
+            // cbxGender
+            // 
+            this.cbxGender.FormattingEnabled = true;
+            this.cbxGender.Items.AddRange(new object[] {
+            "Male",
+            "Female"});
+            this.cbxGender.Location = new System.Drawing.Point(199, 71);
+            this.cbxGender.Name = "cbxGender";
+            this.cbxGender.Size = new System.Drawing.Size(145, 21);
+            this.cbxGender.TabIndex = 2;
+            this.cbxGender.Text = "Gender";
             // 
             // Add_Observer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(374, 239);
+            this.ClientSize = new System.Drawing.Size(374, 267);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnAddObserver);
             this.Controls.Add(this.gbAdd);
@@ -225,5 +239,6 @@
         private System.Windows.Forms.TextBox tbFirstName;
         private System.Windows.Forms.Label lbFirstName;
         private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.ComboBox cbxGender;
     }
 }

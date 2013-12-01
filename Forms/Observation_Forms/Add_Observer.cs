@@ -38,7 +38,7 @@ namespace XFiles.Forms.Observation_Forms
             {
                 Add_Address aa = new Add_Address();
                 var result = aa.ShowDialog();
-                RefreshFromServer(); // make sure box is repopulated with new enitity
+                RefreshFromServer();        // make sure box is repopulated with new enitity
                 cbxAddress.SelectedValue = result;
                 return;
             }
@@ -47,7 +47,7 @@ namespace XFiles.Forms.Observation_Forms
         private void btnAddObserver_Click(object sender, EventArgs e)
         {
             string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
-            m_AOH.InsertObserver(AddressID, tbFirstName.Text, tbLastName.Text, cbxCredentials.SelectedItem.ToString(), 
+            m_AOH.InsertObserver(AddressID, tbFirstName.Text, tbLastName.Text, cbxGender.SelectedItem.ToString(), cbxCredentials.SelectedItem.ToString(), 
                 tbPhone1.Text, tbPhone2.Text, tbEmail.Text);
             this.Close();
         }

@@ -136,7 +136,7 @@
             this.gbExisting.Size = new System.Drawing.Size(350, 274);
             this.gbExisting.TabIndex = 10;
             this.gbExisting.TabStop = false;
-            this.gbExisting.Text = "Add Exisiting Member";
+            this.gbExisting.Text = "Add Exisiting Observer";
             // 
             // btnAddNewObserver
             // 
@@ -164,7 +164,7 @@
             this.btnAddExisiting.Name = "btnAddExisiting";
             this.btnAddExisiting.Size = new System.Drawing.Size(121, 23);
             this.btnAddExisiting.TabIndex = 21;
-            this.btnAddExisiting.Text = "Add Member";
+            this.btnAddExisiting.Text = "Add to Group";
             this.btnAddExisiting.UseVisualStyleBackColor = true;
             this.btnAddExisiting.Click += new System.EventHandler(this.btnAddExisiting_Click);
             // 

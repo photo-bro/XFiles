@@ -206,6 +206,12 @@ namespace XFiles
             mw.Show();
         }
 
+        private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AboutForm af = new AboutForm();
+            af.Show();
+        }
+
 
     } // Database Form
 } // namespace XFiles

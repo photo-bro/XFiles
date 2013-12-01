@@ -189,13 +189,16 @@
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.aboutToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.I)));
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.aboutToolStripMenuItem.Text = "About";
+            this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
             // openViewInNewWindowToolStripMenuItem
             // 
             this.openViewInNewWindowToolStripMenuItem.Name = "openViewInNewWindowToolStripMenuItem";
-            this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.openViewInNewWindowToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+            this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.openViewInNewWindowToolStripMenuItem.Text = "Open View in New Window";
             this.openViewInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openViewInNewWindowToolStripMenuItem_Click);
             // 
@@ -204,7 +207,7 @@
             this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.inputFileToolStripMenuItem});
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // inputFileToolStripMenuItem
@@ -216,20 +219,22 @@
             // exportArcGISToolStripMenuItem
             // 
             this.exportArcGISToolStripMenuItem.Name = "exportArcGISToolStripMenuItem";
-            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.exportArcGISToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.exportArcGISToolStripMenuItem.Text = "Export ArcGIS";
             // 
             // exportViewToolStripMenuItem
             // 
             this.exportViewToolStripMenuItem.Name = "exportViewToolStripMenuItem";
-            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.exportViewToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.exportViewToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.exportViewToolStripMenuItem.Text = "Export View";
             this.exportViewToolStripMenuItem.Click += new System.EventHandler(this.exportViewToolStripMenuItem_Click);
             // 
             // quitToolStripMenuItem
             // 
             this.quitToolStripMenuItem.Name = "quitToolStripMenuItem";
-            this.quitToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.quitToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+            this.quitToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.quitToolStripMenuItem.Text = "Quit";
             this.quitToolStripMenuItem.Click += new System.EventHandler(this.quitToolStripMenuItem_Click);
             // 
@@ -248,35 +253,41 @@
             // loginToolStripMenuItem
             // 
             this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
-            this.loginToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.loginToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.L)));
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.loginToolStripMenuItem.Text = "Login";
             this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
             // 
             // addObservationToolStripMenuItem
             // 
             this.addObservationToolStripMenuItem.Name = "addObservationToolStripMenuItem";
-            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.addObservationToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.addObservationToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.addObservationToolStripMenuItem.Text = "Add Observation";
             this.addObservationToolStripMenuItem.Click += new System.EventHandler(this.addObservationToolStripMenuItem_Click);
             // 
             // searchToolStripMenuItem
             // 
             this.searchToolStripMenuItem.Name = "searchToolStripMenuItem";
-            this.searchToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.searchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+            this.searchToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.searchToolStripMenuItem.Text = "Search";
             this.searchToolStripMenuItem.Click += new System.EventHandler(this.searchToolStripMenuItem_Click);
             // 
             // customSearchToolStripMenuItem
             // 
             this.customSearchToolStripMenuItem.Name = "customSearchToolStripMenuItem";
-            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.customSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift)
+                        | System.Windows.Forms.Keys.D)));
+            this.customSearchToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.customSearchToolStripMenuItem.Text = "Custom Search";
             this.customSearchToolStripMenuItem.Click += new System.EventHandler(this.customSearchToolStripMenuItem_Click);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
+            this.testToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(228, 22);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 

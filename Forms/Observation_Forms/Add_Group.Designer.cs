@@ -82,7 +82,7 @@
             // btnRemoveMember
             // 
             this.btnRemoveMember.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRemoveMember.Location = new System.Drawing.Point(9, 51);
+            this.btnRemoveMember.Location = new System.Drawing.Point(6, 53);
             this.btnRemoveMember.Name = "btnRemoveMember";
             this.btnRemoveMember.Size = new System.Drawing.Size(105, 23);
             this.btnRemoveMember.TabIndex = 21;
@@ -123,7 +123,7 @@
             this.lbxMembers.FormattingEnabled = true;
             this.lbxMembers.Location = new System.Drawing.Point(6, 82);
             this.lbxMembers.Name = "lbxMembers";
-            this.lbxMembers.Size = new System.Drawing.Size(335, 121);
+            this.lbxMembers.Size = new System.Drawing.Size(338, 121);
             this.lbxMembers.TabIndex = 10;
             // 
             // gbExisting
@@ -182,6 +182,7 @@
             this.Name = "Add_Group";
             this.Text = "Add Group";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Add_Group_Load);
             this.tbGroup.ResumeLayout(false);
             this.tbGroup.PerformLayout();
             this.gbExisting.ResumeLayout(false);

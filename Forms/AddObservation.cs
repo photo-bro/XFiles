@@ -14,6 +14,7 @@ namespace XFiles.Forms
     {
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         AddObservationHandler m_AOH = AddObservationHandler.Instance;
+        Query_Manager m_QM = Query_Manager.Instance;
 
         public AddObservation()
         {
@@ -23,21 +24,11 @@ namespace XFiles.Forms
 
             // Weather Combobox
             cbxWeather.Items.AddRange(m_AOH.getWeather);
-
-            //// Populate comboboxes
-            //cbxLocation.Items.AddRange(m_AOH.getLocations());
-            //// Populate combobox
-            //cbxAnimal.Items.AddRange(m_AOH.getAnimals());
-            //// Populate combobox
-            //cbxGroup.Items.AddRange(m_AOH.getGroups());
-
-
         }
 
         private void updateGUI()
         {
             tbSQL_String.Text = m_AOH.GetInsertQuery;
-
 
         }
 
@@ -160,7 +151,7 @@ namespace XFiles.Forms
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            m_AOH.addFieldToObservation("DateAndTime", dateTimePicker1.Value.ToString());
+            m_AOH.addFieldToObservation("DateAndTime", dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm:ss"));
             updateGUI();
         }
 
@@ -178,20 +169,33 @@ namespace XFiles.Forms
 
         private void cbxLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
-            m_AOH.addFieldToObservation("LocationID", m_AOH.getLocationID(cbxLocation.SelectedItem.ToString()));
+            if (cbxLocation.SelectedItem != null)
+                m_AOH.addFieldToObservation("LocationID", m_AOH.getLocationID(cbxLocation.SelectedItem.ToString()));
             updateGUI();
         }
 
         private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbxAnimal.SelectedItem != null)
             m_AOH.addFieldToObservation("AnimalID", m_AOH.getAnimalID(cbxAnimal.SelectedItem.ToString()));
             updateGUI();
         }
 
         private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (cbxGroup.SelectedItem != null)
             m_AOH.addFieldToObservation("GroupID", m_AOH.getGroupID(cbxGroup.SelectedItem.ToString()));
             updateGUI();
+        }
+
+        private void btnAddObserv_Click(object sender, EventArgs e)
+        {
+
+                m_xFacade.Command(m_AOH.GetInsertQuery);
+
+            //m_QM.CreateNewView(m_AOH.GetInsertQuery, m_xFacade.QueryToBindingSource(m_AOH.GetInsertQuery));
+            this.Close();
+
         }
 
 

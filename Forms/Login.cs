@@ -23,10 +23,10 @@ namespace XFiles.Forms
             this.ControlBox = false;
 
             // Remove before production build
-            tbServer.Text = "sql3.freemysqlhosting.net";
-            tbDataBase.Text = "sql323644";
-            tbUID.Text = "sql323644";
-            tbPassword.Text = "uP8%bG6%";
+            tbServer.Text = "cs-vh1"; //"sql3.freemysqlhosting.net";
+            tbDataBase.Text = "xfiles";//"sql323644";
+            tbUID.Text = "josh";//"sql323644";
+            tbPassword.Text = "mudpie";//"uP8%bG6%";
         }
 
         /// <summary>

@@ -75,5 +75,10 @@ namespace XFiles.Forms.Observation_Forms
          }
          this.Close();
         }
+
+        private void Add_Group_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

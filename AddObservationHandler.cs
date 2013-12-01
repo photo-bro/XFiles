@@ -43,6 +43,12 @@ namespace XFiles
         // Use Hashtable to store fields from the AddObservationForm.
         private Hashtable m_ht = new Hashtable();
 
+        public void Reset()
+        {
+            m_ht.Clear();
+        }
+
+
         public void addFieldToObservation(string field, string value)
         {
             if (!m_ht.ContainsKey(field))
@@ -183,11 +189,11 @@ namespace XFiles
             m_xFacade.Command(s);
         }
 
-        public void InsertObserver(string AddressID, string FirstName, string LastName, string Credentials, string PhoneNumber_1,
+        public void InsertObserver(string AddressID, string FirstName, string LastName, string Gender, string Credentials, string PhoneNumber_1,
             string PhoneNumber_2, string EmailAddress)
         {
-            string s = string.Format("INSERT INTO Observer_T (AddressID, FirstName, LastName, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress)" +
-            "VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\");", AddressID, FirstName, LastName, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress);
+            string s = string.Format("INSERT INTO Observer_T (AddressID, FirstName, LastName, Gender, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress)" +
+            "VALUE (\"{0}\", \"{1}\", \"{2}\", \"{3}\", \"{4}\", \"{5}\", \"{6}\", \"{7}\");", AddressID, FirstName, LastName, Gender, Credentials, PhoneNumber_1, PhoneNumber_2, EmailAddress);
 
             m_xFacade.Command(s);
         }

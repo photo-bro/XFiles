@@ -137,7 +137,7 @@
             this.tbLocale.Location = new System.Drawing.Point(135, 121);
             this.tbLocale.Name = "tbLocale";
             this.tbLocale.Size = new System.Drawing.Size(224, 20);
-            this.tbLocale.TabIndex = 17;
+            this.tbLocale.TabIndex = 7;
             this.tbLocale.TextChanged += new System.EventHandler(this.tbLocale_TextChanged);
             // 
             // lbLocale
@@ -197,7 +197,7 @@
             this.tbComments.Multiline = true;
             this.tbComments.Name = "tbComments";
             this.tbComments.Size = new System.Drawing.Size(264, 98);
-            this.tbComments.TabIndex = 11;
+            this.tbComments.TabIndex = 12;
             this.tbComments.TextChanged += new System.EventHandler(this.tbComments_TextChanged);
             // 
             // lbLat
@@ -224,7 +224,7 @@
             this.tbCharacteristics.Multiline = true;
             this.tbCharacteristics.Name = "tbCharacteristics";
             this.tbCharacteristics.Size = new System.Drawing.Size(264, 98);
-            this.tbCharacteristics.TabIndex = 10;
+            this.tbCharacteristics.TabIndex = 11;
             this.tbCharacteristics.TextChanged += new System.EventHandler(this.tbCharacteristics_TextChanged);
             // 
             // lbCharacteristics
@@ -241,7 +241,7 @@
             this.tbColor.Location = new System.Drawing.Point(135, 174);
             this.tbColor.Name = "tbColor";
             this.tbColor.Size = new System.Drawing.Size(100, 20);
-            this.tbColor.TabIndex = 8;
+            this.tbColor.TabIndex = 9;
             this.tbColor.TextChanged += new System.EventHandler(this.tbColor_TextChanged);
             // 
             // lbColor
@@ -258,7 +258,7 @@
             this.tbObservCount.Location = new System.Drawing.Point(135, 147);
             this.tbObservCount.Name = "tbObservCount";
             this.tbObservCount.Size = new System.Drawing.Size(100, 20);
-            this.tbObservCount.TabIndex = 7;
+            this.tbObservCount.TabIndex = 8;
             this.tbObservCount.TextChanged += new System.EventHandler(this.tbObservCount_TextChanged);
             // 
             // lbObservCount
@@ -285,7 +285,7 @@
             this.dateTimePicker1.Location = new System.Drawing.Point(365, 148);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 9;
+            this.dateTimePicker1.TabIndex = 10;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbDateTime

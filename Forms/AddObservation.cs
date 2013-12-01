@@ -18,6 +18,8 @@ namespace XFiles.Forms
 
         public AddObservation()
         {
+            m_AOH.Reset();
+
             InitializeComponent();
 
             RefreshFromServer();
@@ -29,7 +31,6 @@ namespace XFiles.Forms
         private void updateGUI()
         {
             tbSQL_String.Text = m_AOH.GetInsertQuery;
-
         }
 
         /// <summary>
@@ -170,35 +171,40 @@ namespace XFiles.Forms
         private void cbxLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxLocation.SelectedItem != null)
-                m_AOH.addFieldToObservation("LocationID", m_AOH.getLocationID(cbxLocation.SelectedItem.ToString()));
+            {
+                string s = m_AOH.getLocationID(cbxLocation.SelectedItem.ToString());
+                s = s.Replace("\r\n", ""); // remove newline
+                m_AOH.addFieldToObservation("LocationID", s);
+            }
             updateGUI();
         }
 
         private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxAnimal.SelectedItem != null)
-            m_AOH.addFieldToObservation("AnimalID", m_AOH.getAnimalID(cbxAnimal.SelectedItem.ToString()));
+            {
+                string s = m_AOH.getAnimalID(cbxAnimal.SelectedItem.ToString());
+                s = s.Replace("\r\n", ""); // remove newline
+                m_AOH.addFieldToObservation("AnimalID", s);
+            }
             updateGUI();
         }
 
         private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxGroup.SelectedItem != null)
-            m_AOH.addFieldToObservation("GroupID", m_AOH.getGroupID(cbxGroup.SelectedItem.ToString()));
+            {
+                string s = m_AOH.getGroupID(cbxGroup.SelectedItem.ToString());
+                s = s.Replace("\r\n", ""); // remove newline
+                m_AOH.addFieldToObservation("GroupID", s);
+            }
             updateGUI();
         }
 
         private void btnAddObserv_Click(object sender, EventArgs e)
         {
-
-                m_xFacade.Command(m_AOH.GetInsertQuery);
-
-            //m_QM.CreateNewView(m_AOH.GetInsertQuery, m_xFacade.QueryToBindingSource(m_AOH.GetInsertQuery));
+            m_xFacade.Command(m_AOH.GetInsertQuery);
             this.Close();
-
         }
-
-
-
     } // AddObservation
 } // namespace XFiles.Forms

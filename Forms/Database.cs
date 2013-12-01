@@ -200,6 +200,12 @@ namespace XFiles
             ao.Show();
         }
 
+        private void btnModify_Click(object sender, EventArgs e)
+        {
+            ModifyWindow mw = new ModifyWindow();
+            mw.Show();
+        }
+
 
     } // Database Form
 } // namespace XFiles

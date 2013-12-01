@@ -35,6 +35,8 @@ namespace XFiles
         //           H A N D L E R    S T U F F
         // ***********************************************
 
+        XFiles_Facade m_xFacade = XFiles_Facade.Instance;
+
         // Store fields and tables used for query
         private List<string> m_lsFields = new List<string>();
         private List<string> m_lsTables = new List<string>();
@@ -44,6 +46,9 @@ namespace XFiles
         // Conditions
         public string[] Conditionals = { "=", "!=", "<", ">", "<=", ">=" };
         public string[] JoinConditionals = { "  ", "AND", "OR", "XOR" };
+
+        // Deliminator
+        string[] m_sDelim = { " ", "\r\n" };
 
         public void Reset()
         {
@@ -104,19 +109,32 @@ namespace XFiles
                 }
 
                 // Determine condition(s) to query on
-                sb.Append("WHERE ");
-                for (int i = 0; i < m_lsConditions.Count; ++i)
+                if (m_lsConditions.Count > 0)
                 {
-                    //if (i == m_lsConditions.Count - 1)
+                    sb.Append("WHERE ");
+                    for (int i = 0; i < m_lsConditions.Count; ++i)
+                    {
+                        //if (i == m_lsConditions.Count - 1)
                         sb.AppendFormat("{0} ", m_lsConditions[i]);
-                    //else
-                    //    sb.AppendFormat("{0} ", m_lsConditions[i]);
+                        //else
+                        //    sb.AppendFormat("{0} ", m_lsConditions[i]);
+                    }
                 }
 
                 sb.Append(";");
 
                 return sb.ToString();
             }
+        }
+
+        public string [] getEntities()
+        {
+            string sFields = m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='"
+                + FileManager.Instance.DatabaseName + "';");
+            // Split string into individual items
+            List<string> ls = new List<string>(sFields.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries));
+            ls.Sort();
+            return ls.Distinct().ToArray();
         }
 
     } // UserQueryHandler

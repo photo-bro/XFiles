@@ -21,12 +21,7 @@ namespace XFiles.Forms.Search_Forms
             InitializeComponent();
 
             // Populate checklistbox possible animals (fields) from DB
-            // Query DB to get all fields,
-            string sFields = m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='" + FileManager.Instance.DatabaseName + "';");
-            string[] sDelim = { " ", "\r\n"  };
-            // Split string into individual items
-            m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
-            chlbxFields.Items.AddRange(m_sItems.ToArray());
+            chlbxFields.Items.AddRange(m_UQH.getEntities());
 
             // check items already included in query
             for(int i = 0; i<chlbxFields.Items.Count; ++i)

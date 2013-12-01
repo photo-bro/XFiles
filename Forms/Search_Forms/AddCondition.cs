@@ -21,6 +21,7 @@ namespace XFiles.Forms.Search_Forms
             // Populate fields
             // Field select
             cbxField.Items.AddRange(Fields().ToArray());
+
             // Condition select
             cbxCondition.Items.AddRange(m_UQH.Conditionals);
             cbxJoinCond.Items.AddRange(m_UQH.JoinConditionals);
@@ -54,6 +55,10 @@ namespace XFiles.Forms.Search_Forms
         private void btnOK_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
+
+            if (cbxCondition.SelectedItem == null)
+                this.Close();
+
             // Add condition to handler
             if (cbxJoinCond.Enabled)
                 m_UQH.AddCondition(cbxJoinCond.SelectedItem.ToString() + " " +
@@ -61,7 +66,6 @@ namespace XFiles.Forms.Search_Forms
                     + " " + cbxCondition.SelectedItem.ToString()
                     + " " + tbValue.Text);
             else
-
                 m_UQH.AddCondition(cbxField.SelectedItem.ToString()
                     + " " + cbxCondition.SelectedItem.ToString() + " " +
                     tbValue.Text);
@@ -88,7 +92,9 @@ namespace XFiles.Forms.Search_Forms
                     m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='" + FileManager.Instance.DatabaseName + "';");
                 lsFields.AddRange(items.Split(sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray());
             }
-            return lsFields;
+            lsFields.Sort();
+            return lsFields.Distinct().ToList();
+            
         } // Fields
     } // namespace XFiles.Forms.Search_Forms
 }

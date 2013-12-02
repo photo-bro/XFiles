@@ -14,26 +14,22 @@ namespace XFiles.Forms.Search_Forms
         UserQueryHandler m_UQH = UserQueryHandler.Instance;
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
 
-        string[] m_sItems;
-
+        /// <summary>
+        /// Populate form values
+        /// </summary>
         public AddTable()
         {
             InitializeComponent();
 
             // Populate checklistbox possible animals (fields) from DB
-            // Query DB to get all fields,
-            string sFields = m_xFacade.QueryToString("SHOW TABLES IN " + FileManager.Instance.DatabaseName + ";");
-            string[] sDelim = { " ", "\r\n" };
-            // Split string into individual items
-            m_sItems = sFields.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
-            chlbxTables.Items.AddRange(m_sItems.ToArray());
+            chlbxTables.Items.AddRange(m_UQH.getTablesFromDB());
 
             // check items already included in query
             for (int i = 0; i < chlbxTables.Items.Count; ++i)
                 if (m_UQH.getTables.Contains(chlbxTables.Items[i]))
                     chlbxTables.SetItemChecked(i, true);
 
-        }
+        } // AddTable()
 
         /// <summary>
         /// Returns checked items as formatted string
@@ -67,6 +63,11 @@ namespace XFiles.Forms.Search_Forms
             this.Close();
         } // btnOK
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -9,6 +9,9 @@ using System.Data; // DataTable
 
 namespace XFiles
 {
+    /// <summary>
+    /// Facade for basic MySql connectivity and program functions
+    /// </summary>
     class XFiles_Facade
     {
         // static instance of class
@@ -70,27 +73,31 @@ namespace XFiles
             m_bDBConnected = false;
 
         } // DisconnectDatabase
+
         /// <summary>
         /// Open and parse file into active database
         /// </summary>
         /// <param name="path"></param>
         public void OpenDataBaseInputFile(string path)
-        {
-        }
+        {/* not implemented */ }
 
+        /// <summary>
+        /// Sends MySql string command to active database
+        /// </summary>
+        /// <param name="command"></param>
         public void Command(string command)
         {
             try
             {
                 m_SQL.sendCommand(command);
                 Status.SetStatus(Status.STATUS_TYPE.COMMAND_SUCCESSFUL, "Command sent and processed correctly");
-            }
+            } // try
             catch (MySqlException e)
             {
                 ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR, e.ToString());
                 Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Command send or process error");
-            }
-        }
+            } // catch
+        } // Command
 
         /// <summary>
         /// Return a BindingSource object containing the data selected by the query
@@ -110,6 +117,12 @@ namespace XFiles
         public string QueryToString(string query)
         { return m_SQL.QueryToString(query); }
 
+        /// <summary>
+        /// Saves the contents of a datatable as a formatted text file to path/name
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
         public void ExportDataTableToFile(DataTable dt, string path, string name)
         {
             if (dt == null)
@@ -117,11 +130,12 @@ namespace XFiles
                 ErrorHandler.Error(ErrorHandler.XFILES_ERROR.VIEW_EMPTY, "Cannot save an empty table");
                 Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Cannot save an empty table");
                 return;
-            }
+            } // check if datatable null
 
             StringBuilder sb = new StringBuilder();
 
             // Credit:
+            // Wooh! Double imbedded lambda expressions!
             // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
             dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
             {

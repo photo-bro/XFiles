@@ -13,25 +13,33 @@ namespace XFiles.Forms.Observation_Forms
     {
         AddObservationHandler m_AOH = AddObservationHandler.Instance;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Add_Observer()
         {
             InitializeComponent();
-
             // Credential Combobox
             cbxCredentials.Items.AddRange(m_AOH.getCredentials);
-
             RefreshFromServer();
-        }
+        } // Add_Observer
 
+        /// <summary>
+        /// Refresh contents of components from server
+        /// </summary>
         private void RefreshFromServer()
         {
             // Address Combobox
             cbxAddress.Items.Clear();
             cbxAddress.Items.AddRange(m_AOH.getAddresses());
             cbxAddress.Items.Add("Add Address");
-        }
+        } // RefreshFromServer
 
-
+        /// <summary>
+        /// Show Add_Address form if "New Address" is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxAddress_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (cbxAddress.SelectedItem.ToString() == "New Address")
@@ -41,9 +49,15 @@ namespace XFiles.Forms.Observation_Forms
                 RefreshFromServer();        // make sure box is repopulated with new enitity
                 cbxAddress.SelectedValue = result;
                 return;
-            }
-        }
+            } // if
+        } // cbxAddress_SelectedIndexChanged
 
+        /// <summary>
+        /// Button Add
+        /// Insert new Observer based upon attributes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddObserver_Click(object sender, EventArgs e)
         {
             string AddressID = m_AOH.getAddressID(cbxAddress.SelectedItem.ToString());
@@ -52,7 +66,12 @@ namespace XFiles.Forms.Observation_Forms
             this.Close();
         }
 
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
         { this.Close(); }
-    }
-}
+    } // Add_Observer
+} // namespace XFiles.Forms.Observation_Forms

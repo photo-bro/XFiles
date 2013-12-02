@@ -16,22 +16,23 @@ namespace XFiles.Forms
         AddObservationHandler m_AOH = AddObservationHandler.Instance;
         Query_Manager m_QM = Query_Manager.Instance;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public AddObservation()
         {
             m_AOH.Reset();
-
             InitializeComponent();
-
             RefreshFromServer();
-
             // Weather Combobox
             cbxWeather.Items.AddRange(m_AOH.getWeather);
         }
 
+        /// <summary>
+        /// Update form components
+        /// </summary>
         private void updateGUI()
-        {
-            tbSQL_String.Text = m_AOH.GetInsertQuery;
-        }
+        {tbSQL_String.Text = m_AOH.GetInsertQuery;}
 
         /// <summary>
         /// Closes form
@@ -57,9 +58,12 @@ namespace XFiles.Forms
                 RefreshFromServer(); // make sure box is repopulated with new enitity
                 cbxLocation.SelectedValue = result;
                 return;
-            }
-        }
+            } // if "Add Location"
+        } // cbxLocation_SelectedValueChanged
 
+        /// <summary>
+        /// Refresh combobox items from server
+        /// </summary>
         private void RefreshFromServer()
         {
             // Location Combobox
@@ -76,9 +80,13 @@ namespace XFiles.Forms
             cbxGroup.Items.Clear();
             cbxGroup.Items.AddRange(m_AOH.getGroups());
             cbxGroup.Items.Add("Create New Group");
+        } // RefreshFromServer
 
-        }
-
+        /// <summary>
+        /// Show Add_Animal form when "Add Animal" is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxAnimal_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cbxAnimal.SelectedItem.ToString() == "Add Animal")
@@ -88,9 +96,14 @@ namespace XFiles.Forms
                 RefreshFromServer(); // make sure box is repopulated with new enitity
                 cbxLocation.SelectedValue = result;
                 return;
-            }
-        }
+            } // Add Animal
+        } // cbxAnimal_SelectedValueChanged
 
+        /// <summary>
+        /// Show Add_Group form when "Create New Group" is selected
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxGroup_SelectedValueChanged(object sender, EventArgs e)
         {
             if (cbxGroup.SelectedItem.ToString() == "Create New Group")
@@ -99,74 +112,79 @@ namespace XFiles.Forms
                 var result = ag.ShowDialog(); // wait for form to close before refresh
                 RefreshFromServer(); // make sure box is repopulated with new enitity
                 return;
-            }
-        }
+            } // Create New Group
+        } // cbxGroup_SelectedValueChanged
 
 
         // ***********************************************
         //           Component Change    S T U F F
         // ***********************************************
        
+        /* *****************************************************
+         * The following functions update their values to the handler
+         * class and update the interface elements, namely the MySql
+         * string.
+         *  **************************************************** */
 
         private void cbxWeather_SelectedIndexChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Weather", cbxWeather.SelectedItem.ToString());
             updateGUI();
-        }
+        } // cbxWeather_SelectedIndexChanged
 
         private void tbLatitude_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Latitude", tbLatitude.Text);
             updateGUI();
-        }
+        } // tbLatitude_TextChanged
 
         private void tbLongitude_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Longitude", tbLongitude.Text);
             updateGUI();
-        }
+        } // tbLongitude_TextChanged
 
         private void tbLocale_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Locality", tbLocale.Text);
             updateGUI();
-        }
+        } // tbLocale_TextChanged
 
         private void tbObservCount_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Number", tbObservCount.Text);
             updateGUI();
-        }
+        } // tbObservCount_TextChanged
 
         private void tbColor_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Color", tbColor.Text);
             updateGUI();
-        }
+        } // tbColor_TextChanged
 
         private void tbTemperature_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("AirTemperature", tbTemperature.Text);
             updateGUI();
-        }
+        } // tbTemperature_TextChanged
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("DateAndTime", dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm:ss"));
             updateGUI();
-        }
+        } // dateTimePicker1_ValueChanged
 
         private void tbCharacteristics_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Characteristics", tbCharacteristics.Text);
             updateGUI();
-        }
+        } // tbCharacteristics_TextChanged
 
         private void tbComments_TextChanged(object sender, EventArgs e)
         {
             m_AOH.addFieldToObservation("Comments", tbComments.Text);
             updateGUI();
-        }
+        } // tbComments_TextChanged
 
         private void cbxLocation_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -177,7 +195,7 @@ namespace XFiles.Forms
                 m_AOH.addFieldToObservation("LocationID", s);
             }
             updateGUI();
-        }
+        } // cbxLocation_SelectedIndexChanged
 
         private void cbxAnimal_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -188,7 +206,7 @@ namespace XFiles.Forms
                 m_AOH.addFieldToObservation("AnimalID", s);
             }
             updateGUI();
-        }
+        } // cbxAnimal_SelectedIndexChanged
 
         private void cbxGroup_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -199,12 +217,18 @@ namespace XFiles.Forms
                 m_AOH.addFieldToObservation("GroupID", s);
             }
             updateGUI();
-        }
+        } // cbxGroup_SelectedIndexChanged
 
+        /// <summary>
+        /// Insert observation into DB based upon form attributes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddObserv_Click(object sender, EventArgs e)
         {
             m_xFacade.Command(m_AOH.GetInsertQuery);
             this.Close();
-        }
+        } // btnAddObserv_Click
+
     } // AddObservation
 } // namespace XFiles.Forms

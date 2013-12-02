@@ -6,32 +6,47 @@ using System.Windows.Forms; // BindingSource
 
 namespace XFiles
 {
-
+    /// <summary>
+    /// A Query contains a BindingSource and its respective MySql string
+    /// </summary>
     public struct Query
     {
         private BindingSource m_bsResult;
         private string m_sSQL_String;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="result"></param>
         public Query(string query, BindingSource result)
         {
             m_sSQL_String = query;
             m_bsResult = result;
-        }
+        } // Query
 
+        /// <summary>
+        /// Get/sets binding source
+        /// </summary>
         public BindingSource DataSource
         {
             get { return m_bsResult; }
             set { m_bsResult = value; }
-        }
+        } // Datasource
 
-        public string SQL_String
+        /// <summary>
+        /// Get/sets MySql string
+        /// </summary>
+        public string MySql_String
         {
             get { return m_sSQL_String; }
             set { m_sSQL_String = value; }
-        }
+        } // MySql_String
     } // Query
 
-
+    /// <summary>
+    /// Manages Query objects throughout XFiles. Specifically in relation to views
+    /// </summary>
     class Query_Manager
     {
         // static instance
@@ -39,9 +54,8 @@ namespace XFiles
         // static lock object
         private static object c_vmLock = new object();
 
-        // Create 
+        // Query's stored in order of "creation"
         LinkedList<Query> m_Querys = new LinkedList<Query>();
-
 
         // default constructor
         private Query_Manager() { }
@@ -62,7 +76,6 @@ namespace XFiles
             } // get
         } // Instance
 
-
         /// <summary>
         /// Create new view from BindingSource
         /// </summary>
@@ -71,7 +84,7 @@ namespace XFiles
         { m_Querys.AddFirst(new Query(query, result));}
 
         /// <summary>
-        /// Get BindingSource from Query at position i
+        /// Get Query at position i
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
@@ -88,18 +101,18 @@ namespace XFiles
         } // this[i]
 
         /// <summary>
-        /// Get SQL query string from Query at position i
+        /// Get MySql query string from Query at position i
         /// </summary>
         /// <param name="i"></param>
         /// <returns></returns>
-        public string SQL_String(int position)
+        public string MySql_String(int position)
         {
             if (position < m_Querys.Count)
             {
-                return m_Querys.ElementAt(position).SQL_String;
+                return m_Querys.ElementAt(position).MySql_String;
             }
             else return "";
-        } // this[i]
+        } // MySql_String
 
     } // View_Manager
 } // namespace XFiles

@@ -18,7 +18,7 @@ namespace XFiles.Forms
 
 
             dgv.DataSource = q.DataSource;
-             tbSQL.Text = q.SQL_String;
+             tbSQL.Text = q.MySql_String;
         }
 
         private void btnClose_Click(object sender, EventArgs e)

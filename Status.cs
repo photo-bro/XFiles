@@ -13,9 +13,7 @@ namespace XFiles
     class Status
     {
         private static STATUS_TYPE c_ActiveStatus;
-
         private static string c_sStatusLog;
-
         private static int c_iLogCount = 0;
 
         /// <summary>

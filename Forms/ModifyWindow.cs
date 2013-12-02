@@ -15,18 +15,23 @@ namespace XFiles.Forms
         ModifyHandler m_MF = ModifyHandler.Instance;
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
 
+        // Store modified cells
         List<string> m_lsRows = new List<string>();
         List<List<string>> m_lslsColumns = new List<List<string>>();
         List<List<string>> m_lslsValues = new List<List<string>>();
 
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public ModifyWindow()
         {
             InitializeComponent();
-
             RefreshFromServer();
-        }
+        } // ModifyWindow
 
+        /// <summary>
+        /// Updates DGV and Combobox from database
+        /// </summary>
         private void RefreshFromServer()
         {
             // Table combobox
@@ -37,8 +42,11 @@ namespace XFiles.Forms
             // Determine which binding source to get
             if (cbxTables.SelectedItem != null)
                 dgv.DataSource = m_MF.GetBindingSource(cbxTables.SelectedItem.ToString());
-        }
+        } // RefreshFromServer
 
+        /// <summary>
+        /// Updates SQL textbox and other form components
+        /// </summary>
         private void updateGUI()
         {
             try
@@ -47,33 +55,52 @@ namespace XFiles.Forms
                     cbxTables.SelectedItem.ToString(),
                     m_MF.getTableIDFromName(cbxTables.SelectedItem.ToString()),
                     m_lsRows, m_lslsColumns, m_lslsValues);
-            }
+            } //try
             catch (Exception e)
             {
                 ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR,
                     e.ToString());
                 tbSQL.Text = "";
-            }
+            } // catch
+        } // updateGUI
 
-        }
-
+        /// <summary>
+        /// Close form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnClose_Click(object sender, EventArgs e)
         { this.Close(); }
 
+        /// <summary>
+        /// Commit Button
+        /// Send MySql string to server 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnCommit_Click(object sender, EventArgs e)
         {
             updateGUI();
             m_xFacade.Command(tbSQL.Text);
             RefreshFromServer();
-            
-        }
+        } // btnCommit_Click
 
+        /// <summary>
+        /// Set DGV source to selected index of combobox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbxTables_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Determine which binding source to get
             dgv.DataSource = m_MF.GetBindingSource(cbxTables.SelectedItem.ToString());
-        }
+        } // cbxTables Changed
 
+        /// <summary>
+        /// Store modified cell information. Row, column, value
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             // Rows, get primary key value to uniqly idenify row
@@ -105,8 +132,13 @@ namespace XFiles.Forms
             m_lslsValues[curIndex].Add(curValue.ToString());
 
             updateGUI();
-        }
+        } // DGV modified
 
+        /// <summary>
+        /// UpdateGUI when DGV cell is clicked
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         { updateGUI(); }
 

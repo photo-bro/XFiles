@@ -15,6 +15,7 @@ namespace XFiles.Forms
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         FileManager m_FM = FileManager.Instance;
 
+        // Default constructor
         public Login()
         {
             InitializeComponent();

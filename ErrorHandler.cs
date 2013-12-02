@@ -12,10 +12,8 @@ namespace XFiles
     class ErrorHandler
     {
         private static XFILES_ERROR c_CurrentError;
-
         private static string c_sErrorLog;
         private static int c_iErrorCount = 0;
-
         private static bool c_bDisplayWindow = true;
 
         /// <summary>
@@ -87,9 +85,6 @@ namespace XFiles
         /// </summary>
         public static XFILES_ERROR CurrentError
         { get { return c_CurrentError; } }
-
-
-
 
     } // ErrorHandler
 } // namespace XFiles

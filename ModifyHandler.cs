@@ -6,6 +6,9 @@ using System.Windows.Forms; // BindingSource
 
 namespace XFiles
 {
+    /// <summary>
+    /// Handler class for all actions of the ModifyWindow form
+    /// </summary>
     class ModifyHandler
     {
         // ***********************************************
@@ -38,6 +41,10 @@ namespace XFiles
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         
+        /// <summary>
+        /// Returns string array of all tablenames in database
+        /// </summary>
+        /// <returns></returns>
         public string[] getTables()
         {
             // Query DB to get all fields,
@@ -47,11 +54,13 @@ namespace XFiles
             return s.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
         }
 
+        /// <summary>
+        /// Returns BindingSource with total contents of tablename
+        /// </summary>
+        /// <param name="tablename"></param>
+        /// <returns></returns>
         public BindingSource GetBindingSource(string tablename)
-        {
-            return m_xFacade.QueryToBindingSource("SELECT * FROM " + tablename + ";");
-        
-        }
+        {return m_xFacade.QueryToBindingSource("SELECT * FROM " + tablename + ";");}
 
         /// <summary>
         /// Returns a string containing the proper MySql modify query
@@ -82,23 +91,20 @@ namespace XFiles
                     // Determine which row to update upon
                     sb.AppendFormat("WHERE {0} = \"{1}\";\r\n", id, rows[rowcount]);
                     ++colcount; // Increment to go to next column
-                }
+                } // columns
                 ++rowcount; // Increment to go to next row
-            }
+            } // rows
 
             return sb.ToString();
-        }
+        } // GetModifyQuery
 
+        /// <summary>
+        /// Returns primary key name from tablename
+        /// </summary>
+        /// <param name="tablename"></param>
+        /// <returns></returns>
         public string getTableIDFromName(string tablename)
-        {
-            return tablename.Replace("_t", "ID");
-        }
+        { return tablename.Replace("_t", "ID");}
 
-        public void UpdateTable()
-        {
-
-
-        }
-
-    }
-}
+    } // ModifyHandler
+} // namespace XFiles

@@ -11,16 +11,14 @@ namespace XFiles.Forms
 {
     public partial class CustomQuery : Form
     {
-
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         Query_Manager m_VM = Query_Manager.Instance;
 
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public CustomQuery()
-        {
-            InitializeComponent();
-        }
-
+        {InitializeComponent();}
 
         /// <summary>
         /// Close form
@@ -40,4 +38,4 @@ namespace XFiles.Forms
         { m_VM.CreateNewView(tbCustQuery.Text, m_xFacade.QueryToBindingSource(tbCustQuery.Text)); }
 
     } // CustomQuery
-} // namespace XFiles
+} // namespace XFiles.Forms

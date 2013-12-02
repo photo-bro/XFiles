@@ -16,13 +16,14 @@ namespace XFiles.Forms.Observation_Forms
         // Hold members to be in group
         List<string> m_lsObservers = new List<string>();
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public Add_Group()
         {
             InitializeComponent();
-
             RefreshFromServer();
-            // Refresh lbxMembers
-        }
+        } // Add_Group
             
         /// <summary>
         /// Refresh contents of components from server
@@ -36,31 +37,53 @@ namespace XFiles.Forms.Observation_Forms
             // lbxMembers members
             lbxMembers.Items.Clear();
             lbxMembers.Items.AddRange(m_lsObservers.ToArray());
+        } // RefreshFromServer
 
-        }
-
-
+        /// <summary>
+        /// Button Add
+        /// Show Add_Observer form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddNewObserver_Click(object sender, EventArgs e)
         {
             Add_Observer ao = new Add_Observer();
             DialogResult dr = ao.ShowDialog();
             RefreshFromServer();
-        }
+        } // btnAddNewObserver_Click
 
+        /// <summary>
+        /// Button Add Existing
+        /// Add selected item in lbxExisting to current group list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddExisiting_Click(object sender, EventArgs e)
         {
             // Split full name into first/last
             //string[] sName = lbxExisting.SelectedItem.ToString().Split(" ".ToCharArray());
             m_lsObservers.Add(lbxExisting.SelectedItem.ToString());//m_AOH.getObserverID(sName[0], sName[1]);
             RefreshFromServer();
-        }
+        } // btnAddExisiting_Click
 
+        /// <summary>
+        /// Button Remove Member
+        /// Removed selected item from current group list
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnRemoveMember_Click(object sender, EventArgs e)
         {
             m_lsObservers.Remove(lbxMembers.SelectedItem.ToString());
             RefreshFromServer();
-        }
+        } // btnRemoveMember_Click
 
+        /// <summary>
+        /// Button Add
+        /// Insert new group based upon form attributes
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAdd_Click(object sender, EventArgs e)
         {
             // Create group
@@ -72,13 +95,8 @@ namespace XFiles.Forms.Observation_Forms
              m_AOH.InsertObserverList(m_AOH.getGroupID(tbGroupName.Text),
                  m_AOH.getObserverID(item.ToString().Split(" ".ToCharArray())[0],
                  item.ToString().Split(" ".ToCharArray())[1]));
-         }
+         } // foreach
          this.Close();
-        }
-
-        private void Add_Group_Load(object sender, EventArgs e)
-        {
-
-        }
-    }
-}
+        } // btnAdd_Click
+    } // Add_Group
+} // namespace XFiles.Forms.Observation_Forms

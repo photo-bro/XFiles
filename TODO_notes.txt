@@ -4,6 +4,6 @@ x Create locale entity
 	= Added locale field to Observation, kept location as overarching type
 x Genus/Species for animal instead of scientific name
 x Air temp for observation
-- Get modify to work
-	- New form
+x Get modify to work
+	x New form
 - Save to file better formatted, easier to use

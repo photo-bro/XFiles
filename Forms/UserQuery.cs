@@ -17,17 +17,20 @@ namespace XFiles.Forms
         Query_Manager m_VM = Query_Manager.Instance;
         UserQueryHandler m_UQH = UserQueryHandler.Instance;
 
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public UserQuery()
         {
             InitializeComponent();
             m_UQH.Reset();
-        }
+        } // UserQuery
 
-
+        /// <summary>
+        /// Update components 
+        /// </summary>
         public void updateGUI()
-        {
-            tbSQL_String.Text = m_UQH.GetQuery;
-        }
+        {tbSQL_String.Text = m_UQH.GetQuery; }
 
         /// <summary>
         /// Close form
@@ -35,10 +38,7 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnCancel_Click(object sender, EventArgs e)
-        {
-            m_UQH.Reset();
-            this.Close(); 
-        }
+        { this.Close(); }
 
         /// <summary>
         /// Query DB and create new view
@@ -48,6 +48,12 @@ namespace XFiles.Forms
         private void btnSearch_Click(object sender, EventArgs e)
         { m_VM.CreateNewView(m_UQH.GetQuery, m_xFacade.QueryToBindingSource(m_UQH.GetQuery)); }
 
+        /// <summary>
+        /// Button Add New Entity
+        /// Show AddEntity Form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddFind_Click(object sender, EventArgs e)
         {
             AddEntity aeForm = new AddEntity();
@@ -55,9 +61,15 @@ namespace XFiles.Forms
             {
                 tbFind.Text = aeForm.SelectedItems;
                 updateGUI();
-            }
-        }
+            } // if OK
+        } // btnAddFind_Click
 
+        /// <summary>
+        /// Button Add New Table
+        /// Show AddTable form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddIn_Click(object sender, EventArgs e)
         {
             AddTable atForm = new AddTable();
@@ -65,24 +77,31 @@ namespace XFiles.Forms
             {
                 tbIn.Text = atForm.SelectedItems;
                 updateGUI();
-            }
-        }
+            } // if OK
+        } // btnAddIn_Click
 
+        /// <summary>
+        /// Button Add Condition
+        /// Show AddCondition form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnConditions_Click(object sender, EventArgs e)
         {
-
             AddCondition acForm = new AddCondition();
             if (acForm.ShowDialog() == DialogResult.OK)
             {
                 tbConditions.Text += acForm.SelectedItems + "\r\n";
                 updateGUI();
-            }
-        }
+            } // if OK
+        } // btnConditions_Click
 
+        /// <summary>
+        /// Update components upon click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UserQuery_MouseClick(object sender, MouseEventArgs e)
         {updateGUI();}
-
-
-
-    }
-}
+    } // UserQuery
+} // namespace XFiles.Forms

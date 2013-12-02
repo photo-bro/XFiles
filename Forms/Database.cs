@@ -16,7 +16,9 @@ namespace XFiles
         private XFiles_Facade m_xFacade = XFiles_Facade.Instance;
         private Query_Manager m_VM = Query_Manager.Instance;
 
-       
+       /// <summary>
+       /// Default constructor
+       /// </summary>
         public Database()
         {
             InitializeComponent();
@@ -27,7 +29,7 @@ namespace XFiles
             dgvView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
             updateGUI();
-        }
+        } // Database
 
         /// <summary>
         /// Refreshes all elements of the form to most current values
@@ -134,42 +136,68 @@ namespace XFiles
                 dtSource.Rows.Add(drNewRow);
             } // foreach row
 
-
             // save file
             m_xFacade.ExportDataTableToFile(dtSource, Path.GetDirectoryName(sfdPrompt.FileName),
                 Path.GetFileName(sfdPrompt.FileName));
 
             updateGUI();
-        }
+        } // exportViewToolStripMenuItem_Click
 
+        /// <summary>
+        /// Show CustomQuery form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void customSearchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             CustomQuery cq = new CustomQuery();
             cq.Show();
-        }
+        } // customSearchToolStripMenuItem_Click
 
+        /* ***********************************************
+         * Refresh functions for different event types
+         * *********************************************** */
         private void Refresh(object sender, EventArgs e)
         { updateGUI(); }
-
         private void Refresh(object sender, MouseEventArgs e)
         { updateGUI(); }
 
+        /// <summary>
+        /// Show Login form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void loginToolStripMenuItem_Click(object sender, EventArgs e)
         {
             m_xFacade.DisconnectDatabase();
             Login lgForm = new Login();
             lgForm.Show();
-        }
+        } // loginToolStripMenuItem_Click
 
+        /// <summary>
+        /// Show Search form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void searchToolStripMenuItem_Click(object sender, EventArgs e)
         {
             UserQuery uq = new UserQuery();
             uq.Show();
-        }
+        } // searchToolStripMenuItem_Click
 
+        /// <summary>
+        /// Button Search
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnQuery_Click(object sender, EventArgs e)
         {searchToolStripMenuItem.PerformClick();}
 
+        /// <summary>
+        /// Show current view in ResultWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void openViewInNewWindowToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Query q;
@@ -186,32 +214,55 @@ namespace XFiles
             try { rw.Show(); }
             catch (Exception ee)
             { MessageBox.Show("Query loading... Please try again"); }
-        }
+        } // openViewInNewWindowToolStripMenuItem_Click
 
+        /// <summary>
+        /// Show AddObservationWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnAddObservation_Click(object sender, EventArgs e)
         { AddObservationWindow(); }
 
+        /// <summary>
+        /// Show AddObservationWindow
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void addObservationToolStripMenuItem_Click(object sender, EventArgs e)
         { AddObservationWindow(); }
 
+        /// <summary>
+        /// Show AddObservationWindow
+        /// </summary>
         private void AddObservationWindow()
         {
             AddObservation ao = new AddObservation();
             ao.Show();
-        }
+        } // AddObservationWindow
 
+        /// <summary>
+        /// Button Modify
+        /// Show ModifyWindow form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnModify_Click(object sender, EventArgs e)
         {
             ModifyWindow mw = new ModifyWindow();
             mw.Show();
-        }
+        } // btnModify_Click
 
+        /// <summary>
+        /// About menuitem
+        /// Show About form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutForm af = new AboutForm();
             af.Show();
-        }
-
-
+        } // aboutToolStripMenuItem_Click
     } // Database Form
 } // namespace XFiles

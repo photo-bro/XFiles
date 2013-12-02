@@ -6,7 +6,7 @@ using System.Text;
 namespace XFiles
 {
     /// <summary>
-    /// Singleton Class wrapping the functionality to load and save files
+    /// Singleton class wrapping the functionality to load and save files
     /// </summary>
     class FileManager
     {
@@ -32,6 +32,7 @@ namespace XFiles
         private string m_sLastFileName = "";
 
         // Database login information
+        // Currently using remote internet MySql server
         private string c_sServer = "sql3.freemysqlhosting.net";  //"cs-vh1";
         private string c_sDatabase = "sql323644";                //"xfiles";
         private string c_sUID = "sql323644";                     //"josh";

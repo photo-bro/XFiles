@@ -18,7 +18,9 @@ namespace XFiles.Forms
             // Set description
             tbDescription.Text = m_FM.ProgramName + " " + m_FM.ProgramVersion + "\r\n" +
                 "Josh Harmon & Kali McKee\r\n" + "CSCI 330 DBMS Fall 2013\r\n\r\n" +
-                "XFiles is a simple animal observation database and interface for cataloging various sightings of birds and creatures on the Principia College Campus";
+                "XFiles is a simple animal observation database and interface for cataloging " +
+                "various sightings of birds and creatures on the Principia College Campus" + 
+                "\r\n\r\nFull commit history and code at: https://github.com/photo-bro/XFiles";
         } // AboutForm()
         
         /// <summary>

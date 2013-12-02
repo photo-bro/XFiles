@@ -5,6 +5,9 @@ using System.Text;
 
 namespace XFiles
 {
+    /// <summary>
+    /// Handler class of all actions for the UserQuery and child forms
+    /// </summary>
     class UserQueryHandler
     {
         // ***********************************************
@@ -50,38 +53,65 @@ namespace XFiles
         // Deliminator
         string[] m_sDelim = { " ", "\r\n" };
 
+        /// <summary>
+        /// Resets class variables
+        /// </summary>
         public void Reset()
         {
             m_lsFields.Clear();
             m_lsTables.Clear();
             m_lsConditions.Clear();
             m_lsJoinConditions.Clear();
-        }
+        } // Reset
 
+        /// <summary>
+        /// Add selected fields for current query
+        /// </summary>
+        /// <param name="fields"></param>
         public void AddFields(string[] fields)
         {
             m_lsFields.Clear();
             m_lsFields.AddRange(fields);
-        }
+        } // AddFields
 
+        /// <summary>
+        /// Add selected tables for current query
+        /// </summary>
+        /// <param name="tables"></param>
         public void AddTables(string[] tables)
         {
             m_lsTables.Clear();
             m_lsTables.AddRange(tables);
-        }
+        } // AddTables
 
+        /// <summary>
+        /// Add selected condition for current query
+        /// </summary>
+        /// <param name="condition"></param>
         public void AddCondition(string condition)
         { m_lsConditions.Add(condition); }
 
+        /// <summary>
+        /// Returns previously selected fields
+        /// </summary>
         public List<string> getFields
         { get { return m_lsFields; } }
 
+        /// <summary>
+        /// Returns previously selected tables
+        /// </summary>
         public List<string> getTables
         { get { return m_lsTables; } }
 
+        /// <summary>
+        /// Returns previously selected conditions
+        /// </summary>
         public List<string> getConditions
         { get { return m_lsConditions; } }
 
+        /// <summary>
+        /// Returns a formatted MySql query based upon selected fields, tables, and conditions
+        /// </summary>
         public string GetQuery
         {
             get
@@ -96,7 +126,7 @@ namespace XFiles
                         sb.AppendFormat("{0} ", m_lsFields[i]);
                     else
                         sb.AppendFormat("{0}, ", m_lsFields[i]);
-                }
+                } // for fields selected
 
                 // Determine which tables to be queried
                 sb.Append("FROM ");
@@ -106,7 +136,7 @@ namespace XFiles
                         sb.AppendFormat("{0} ", m_lsTables[i]);
                     else
                         sb.AppendFormat("{0} NATURAL JOIN  ", m_lsTables[i]);
-                }
+                } // for tables selected
 
                 // Determine condition(s) to query on
                 if (m_lsConditions.Count > 0)
@@ -119,14 +149,18 @@ namespace XFiles
                         //else
                         //    sb.AppendFormat("{0} ", m_lsConditions[i]);
                     }
-                }
+                } // if (m_lsConditions.Count > 0)
 
                 sb.Append(";");
 
                 return sb.ToString();
-            }
-        }
+            } // get
+        } // GetQuery
 
+        /// <summary>
+        /// Return a sorted distinct string arry of all fields in current database
+        /// </summary>
+        /// <returns></returns>
         public string [] getEntities()
         {
             string sFields = m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='"
@@ -135,7 +169,19 @@ namespace XFiles
             List<string> ls = new List<string>(sFields.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries));
             ls.Sort();
             return ls.Distinct().ToArray();
-        }
+        } // getEntities
+
+        /// <summary>
+        /// Return a string array of all tables in current database
+        /// </summary>
+        /// <returns></returns>
+        public string[] getTablesFromDB()
+        {
+            string sFields = m_xFacade.QueryToString("SHOW TABLES IN " + FileManager.Instance.DatabaseName + ";");
+            // Split string into individual items
+            return sFields.Split(m_sDelim, StringSplitOptions.RemoveEmptyEntries);
+
+        } // getTablesFromDB
 
     } // UserQueryHandler
 } // namespace XFiles

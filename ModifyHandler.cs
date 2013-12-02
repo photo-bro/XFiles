@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms; // BindingSource
 
 namespace XFiles
 {
@@ -36,5 +37,68 @@ namespace XFiles
         // ***********************************************
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
+        
+        public string[] getTables()
+        {
+            // Query DB to get all fields,
+            string s = m_xFacade.QueryToString("SHOW TABLES IN " + FileManager.Instance.DatabaseName + ";");
+            string[] sDelim = { " ", "\r\n" };
+            // Split string into individual items
+            return s.Split(sDelim, StringSplitOptions.RemoveEmptyEntries);
+        }
+
+        public BindingSource GetBindingSource(string tablename)
+        {
+            return m_xFacade.QueryToBindingSource("SELECT * FROM " + tablename + ";");
+        
+        }
+
+        /// <summary>
+        /// Returns a string containing the proper MySql modify query
+        /// </summary>
+        /// <param name="table">Name of table to modify</param>
+        /// <param name="id">Primary key of table</param>
+        /// <param name="rows">Rows modified</param>
+        /// <param name="columns">Columns modified, column[row][#columns] = columnname</param>
+        /// <param name="values">Values modified, value[row][#values] = valuemodified</param>
+        /// <returns>MySQL modify string</returns>
+        public string GetModifyQuery(string table, string id, List<string> rows, List<List<string>> columns, 
+            List<List<string>> values)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            int rowcount = 0;
+            // Update each column in each row. Start by going through row by row
+            foreach (var row in rows)
+            {
+                int colcount = 0;
+                // Now go column by column
+                foreach (var column in columns[rowcount])
+                {
+                    // Header for MySql statement
+                    sb.AppendFormat("UPDATE {0} SET ", table);
+                    // Obtain the column name and value to change
+                    sb.AppendFormat("{0} = \"{1}\" ", columns[rowcount][colcount], values[rowcount][colcount]);
+                    // Determine which row to update upon
+                    sb.AppendFormat("WHERE {0} = \"{1}\";\r\n", id, rows[rowcount]);
+                    ++colcount; // Increment to go to next column
+                }
+                ++rowcount; // Increment to go to next row
+            }
+
+            return sb.ToString();
+        }
+
+        public string getTableIDFromName(string tablename)
+        {
+            return tablename.Replace("_t", "ID");
+        }
+
+        public void UpdateTable()
+        {
+
+
+        }
+
     }
 }

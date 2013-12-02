@@ -182,7 +182,6 @@
             this.Name = "Add_Group";
             this.Text = "Add Group";
             this.TopMost = true;
-            this.Load += new System.EventHandler(this.Add_Group_Load);
             this.tbGroup.ResumeLayout(false);
             this.tbGroup.PerformLayout();
             this.gbExisting.ResumeLayout(false);

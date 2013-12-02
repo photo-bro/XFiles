@@ -117,8 +117,9 @@ namespace XFiles
         /// <param name="sCommand"></param>
         public void sendCommand(string sCommand)
         {
+            if (sCommand == "") return;
             if (!m_bIsOpen) openConnection();
-
+            
             MySqlCommand command = new MySqlCommand(sCommand, m_sqlConnection);
 
             command.ExecuteReader();
@@ -224,6 +225,7 @@ namespace XFiles
             da.Dispose();
             return bs;
         } // QueryToDGV
+
 
         /// <summary>
         /// Returns MySQLCommand object connected to active database

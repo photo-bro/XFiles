@@ -47,7 +47,8 @@
             // 
             this.tbDescription.BackColor = System.Drawing.Color.White;
             this.tbDescription.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.tbDescription.Cursor = System.Windows.Forms.Cursors.Default;
+            this.tbDescription.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.tbDescription.HideSelection = false;
             this.tbDescription.Location = new System.Drawing.Point(12, 138);
             this.tbDescription.Multiline = true;
             this.tbDescription.Name = "tbDescription";
@@ -61,7 +62,7 @@
             this.btnOK.Location = new System.Drawing.Point(297, 263);
             this.btnOK.Name = "btnOK";
             this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 2;
+            this.btnOK.TabIndex = 0;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = true;
             this.btnOK.Click += new System.EventHandler(this.btnOK_Click);
@@ -78,6 +79,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "AboutForm";
             this.Text = "About XFiles";
+            this.Load += new System.EventHandler(this.AboutForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Splash)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

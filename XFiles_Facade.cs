@@ -110,7 +110,6 @@ namespace XFiles
         public string QueryToString(string query)
         { return m_SQL.QueryToString(query); }
 
-
         public void ExportDataTableToFile(DataTable dt, string path, string name)
         {
             if (dt == null)

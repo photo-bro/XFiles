@@ -83,13 +83,14 @@ namespace XFiles
                 int colcount = 0;
                 // Now go column by column
                 foreach (var column in columns[rowcount])
+                //foreach(var cell in columns.Zip(values, (x, y) => new {X=x, Y=y}))
                 {
                     // Header for MySql statement
                     sb.AppendFormat("UPDATE {0} SET ", table);
                     // Obtain the column name and value to change
-                    sb.AppendFormat("{0} = \"{1}\" ", columns[rowcount][colcount], values[rowcount][colcount]);
+                    sb.AppendFormat("{0} = \"{1}\" ", column, values[rowcount][colcount]);
                     // Determine which row to update upon
-                    sb.AppendFormat("WHERE {0} = \"{1}\";\r\n", id, rows[rowcount]);
+                    sb.AppendFormat("WHERE {0} = \"{1}\";\r\n", id, row);
                     ++colcount; // Increment to go to next column
                 } // columns
                 ++rowcount; // Increment to go to next row
@@ -97,6 +98,22 @@ namespace XFiles
 
             return sb.ToString();
         } // GetModifyQuery
+
+        /// <summary>
+        /// Returns a string containing the proper MySql modify query
+        /// </summary>
+        /// <param name="table"></param>
+        /// <param name="id"></param>
+        /// <param name="row"></param>
+        /// <param name="column"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public string GetModifyQuery(string table, string id, string row, 
+            string column, string value)
+            {
+                return string.Format("UPDATE {0} SET {1} = \"{2}\" WHERE {3} = \"{4}\";\r\n",
+                    table, column, value, id, row);
+            } // GetModifyQuery
 
         /// <summary>
         /// Returns primary key name from tablename

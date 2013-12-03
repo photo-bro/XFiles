@@ -20,6 +20,8 @@ namespace XFiles.Forms
         List<List<string>> m_lslsColumns = new List<List<string>>();
         List<List<string>> m_lslsValues = new List<List<string>>();
 
+        List<string> m_lsModifySQL = new List<string>();
+
         /// <summary>
         /// Default constructor
         /// </summary>
@@ -49,19 +51,21 @@ namespace XFiles.Forms
         /// </summary>
         private void updateGUI()
         {
-            try
-            {
-                tbSQL.Text = m_MF.GetModifyQuery(
-                    cbxTables.SelectedItem.ToString(),
-                    m_MF.getTableIDFromName(cbxTables.SelectedItem.ToString()),
-                    m_lsRows, m_lslsColumns, m_lslsValues);
-            } //try
-            catch (Exception e)
-            {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR,
-                    e.ToString());
-                tbSQL.Text = "";
-            } // catch
+            tbSQL.Text = "";
+            m_lsModifySQL.ForEach(row => tbSQL.Text += row);
+            //try
+            //{
+            //    tbSQL.Text = m_MF.GetModifyQuery(
+            //        cbxTables.SelectedItem.ToString(),
+            //        m_MF.getTableIDFromName(cbxTables.SelectedItem.ToString()),
+            //        m_lsRows, m_lslsColumns, m_lslsValues);
+            //} //try
+            //catch (Exception e)
+            //{
+            //    ErrorHandler.Error(ErrorHandler.XFILES_ERROR.UNKNOWN_ERROR,
+            //        e.ToString());
+            //    tbSQL.Text = "";
+            //} // catch
         } // updateGUI
 
         /// <summary>
@@ -103,33 +107,42 @@ namespace XFiles.Forms
         /// <param name="e"></param>
         private void dgv_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
-            // Rows, get primary key value to uniqly idenify row
-            // assumes primary key is first item of table
-            if (!m_lsRows.Contains(dgv.CurrentCell.OwningRow.Cells[0].Value.ToString()))
-                m_lsRows.Add(dgv.CurrentCell.OwningRow.Cells[0].Value.ToString());
+            /******
+             * Commented out code is old less efficent method. Uncommented implemetation is
+             * much simpler and works better
+             * **** */
+            //// Rows, get primary key value to uniqly idenify row
+            //// assumes primary key is first item of table
+            //if (!m_lsRows.Contains(dgv.CurrentCell.OwningRow.Cells[0].Value.ToString()))
+            //    m_lsRows.Add(dgv.CurrentCell.OwningRow.Cells[0].Value.ToString());
 
-            // Column names
-            while (dgv.CurrentCell.OwningRow.Index + 1 > m_lslsColumns.Count)
-                m_lslsColumns.Add(new List<string>());
+            //// Column names
+            //while (dgv.CurrentCell.OwningRow.Index + 1 > m_lslsColumns.Count)
+            //    m_lslsColumns.Add(new List<string>());
 
             // place info in temp vars for readability
             int curIndex = dgv.CurrentCell.OwningRow.Index;
             string curColName = dgv.CurrentCell.OwningColumn.Name;
             var curValue = dgv.CurrentCell.Value;
 
-            // Check if column exists, and replace if it does
-            if (m_lslsColumns[curIndex].Contains(curColName))
-                m_lslsColumns[curIndex].Remove(curColName);
-            m_lslsColumns[curIndex].Add(curColName);
+            //// Check if column exists, and replace if it does
+            //if (m_lslsColumns[curIndex].Contains(curColName))
+            //    m_lslsColumns[curIndex].Remove(curColName);
+            //m_lslsColumns[curIndex].Add(curColName);
 
-            // Cell values
-            while (dgv.CurrentCell.OwningRow.Index + 1 > m_lslsValues.Count)
-                m_lslsValues.Add(new List<string>());
+            //// Cell values
+            //while (dgv.CurrentCell.OwningRow.Index + 1 > m_lslsValues.Count)
+            //    m_lslsValues.Add(new List<string>());
 
-            // Check if value exists, and replace if it does
-            //if (m_lslsValues[curIndex].Contains(curValue.ToString()))
-            //    m_lslsValues[curIndex].Remove(curValue.ToString());
-            m_lslsValues[curIndex].Add(curValue.ToString());
+            //// Check if value exists, and replace if it does
+            ////if (m_lslsValues[curIndex].Contains(curValue.ToString()))
+            ////    m_lslsValues[curIndex].Remove(curValue.ToString());
+            //m_lslsValues[curIndex].Add(curValue.ToString());
+            m_lsModifySQL.Add(m_MF.GetModifyQuery(cbxTables.SelectedItem.ToString(), 
+                m_MF.getTableIDFromName(cbxTables.SelectedItem.ToString()),
+                dgv.CurrentCell.OwningRow.Cells[0].Value.ToString(),
+                curColName,
+                curValue.ToString()));
 
             updateGUI();
         } // DGV modified

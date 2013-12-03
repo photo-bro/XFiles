@@ -67,9 +67,9 @@ namespace XFiles
         /// </summary>
         /// <param name="table">Name of table to modify</param>
         /// <param name="id">Primary key of table</param>
-        /// <param name="rows">Rows modified</param>
-        /// <param name="columns">Columns modified, column[row][#columns] = columnname</param>
-        /// <param name="values">Values modified, value[row][#values] = valuemodified</param>
+        /// <param name="rows">Rows modified (primary key of row modified)</param>
+        /// <param name="columns">Columns modified, column[row][columns#] = columnname</param>
+        /// <param name="values">Values modified, value[row][values#] = valuemodified</param>
         /// <returns>MySQL modify string</returns>
         public string GetModifyQuery(string table, string id, List<string> rows, List<List<string>> columns, 
             List<List<string>> values)

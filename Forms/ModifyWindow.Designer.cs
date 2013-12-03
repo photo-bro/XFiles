@@ -167,7 +167,6 @@
         private System.Windows.Forms.GroupBox gbResult;
         private System.Windows.Forms.DataGridView dgv;
         private System.Windows.Forms.Button btnCommit;
-        private xfilesDataSet xfilesDataSet;
         private System.Windows.Forms.ComboBox cbxTables;
         private System.Windows.Forms.Label lbTable;
         private System.Windows.Forms.GroupBox gbSQL;

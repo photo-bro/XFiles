@@ -60,6 +60,13 @@ namespace XFiles.Properties {
             }
         }
         
+        internal static System.Drawing.Bitmap XFiles_BG {
+            get {
+                object obj = ResourceManager.GetObject("XFiles_BG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
         internal static System.Drawing.Bitmap XFiles_Splash {
             get {
                 object obj = ResourceManager.GetObject("XFiles_Splash", resourceCulture);

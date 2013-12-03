@@ -271,6 +271,7 @@
     <None Include="Resources\XFiles_Splash.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\XFiles_BG.png" />
     <Content Include="TODO_notes.txt" />
     <Content Include="XFilesDBCreate.sql" />
   </ItemGroup>

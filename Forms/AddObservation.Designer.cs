@@ -282,16 +282,18 @@
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(365, 148);
+            this.dateTimePicker1.Checked = false;
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy h:mm:ss";
+            this.dateTimePicker1.Location = new System.Drawing.Point(330, 147);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(235, 20);
             this.dateTimePicker1.TabIndex = 10;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // lbDateTime
             // 
             this.lbDateTime.AutoSize = true;
-            this.lbDateTime.Location = new System.Drawing.Point(276, 150);
+            this.lbDateTime.Location = new System.Drawing.Point(241, 150);
             this.lbDateTime.Name = "lbDateTime";
             this.lbDateTime.Size = new System.Drawing.Size(83, 13);
             this.lbDateTime.TabIndex = 3;

@@ -26,6 +26,9 @@ namespace XFiles.Forms
             RefreshFromServer();
             // Weather Combobox
             cbxWeather.Items.AddRange(m_AOH.getWeather);
+            // DateTimePicker format
+            dateTimePicker1.Format = DateTimePickerFormat.Custom;
+            dateTimePicker1.CustomFormat = "ddd-MMM dd/MM/yyyy h:mm:ss tt";
         }
 
         /// <summary>
@@ -170,7 +173,9 @@ namespace XFiles.Forms
 
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
-            m_AOH.addFieldToObservation("DateAndTime", dateTimePicker1.Value.Date.ToString("yyyy-MM-dd HH:mm:ss"));
+            var date = dateTimePicker1.Value.Date;
+            var time = dateTimePicker1.Value.TimeOfDay;
+            m_AOH.addFieldToObservation("DateAndTime", date.Add(time).ToString("yyyy-MM-dd HH:mm:ss"));
             updateGUI();
         } // dateTimePicker1_ValueChanged
 

@@ -390,6 +390,7 @@
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Database";
             this.ShowIcon = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Database View";
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.Refresh);
             this.tabControlMain.ResumeLayout(false);

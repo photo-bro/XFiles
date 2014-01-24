@@ -40,8 +40,6 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.openViewInNewWindowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.inputFileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.importToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cSVFilecsvToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,7 +188,6 @@
             this.aboutToolStripMenuItem,
             this.toolStripSeparator3,
             this.openViewInNewWindowToolStripMenuItem,
-            this.openToolStripMenuItem,
             this.toolStripSeparator1,
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem,
@@ -220,20 +217,6 @@
             this.openViewInNewWindowToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
             this.openViewInNewWindowToolStripMenuItem.Text = "Open View in New Window";
             this.openViewInNewWindowToolStripMenuItem.Click += new System.EventHandler(this.openViewInNewWindowToolStripMenuItem_Click);
-            // 
-            // openToolStripMenuItem
-            // 
-            this.openToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.inputFileToolStripMenuItem});
-            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(259, 22);
-            this.openToolStripMenuItem.Text = "Open";
-            // 
-            // inputFileToolStripMenuItem
-            // 
-            this.inputFileToolStripMenuItem.Name = "inputFileToolStripMenuItem";
-            this.inputFileToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.inputFileToolStripMenuItem.Text = "Input File";
             // 
             // toolStripSeparator1
             // 
@@ -442,7 +425,9 @@
             // lastSearchToolStripMenuItem
             // 
             this.lastSearchToolStripMenuItem.Name = "lastSearchToolStripMenuItem";
-            this.lastSearchToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.lastSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Space)));
+            this.lastSearchToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
             this.lastSearchToolStripMenuItem.Text = "Last Search";
             // 
             // toolStripSeparator4
@@ -504,8 +489,6 @@
         private System.Windows.Forms.StatusStrip statusStrip1;
         private System.Windows.Forms.ToolStripStatusLabel StatusLabel;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem inputFileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem quitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpMenuToolStripMenuItem;

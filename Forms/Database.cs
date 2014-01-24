@@ -263,6 +263,7 @@ namespace XFiles
         {
             AboutForm af = new AboutForm();
             af.Show();
-        } // aboutToolStripMenuItem_Click
+        }
+
     } // Database Form
 } // namespace XFiles

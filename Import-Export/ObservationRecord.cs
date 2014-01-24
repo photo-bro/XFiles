@@ -5,7 +5,6 @@ using System.Text;
 using System.Data;
 using FileHelpers;
 
-
 namespace XFiles.Import_Export
 {
 
@@ -15,12 +14,14 @@ namespace XFiles.Import_Export
     /// 
     /// 
     /// </summary>
-    [DelimitedRecord(",")]
+    [DelimitedRecord(",")] // for FileHelpers
     public class ObservationRecord
     {
-        public ObservationRecord() { }
+        public ObservationRecord() { /* TODO */ }
 
-        public ObservationRecord(DataTable records) { }
+        public ObservationRecord(DataTable records) { /* TODO */ }
+
+        public ObservationRecord(Query query) { /* TODO */}
 
         public override string ToString()
         {
@@ -28,7 +29,8 @@ namespace XFiles.Import_Export
         }
 
 
-        /* Format:
+        /* Format: (AKA fully denormalized view of database)
+         * 
          * Null denoted by unicode #0xD7 (multiplication "x")
          * 
          * Observation ID (if exists break)

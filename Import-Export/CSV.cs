@@ -52,16 +52,26 @@ namespace XFiles.Import_Export
             return m_fhe.ReadFile(fullpath) as ObservationRecord[];
         }
 
-        public void ExportFromObservationRecord(ObservationRecord[] records, string path, string name)
+        public string ImportAsString(string path, string name)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ExportFromObservationRecord(string path, string name, ObservationRecord[] records)
         {
             string fullpath = path + "//" + name + ".csv";
             m_fhe.WriteFile(fullpath, records);
         }
 
-        public void ExportFromString(string records, string path, string name)
+        public void ExportFromString(string path, string name, string records)
         {
             string fullpath = path + "//" + name + ".csv";
             m_fhe.WriteFile(fullpath, records.Split(Environment.NewLine.ToArray()));
+        }
+
+        public void ExportFromRaw(string path, string name, object[] raw)
+        {
+            throw new NotImplementedException();
         }
 
     }

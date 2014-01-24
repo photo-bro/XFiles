@@ -48,6 +48,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FileHelpers">
+      <HintPath>..\..\FileHelpers\Binaries\DotNet 2.0\FileHelpers.dll</HintPath>
+    </Reference>
     <Reference Include="MySql.Data, Version=6.5.4.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>C:\Program Files\MySQL\Connector NET 6.7.4\Assemblies\v4.0\MySql.Data.dll</HintPath>
     </Reference>
@@ -169,6 +172,9 @@
     <Compile Include="Forms\UserQuery.Designer.cs">
       <DependentUpon>UserQuery.cs</DependentUpon>
     </Compile>
+    <Compile Include="Import-Export\CSV.cs" />
+    <Compile Include="Import-Export\ImportExport_Interface.cs" />
+    <Compile Include="Import-Export\ObservationRecord.cs" />
     <Compile Include="ModifyHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SourceReader.cs" />

@@ -8,33 +8,61 @@ using FileHelpers;      // CSV import/export
 
 namespace XFiles.Import_Export
 {
-    public class CSV
+    public class CSV : IImport<CSV> , IExport<CSV>
     {
-        // Singleton stuff....
+        // ***********************************************
+        //       S I N G L E T O N    S T U F F
+        // ***********************************************
+        // static instance
+        private static CSV c_CSVInstance;
+        // lock object
+        private static object c_CSVLock = new object();
+        // default constructor
+        private CSV() { }
+        /// <summary>
+        /// Returns singelton instance of class
+        /// </summary>
+        public static CSV Instance
+        {
+            get
+            {
+                lock (c_CSVLock)
+                {
+                    if (c_CSVInstance == null) c_CSVInstance = new CSV();
+                    return c_CSVInstance;
+                } // lock
+            } // get
+        } // Instance
 
-
-
+        // ***********************************************
+        //                C    S    V
+        // ***********************************************
 
         FileHelperEngine m_fhe = new FileHelperEngine(typeof(ObservationRecord));
 
-        public DataTable CSVToDataTable(string path, string name)
+        public DataTable ImportAsDatatable(string path, string name)
         {
             string fullpath = path + "//" + name + ".csv";
             return m_fhe.ReadFileAsDT(fullpath);
         }
 
-        public ObservationRecord[] CSVToObservations(string path, string name)
+        public ObservationRecord[] ImportAsObservationRecord(string path, string name)
         {
             string fullpath = path + "//" + name + ".csv";
             return m_fhe.ReadFile(fullpath) as ObservationRecord[];
         }
 
-        public void ObservationsToCSV(ObservationRecord[] records, string path, string name)
+        public void ExportFromObservationRecord(ObservationRecord[] records, string path, string name)
         {
             string fullpath = path + "//" + name + ".csv";
             m_fhe.WriteFile(fullpath, records);
         }
 
+        public void ExportFromString(string records, string path, string name)
+        {
+            string fullpath = path + "//" + name + ".csv";
+            m_fhe.WriteFile(fullpath, records.Split(Environment.NewLine.ToArray()));
+        }
 
     }
 }

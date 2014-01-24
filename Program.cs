@@ -17,8 +17,12 @@ namespace XFiles
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Login());
-            Application.Run(new Database());
+
+            Login lgForm = new Login();
+            Application.Run(lgForm);
+
+            if (lgForm.DialogResult == DialogResult.OK)
+                Application.Run(new Database());
         } // Main
     } // PRogram
 } // namespace XFiles

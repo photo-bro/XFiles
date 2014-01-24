@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace XFiles.Forms
 {
-    public partial class Login : Form
+    public partial class Login : Form 
     {
 
         XFiles_Facade m_xFacade = XFiles_Facade.Instance;
@@ -36,7 +36,10 @@ namespace XFiles.Forms
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void btnQuit_Click(object sender, EventArgs e)
-        { Application.Exit(); }
+        {
+            this.DialogResult = DialogResult.Abort;
+            Application.Exit(); 
+        }
 
         /// <summary>
         /// Login to server based upon entered credentials
@@ -51,8 +54,12 @@ namespace XFiles.Forms
                 tbPassword.Text);
             m_xFacade.ConnectToDatabase();
             if (m_xFacade.DBConnected)
+            {
+                this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
 
         } // btnLogin
+
     } // Login
 } // Namespace XFiles.Forms

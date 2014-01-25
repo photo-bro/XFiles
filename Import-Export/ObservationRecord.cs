@@ -28,10 +28,48 @@ namespace XFiles.Import_Export
             return base.ToString();
         }
 
+        public struct Location
+        {
+            Address address;
+            string officialname;
+        }
+
+        public struct Animal
+        {
+            string commonname, genus, species, gender, characteristics;
+        }
+
+        public struct Address
+        {
+            string name, state, street;
+            int buildingNo, zipcode;
+        }
+
+        public struct Group
+        {
+            string name;
+            bool active;
+            Observer[] observers;
+        }
+
+        public struct Observer
+        {
+
+        }
+
+        public struct Observation
+        {
+            Location location;
+            Animal animal;
+            Group group;
+            string locality, weather, color, characteristics, comment;
+            double latitude, longitude, airtemp;
+            int number;
+        }
 
         /* Format: (AKA fully denormalized view of database)
          * 
-         * Null denoted by unicode #0xD7 (multiplication "x")
+         * NULL denoted by unicode #0xD7 (multiplication "x")
          * 
          * Observation ID (if exists break)
          * Location ID (If exists skip to Animal ID)

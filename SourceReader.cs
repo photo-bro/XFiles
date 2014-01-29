@@ -7,7 +7,8 @@ using System.IO;   // StreamReader
 namespace XFiles
 {
     /// <summary>
-    /// Singleton class that controls file opening, reading, and closing.
+	/// Singleton class that controls file opening, reading, and closing
+	/// Designed to support only a single file to be used by whole program.
     /// </summary>
     class SourceReader
     {

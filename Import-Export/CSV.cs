@@ -38,36 +38,62 @@ namespace XFiles.Import_Export
         //                C    S    V
         // ***********************************************
 
-        FileHelperEngine m_fhe = new FileHelperEngine(typeof(ObservationRecord));
+		Filer m_filer = new Filer ();
 
         public DataTable ImportAsDatatable(string path, string name)
         {
-            string fullpath = path + "//" + name + ".csv";
-            return m_fhe.ReadFileAsDT(fullpath);
+			throw new NotImplementedException ();
         }
 
         public ObservationRecord[] ImportAsObservationRecord(string path, string name)
         {
-            string fullpath = path + "//" + name + ".csv";
-            return m_fhe.ReadFile(fullpath) as ObservationRecord[];
+			string sFile = m_filer.FileToString (path + "//" + name);
+
+			// list of observations to be filled
+			List<ObservationRecord> lsObservations = new List<ObservationRecord> ();
+			// splt file string by line and iterate through
+			sFile.Split (Environment.NewLine.ToArray ()).ToList ().ForEach (line => {
+				// split each line into words and cast as object array
+				// then create new ObservationRecord from each object array
+				lsObservations.Add(new ObservationRecord(line.Split(new char[]{' ', ','}) as object[]));
+			});
+
+			return lsObservations.ToArray ();
         }
 
         public string ImportAsString(string path, string name)
         {
-            throw new NotImplementedException();
+			return m_filer.FileToString (path + "//" + name);
         }
 
         public void ExportFromObservationRecord(string path, string name, ObservationRecord[] records)
         {
-            string fullpath = path + "//" + name + ".csv";
-            m_fhe.WriteFile(fullpath, records);
-        }
+			string sOut;
 
-        public void ExportFromString(string path, string name, string records)
-        {
-            string fullpath = path + "//" + name + ".csv";
-            m_fhe.WriteFile(fullpath, records.Split(Environment.NewLine.ToArray()));
-        }
+			// ObservationRecord.ToString should have each represented record separated by comma
+			records.ToList ().ForEach (record => {
+				sOut+= record.ToString();
+				sOut += Environment.NewLine;
+			});
+			// write file out
+			m_filer.CreateFile (sOut, path, name + ".csv");
+		 }
+
+        public void ExportFromString (string path, string name, string records)
+		{
+			string sOut;
+			List<string> lsLines = new List<string> (records.Split (Environment.NewLine.ToArray ()));
+
+			lsLines.ForEach (line => { 
+				line.Split (new char[]{ ' ' }).ToList ().ForEach (word => {
+					sOut += word + ", "; // add each entry separated by comma
+				});
+				sOut += Environment.NewLine; // new line after each row
+			});
+
+			// write file out
+			m_filer.CreateFile (sOut, path, name + ".csv");
+		}
 
         public void ExportFromRaw(string path, string name, object[] raw)
         {

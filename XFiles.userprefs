@@ -1,0 +1,16 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Import-Export/CSV.cs">
+    <Files>
+      <File FileName="Import-Export/ImportExport_Interface.cs" Line="23" Column="1" />
+      <File FileName="Import-Export/ObservationRecord.cs" Line="84" Column="3" />
+      <File FileName="Import-Export/CSV.cs" Line="60" Column="4" />
+      <File FileName="Filer.cs" Line="70" Column="40" />
+      <File FileName="SourceReader.cs" Line="18" Column="55" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

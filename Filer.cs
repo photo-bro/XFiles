@@ -86,5 +86,21 @@ namespace XFiles
             return true;
         } // CreateFile
 
+		/// <summary>
+		/// Opens file at path and returns contents as string
+		/// </summary>
+		/// <returns>The to string.</returns>
+		/// <param name="path">Path.</param>
+		public string FileToString(string path){
+			try{
+
+				StreamReader sr = new StreamReader(path);
+				return sr.ReadToEnd();
+			}
+			catch(Exception e){
+				throw e;
+			}
+		}
+
     } // Filer class
 } // Namespace

@@ -55,6 +55,9 @@
             this.searchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.customSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.popularSearchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lastSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpMenuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.btnQuery = new System.Windows.Forms.Button();
@@ -64,9 +67,6 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddObservation = new System.Windows.Forms.Button();
-            this.popularSearchesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lastSearchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -252,6 +252,7 @@
             this.textFiletxtToolStripMenuItem.Name = "textFiletxtToolStripMenuItem";
             this.textFiletxtToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
             this.textFiletxtToolStripMenuItem.Text = "Text File (.txt)";
+            this.textFiletxtToolStripMenuItem.Click += new System.EventHandler(this.textFiletxtToolStripMenuItem_Click);
             // 
             // cSVFilecsvToolStripMenuItem1
             // 
@@ -331,6 +332,28 @@
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
+            // popularSearchesToolStripMenuItem
+            // 
+            this.popularSearchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lastSearchToolStripMenuItem,
+            this.toolStripSeparator4});
+            this.popularSearchesToolStripMenuItem.Name = "popularSearchesToolStripMenuItem";
+            this.popularSearchesToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
+            this.popularSearchesToolStripMenuItem.Text = "Search";
+            // 
+            // lastSearchToolStripMenuItem
+            // 
+            this.lastSearchToolStripMenuItem.Name = "lastSearchToolStripMenuItem";
+            this.lastSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
+            | System.Windows.Forms.Keys.Space)));
+            this.lastSearchToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.lastSearchToolStripMenuItem.Text = "Last Search";
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(227, 6);
+            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -342,7 +365,7 @@
             // helpMenuToolStripMenuItem
             // 
             this.helpMenuToolStripMenuItem.Name = "helpMenuToolStripMenuItem";
-            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.helpMenuToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.helpMenuToolStripMenuItem.Text = "Help Menu";
             // 
             // btnQuery
@@ -412,28 +435,6 @@
             this.btnAddObservation.Text = "Add Observation";
             this.btnAddObservation.UseVisualStyleBackColor = true;
             this.btnAddObservation.Click += new System.EventHandler(this.btnAddObservation_Click);
-            // 
-            // popularSearchesToolStripMenuItem
-            // 
-            this.popularSearchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lastSearchToolStripMenuItem,
-            this.toolStripSeparator4});
-            this.popularSearchesToolStripMenuItem.Name = "popularSearchesToolStripMenuItem";
-            this.popularSearchesToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
-            this.popularSearchesToolStripMenuItem.Text = "Search";
-            // 
-            // lastSearchToolStripMenuItem
-            // 
-            this.lastSearchToolStripMenuItem.Name = "lastSearchToolStripMenuItem";
-            this.lastSearchToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)(((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift) 
-            | System.Windows.Forms.Keys.Space)));
-            this.lastSearchToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
-            this.lastSearchToolStripMenuItem.Text = "Last Search";
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // Database
             // 

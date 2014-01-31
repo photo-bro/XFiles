@@ -15,6 +15,7 @@ namespace XFiles.Import_Export
 
     interface IExport<T>
     {
+        void ExportFromQuery(string path, string name, Query query);
         void ExportFromObservationRecord(string path, string name, ObservationRecord[] records);
         void ExportFromString(string path, string name, string records);
         void ExportFromRaw(string path, string name, object[] raw);

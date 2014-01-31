@@ -137,11 +137,15 @@ namespace XFiles
             // Credit:
             // Wooh! Double imbedded lambda expressions!
             // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
+            // column heading first
+            dt.Columns.Cast<DataColumn>().ToList().ForEach(col => sb.AppendFormat("{0}, ", col.ColumnName));
+            sb.Append(Environment.NewLine + Environment.NewLine);
             dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
             {
+                // column values
                 dt.Columns.Cast<DataColumn>().ToList().ForEach(column =>
                 {
-                    sb.AppendFormat("{0}:{1} ", column.ColumnName, dataRow[column]);
+                    sb.AppendFormat("{0}, ", dataRow[column]);
                 });
                 sb.Append(Environment.NewLine);
             });

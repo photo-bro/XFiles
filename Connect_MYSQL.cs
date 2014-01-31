@@ -170,7 +170,7 @@ namespace XFiles
                 for (int j = 0; j < dr.FieldCount; ++j)
                 {
                     var v = dr.GetString(j);
-                    s += v.ToString() + " ";
+                    s += v.ToString() + ", ";
                 } // row
                 s += "\r\n";
             } // while still stuff to read

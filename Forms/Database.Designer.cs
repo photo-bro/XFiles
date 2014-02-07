@@ -259,6 +259,7 @@
             this.cSVFilecsvToolStripMenuItem1.Name = "cSVFilecsvToolStripMenuItem1";
             this.cSVFilecsvToolStripMenuItem1.Size = new System.Drawing.Size(193, 22);
             this.cSVFilecsvToolStripMenuItem1.Text = "CSV File (.csv)";
+            this.cSVFilecsvToolStripMenuItem1.Click += new System.EventHandler(this.cSVFilecsvToolStripMenuItem1_Click);
             // 
             // arcGISShapefileshpToolStripMenuItem
             // 

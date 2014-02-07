@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data; // datatable
+using System.Windows.Forms; // dgv
+using XFiles.Misc;      // conversions
 using FileHelpers;      // CSV import/export
 
 
@@ -42,6 +44,7 @@ namespace XFiles.Import_Export
         // IMPORT
 
         Filer m_filer = new Filer();
+        XFiles_Facade m_XF = XFiles_Facade.Instance;
 
         public DataTable ImportAsDatatable(string path, string name)
         {
@@ -118,5 +121,15 @@ namespace XFiles.Import_Export
             throw new NotImplementedException();
         }
 
+        public void ExportFromDGV(string path, string name, DataGridView dgv)
+        {
+            DataTable dt = Conversion.DGVToDatatable(dgv);
+            m_XF.ExportDataTableToFile(dt, path, name + ".csv");
+        }
+
+
+
     }
+
+
 }

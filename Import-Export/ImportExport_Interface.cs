@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Data;
+using System.Windows.Forms; // dgv
 
 namespace XFiles.Import_Export
 {
@@ -19,5 +20,6 @@ namespace XFiles.Import_Export
         void ExportFromObservationRecord(string path, string name, ObservationRecord[] records);
         void ExportFromString(string path, string name, string records);
         void ExportFromRaw(string path, string name, object[] raw);
+        void ExportFromDGV(string path, string name, DataGridView dgv);
     }
 }

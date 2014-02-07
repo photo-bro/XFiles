@@ -175,6 +175,7 @@
     <Compile Include="Import-Export\CSV.cs" />
     <Compile Include="Import-Export\ImportExport_Interface.cs" />
     <Compile Include="Import-Export\ObservationRecord.cs" />
+    <Compile Include="Misc\Conversion.cs" />
     <Compile Include="ModifyHandler.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="SourceReader.cs" />

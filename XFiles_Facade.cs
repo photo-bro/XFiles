@@ -139,7 +139,9 @@ namespace XFiles
             // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
             // column heading first
             dt.Columns.Cast<DataColumn>().ToList().ForEach(col => sb.AppendFormat("{0}, ", col.ColumnName));
+            // seperate heading from data
             sb.Append(Environment.NewLine + Environment.NewLine);
+            // row data
             dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
             {
                 // column values

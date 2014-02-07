@@ -349,6 +349,7 @@
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.btnAddObserv);
             this.MaximizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(640, 585);
             this.Name = "AddObservation";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Add Observation";

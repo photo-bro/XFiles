@@ -88,62 +88,6 @@ namespace XFiles
             updateGUI();
         } // testToolStripMenuItem
 
-        private void exportViewToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            // Call open file prompt
-            SaveFileDialog sfdPrompt = new SaveFileDialog();
-            sfdPrompt.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
-            sfdPrompt.ShowDialog();
-
-            DataGridView dgv;
-            // Get current view
-            if (tabControlMain.SelectedTab == tabOne)
-                dgv = dgvView1;
-            else if (tabControlMain.SelectedTab == tabTwo)
-                dgv = dgvView2;
-            else if (tabControlMain.SelectedTab == tabThree)
-                dgv = dgvView3;
-            else return;
-
-            // Check if view is empty
-            if (dgv.Columns.Count < 1)
-            {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.VIEW_EMPTY, "Cannot save an empty table");
-                Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Cannot save an empty table");
-                return;
-            } // columns < 1
-
-            // DGV to DataTable
-            // Credit: 
-            // http://stackoverflow.com/questions/6295161/how-to-build-a-datatable-from-a-datagridview
-            if (dgv.ColumnCount == 0) return;
-            DataTable dtSource = new DataTable();
-            foreach (DataGridViewColumn col in dgv.Columns)
-            {
-                //if (IgnoreHideColumns & !col.Visible) continue;
-                if (col.Name == string.Empty) continue;
-                dtSource.Columns.Add(col.Name, col.ValueType);
-                dtSource.Columns[col.Name].Caption = col.HeaderText;
-            } // foreach column
-            if (dtSource.Columns.Count == 0) return ;
-            foreach (DataGridViewRow row in dgv.Rows)
-            {
-                DataRow drNewRow = dtSource.NewRow();
-                foreach (DataColumn col in dtSource.Columns)
-                {
-                    if (row.Cells[col.ColumnName].Value == null) continue;
-                    drNewRow[col.ColumnName] = row.Cells[col.ColumnName].Value;
-                } // foreach column
-                dtSource.Rows.Add(drNewRow);
-            } // foreach row
-
-            // save file
-            m_xFacade.ExportDataTableToFile(dtSource, Path.GetDirectoryName(sfdPrompt.FileName),
-                Path.GetFileName(sfdPrompt.FileName));
-
-            updateGUI();
-        } // exportViewToolStripMenuItem_Click
-
         /// <summary>
         /// Show CustomQuery form
         /// </summary>
@@ -266,6 +210,12 @@ namespace XFiles
             af.Show();
         }
 
+        /// <summary>
+        /// Prompts user for file path and name and saves active view as a text file 
+        /// at that location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void textFiletxtToolStripMenuItem_Click(object sender, EventArgs e)
         {
             // Call open file prompt
@@ -292,6 +242,12 @@ namespace XFiles
             updateGUI();
         }
 
+        /// <summary>
+        /// Prompts user for file path and name and saves active view as a CSV 
+        /// at that location
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cSVFilecsvToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             // prompt user for path and name
@@ -308,6 +264,10 @@ namespace XFiles
             updateGUI();
         }
 
+        /// <summary>
+        /// Returns the active DataGridView
+        /// </summary>
+        /// <returns></returns>
         private DataGridView getActiveDGV()
         {
             // Get current view

@@ -126,10 +126,5 @@ namespace XFiles.Import_Export
             DataTable dt = Conversion.DGVToDatatable(dgv);
             m_XF.ExportDataTableToFile(dt, path, name + ".csv");
         }
-
-
-
     }
-
-
 }

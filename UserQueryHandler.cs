@@ -51,7 +51,7 @@ namespace XFiles
         public string[] JoinConditionals = { "  ", "AND", "OR", "XOR" };
 
         // Deliminator
-        string[] m_sDelim = { " ", "\r\n" };
+        string[] m_sDelim = { ",", " ", "\r\n" };
 
         /// <summary>
         /// Resets class variables
@@ -144,10 +144,10 @@ namespace XFiles
                     sb.Append("WHERE ");
                     for (int i = 0; i < m_lsConditions.Count; ++i)
                     {
-                        //if (i == m_lsConditions.Count - 1)
+                        if (i == m_lsConditions.Count - 1)
                         sb.AppendFormat("{0} ", m_lsConditions[i]);
-                        //else
-                        //    sb.AppendFormat("{0} ", m_lsConditions[i]);
+                        else
+                            sb.AppendFormat("{0} ", m_lsConditions[i]);
                     }
                 } // if (m_lsConditions.Count > 0)
 

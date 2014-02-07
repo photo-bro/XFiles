@@ -67,6 +67,7 @@
             this.ConnectionStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.ErrorStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnAddObservation = new System.Windows.Forms.Button();
+            this.allObservationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControlMain.SuspendLayout();
             this.tabOne.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvView1)).BeginInit();
@@ -337,7 +338,8 @@
             // 
             this.popularSearchesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lastSearchToolStripMenuItem,
-            this.toolStripSeparator4});
+            this.toolStripSeparator4,
+            this.allObservationsToolStripMenuItem});
             this.popularSearchesToolStripMenuItem.Name = "popularSearchesToolStripMenuItem";
             this.popularSearchesToolStripMenuItem.Size = new System.Drawing.Size(54, 19);
             this.popularSearchesToolStripMenuItem.Text = "Search";
@@ -437,6 +439,12 @@
             this.btnAddObservation.UseVisualStyleBackColor = true;
             this.btnAddObservation.Click += new System.EventHandler(this.btnAddObservation_Click);
             // 
+            // allObservationsToolStripMenuItem
+            // 
+            this.allObservationsToolStripMenuItem.Name = "allObservationsToolStripMenuItem";
+            this.allObservationsToolStripMenuItem.Size = new System.Drawing.Size(230, 22);
+            this.allObservationsToolStripMenuItem.Text = "All Observations";
+            // 
             // Database
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -514,6 +522,7 @@
         private System.Windows.Forms.ToolStripMenuItem popularSearchesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lastSearchToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem allObservationsToolStripMenuItem;
     }
 }
 

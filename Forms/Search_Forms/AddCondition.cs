@@ -39,14 +39,14 @@ namespace XFiles.Forms.Search_Forms
             {
                 string s = "";
                 if (cbxJoinCond.Enabled)
-                    s = cbxJoinCond.SelectedItem.ToString() + " " +
-                        cbxField.SelectedItem.ToString()
+                    s = cbxJoinCond.SelectedItem.ToString() 
+                        + " " + cbxField.SelectedItem.ToString()
                         + " " + cbxCondition.SelectedItem.ToString()
                         + " " + tbValue.Text;
                 else
                     s = cbxField.SelectedItem.ToString()
-                         + " " + cbxCondition.SelectedItem.ToString() + " " +
-                         tbValue.Text;
+                         + " " + cbxCondition.SelectedItem.ToString() 
+                         + " " + tbValue.Text;
 
                 return s;
             } // get
@@ -61,8 +61,8 @@ namespace XFiles.Forms.Search_Forms
 
             // Add condition to handler
             if (cbxJoinCond.Enabled)
-                m_UQH.AddCondition(cbxJoinCond.SelectedItem.ToString() + " " +
-                    cbxField.SelectedItem.ToString()
+                m_UQH.AddCondition(cbxJoinCond.SelectedItem.ToString() 
+                    + " " + cbxField.SelectedItem.ToString()
                     + " " + cbxCondition.SelectedItem.ToString()
                     + " " + tbValue.Text);
             else
@@ -85,11 +85,13 @@ namespace XFiles.Forms.Search_Forms
         private List<string> Fields()
         {
             List<string> lsFields = new List<string>();
-            string[] sDelim = { " ", "\r\n" };
+            string[] sDelim = { ",", " ", "\r\n" };
             foreach (string s in m_UQH.getTables)
             {
                 string items =
-                    m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='" + FileManager.Instance.DatabaseName + "';");
+                    m_xFacade.QueryToString("SELECT `COLUMN_NAME` FROM `INFORMATION_SCHEMA`.`COLUMNS` WHERE `TABLE_SCHEMA`='"
+                    + FileManager.Instance.DatabaseName 
+                    + "';");
                 lsFields.AddRange(items.Split(sDelim, StringSplitOptions.RemoveEmptyEntries).ToArray());
             }
             lsFields.Sort();

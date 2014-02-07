@@ -6,4 +6,4 @@ x Genus/Species for animal instead of scientific name
 x Air temp for observation
 x Get modify to work
 	x New form
-- Save to file better formatted, easier to use
+x Save to file better formatted, easier to use

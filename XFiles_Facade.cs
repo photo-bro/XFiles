@@ -119,9 +119,7 @@ namespace XFiles
 
 
         public void CreateFile(string contents, string path, string name)
-        {
-            m_FM.CreateFile(contents, path, name);
-        }
+        {m_FM.CreateFile(contents, path, name);}
 
     } // XFiles_Facade
 } // namespace XFiles

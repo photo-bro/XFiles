@@ -236,8 +236,8 @@ namespace XFiles
             DataTable dtSource = XFiles.Misc.Conversion.DGVToDatatable(dgv);
 
             // save file
-            string s = Misc.Conversion.DataTableToString(dtSource);
-            m_xFacade.CreateFile(s
+            string sTableData = Misc.Conversion.DataTableToString(dtSource);
+            m_xFacade.CreateFile(sTableData
                 , Path.GetDirectoryName(sfdPrompt.FileName)
                 , Path.GetFileName(sfdPrompt.FileName));
 

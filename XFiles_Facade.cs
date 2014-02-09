@@ -117,43 +117,11 @@ namespace XFiles
         public string QueryToString(string query)
         { return m_SQL.QueryToString(query); }
 
-        /// <summary>
-        /// Saves the contents of a datatable as a formatted text file to path/name
-        /// </summary>
-        /// <param name="dt"></param>
-        /// <param name="path"></param>
-        /// <param name="name"></param>
-        public void ExportDataTableToFile(DataTable dt, string path, string name)
+
+        public void CreateFile(string contents, string path, string name)
         {
-            if (dt == null)
-            {
-                ErrorHandler.Error(ErrorHandler.XFILES_ERROR.VIEW_EMPTY, "Cannot save an empty table");
-                Status.SetStatus(Status.STATUS_TYPE.COMMAND_UNSUCCESSFUL, "Cannot save an empty table");
-                return;
-            } // check if datatable null
-
-            StringBuilder sb = new StringBuilder();
-
-            // Credit:
-            // Wooh! Double imbedded lambda expressions!
-            // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
-            // column heading first
-            dt.Columns.Cast<DataColumn>().ToList().ForEach(col => sb.AppendFormat("{0}, ", col.ColumnName));
-            // seperate heading from data
-            sb.Append(Environment.NewLine + Environment.NewLine);
-            // row data
-            dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
-            {
-                // column values
-                dt.Columns.Cast<DataColumn>().ToList().ForEach(column =>
-                {
-                    sb.AppendFormat("{0}, ", dataRow[column]);
-                });
-                sb.Append(Environment.NewLine);
-            });
-
-            m_FM.CreateFile(sb.ToString(), path, name);        
-        } // ExportDataTableToFile
+            m_FM.CreateFile(contents, path, name);
+        }
 
     } // XFiles_Facade
 } // namespace XFiles

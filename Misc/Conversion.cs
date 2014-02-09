@@ -43,5 +43,39 @@ namespace XFiles.Misc
 
             return dtSource;
         }
+
+        /// <summary>
+        /// Saves the contents of a datatable as a formatted text file to path/name
+        /// </summary>
+        /// <param name="dt"></param>
+        /// <param name="path"></param>
+        /// <param name="name"></param>
+        public static string DataTableToString(DataTable dt)
+        {
+            if (dt == null) return null; // check if datatable null
+
+            StringBuilder sb = new StringBuilder();
+
+            // Credit:
+            // Wooh! Double imbedded lambda expressions!
+            // http://www.codeproject.com/Tips/261752/Convert-DataTable-to-String-by-Extension-Method
+            // column heading first
+            dt.Columns.Cast<DataColumn>().ToList().ForEach(col => sb.AppendFormat("{0}, ", col.ColumnName));
+            // seperate heading from data
+            sb.Append(Environment.NewLine + Environment.NewLine);
+            // row data
+            dt.Rows.Cast<DataRow>().ToList().ForEach(dataRow =>
+            {
+                // column values
+                dt.Columns.Cast<DataColumn>().ToList().ForEach(column =>
+                {
+                    sb.AppendFormat("{0}, ", dataRow[column]);
+                });
+                sb.Append(Environment.NewLine);
+            });
+            return sb.ToString();
+        } // DataTableToString
+
+
     }
 }

@@ -54,8 +54,8 @@ namespace XFiles.Forms
             sfdPrompt.ShowDialog();
 
             // Save file
-            XFiles_Facade.Instance.ExportDataTableToFile(
-                XFiles.Misc.Conversion.DGVToDatatable(dgv)
+            XFiles_Facade.Instance.CreateFile(
+                Misc.Conversion.DataTableToString(XFiles.Misc.Conversion.DGVToDatatable(dgv))
                 , Path.GetDirectoryName(sfdPrompt.FileName)
                 , Path.GetFileNameWithoutExtension(sfdPrompt.FileName));
         }

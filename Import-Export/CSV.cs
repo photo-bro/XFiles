@@ -124,7 +124,8 @@ namespace XFiles.Import_Export
         public void ExportFromDGV(string path, string name, DataGridView dgv)
         {
             DataTable dt = Conversion.DGVToDatatable(dgv);
-            m_XF.ExportDataTableToFile(dt, path, name + ".csv");
+            string s = Conversion.DataTableToString(dt);
+            m_XF.CreateFile(s, path, name + ".csv");
         }
     }
 }
